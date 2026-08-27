@@ -258,7 +258,7 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
       <label class="f"><b>Ortam</b> (nasıl)</label>
       <input type="text" id="utmMedium" value="paid_social" placeholder="paid_social, organic_social, influencer">
       <label class="f"><b>Kampanya adı</b> (bu spesifik reklam)</label>
-      <input type="text" id="utmCampaign" value="ig_test_1" placeholder="ig_test_1, tiktok_nostalji">
+      <input type="text" id="utmCampaign" value="" placeholder="ör. tiktok_launch, ig_retarget">
       <label class="f"><b>İçerik</b> (opsiyonel — A/B varyantı)</label>
       <input type="text" id="utmContent" value="" placeholder="video_a, gorsel_b">
       <label class="f"><b>Google Play linki</b> <span class="badge">Firebase otomatik yakalar</span></label>
@@ -276,7 +276,7 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
     <div class="card">
       <h3>💰 Kampanya Kaydı</h3>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-        <div><label class="f">Kampanya</label><input type="text" id="cmpName" placeholder="ig_test_1"></div>
+        <div><label class="f">Kampanya</label><input type="text" id="cmpName" placeholder="ör. tiktok_launch"></div>
         <div><label class="f">Tarih</label><input type="date" id="cmpDate"></div>
         <div><label class="f">Harcama ($)</label><input type="number" id="cmpSpend" step="0.01" placeholder="26"></div>
         <div><label class="f">Kurulum (Firebase)</label><input type="number" id="cmpInstalls" placeholder="?"></div>
@@ -299,7 +299,7 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
       <li><b>Analytics → Retention</b> → kampanya segmenti oluştur<br>
         Kritik soru: reklamdan gelen kullanıcı organikten daha mı iyi tutunuyor? Kötü tutunuyorsa
         kanal yanlış kitleye ulaşıyor demektir.</li>
-      <li><b>Audiences → New audience</b> → <code>campaign = ig_test_1</code><br>
+      <li><b>Audiences → New audience</b> → <code>campaign = &lt;kampanya adın&gt;</code><br>
         Bu segmenti oluştur, sonra retention ve gelir raporlarında ayrı izle.</li>
     </ol>
     <div class="note">📌 <b>Kurulum ön koşulu:</b> Oyunda Firebase Analytics aktif olmalı ve Play
@@ -344,7 +344,7 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
       <label class="f"><b>Hazır şeritler</b> — tıkla, başlığa yazılsın</label>
       <div class="chips" id="ssCaps"></div>
       <label class="f"><b>Başlık şeridi</b> (3-5 kelime, BÜYÜK enerji)</label>
-      <input type="text" id="ssCap" value="SMASH EVERY MONSTER">
+      <input type="text" id="ssCap" value="" placeholder="şerit başlığı — yukarıdaki hazır şeritlerden seç ya da yaz">
       <label class="f"><b>Alt satır</b> (opsiyonel)</label>
       <input type="text" id="ssSub" value="">
       <label class="f"><b>Şerit konumu</b></label>
@@ -366,9 +366,9 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
       <div class="note">🌍 Toplu üretim, seçili dilin (ya da 8 dilin) ekran başlıklarını sırayla basıp
       <code>ss_&lt;dil&gt;_&lt;sıra&gt;.png</code> adıyla indirir — Arapça sağdan sola otomatik dizilir.
       Tarayıcı çoklu indirme için bir kez izin isteyebilir.</div>
-      <div class="note blue">💡 İlk 2 görsel arama sonucunda görünür — tek bakışta anlaşılır olmalı.
-      6 görsellik seri için başlıklar: CLIMB THE ENDLESS TOWER · SMASH EVERY MONSTER · CHAIN EPIC COMBOS ·
-      UNLOCK EPIC HEROES · EXPLORE NEW WORLDS · BEAT YOUR FRIENDS</div>
+      <div class="note blue">💡 İlk 2 görsel arama sonucunda görünür — tek bakışta anlaşılır olmalı. Kaynak dildeki
+      şerit başlıkları <code>config.json &gt; screenHeadings</code>'ten, diğer diller advisor'ın lokalizasyon
+      paketinden gelir; yukarıdaki dil seçicisiyle değiştir.</div>
     </div>
     <div class="card">
       <h3>Önizleme</h3>
@@ -404,8 +404,9 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
     <h3>🎯 Optimizasyon Önerisi <span class="badge orange">otomatik</span></h3>
     <p class="sub" style="margin-bottom:6px">Rakiplerde güçlü olup sende hiç olmayan etiketler (tıkla → kopyala):</p>
     <div class="chips" id="oppChips"></div>
-    <div class="note">⚠️ <b>Marka adları</b> (doodle, helix, hero gibi) yalnızca iOS'un <u>görünmez</u> keywords alanında
-    kullanılabilir; görünür metinlere yazma. Marka olmayan fırsatları Play uzun açıklamasına doğal cümleler içinde ekle.</div>
+    <div class="note">⚠️ <b>Rakip marka adları</b> (<code>config.json &gt; brandTerms</code>) yalnızca iOS'un <u>görünmez</u>
+    keywords alanında kullanılabilir; görünür metinlere yazma — Metadata Denetimi bunu zaten kontrol ediyor.
+    Marka olmayan fırsatları Play uzun açıklamasına doğal cümleler içinde ekle.</div>
   </div>
 
   <div class="card" id="asoPlanCard" style="display:none">
@@ -480,8 +481,8 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
         <button class="btn mini" onclick="copyField('iosDesc')">Açıklamayı Kopyala</button>
         <button class="btn mini" onclick="copyField('iosWhatsNew')">What's New Kopyala</button>
       </div>
-      <div class="note">⚠️ <code>icy</code> ve <code>doodle</code> görünmez keywords alanında — yaygın pratik ama Apple 2.3.7 kuralına takılırsa
-      <code>stars,levels</code> ile değiştir. Görünür alanlara marka adı yazma.</div>
+      <div class="note">⚠️ Rakip marka terimlerini yalnızca bu <b>görünmez</b> alanda kullan — yaygın pratik ama Apple 2.3.7
+      kuralına takılabilir; takılırsa marka olmayan eşdeğerleriyle değiştir. Görünür alanlara marka adı yazma.</div>
       <label class="f" style="margin-top:16px"><b>Arama kapsama analizi</b> (başlık + alt başlık + keywords birleşiminden)</label>
       <div class="covers" id="iosCovers"></div>
     </div>
