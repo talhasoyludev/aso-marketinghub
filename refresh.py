@@ -564,7 +564,10 @@ def build_auto_content(my_ios, my_play, ranks, tags):
     sugg = []
 
     # --- TAG BANKASI grubu + VIDEO SEO seti
+    # "group" eski sürümlerle uyum için kalıyor; panel varsa "date" alanını kullanıp
+    # etiketi kendi dilinde üretir (motorun çıktısı panelin dilini belirlemesin).
     tag_group = {"group": f"📡 Radar otomatik — {date.today():%d.%m.%Y}",
+                 "date": f"{date.today():%d.%m.%Y}",
                  "tags": [p["kw"] for p in ps[:6]] +
                          [t["tag"] for t in tags if t.get("opportunity")][:6]}
     video_tags = list(dict.fromkeys(

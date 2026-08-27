@@ -1046,7 +1046,8 @@ function setYtTitle(i){const el=$('#ytTitle');el.value=ytTitleTemplates()[i]||''
   store.set('f_ytTitle',el.value);updateCounters()}
 function ytTagGroups(){
   const R=RADAR||{},auto=(R.auto||{}).videoTags||[],n=appName().toLowerCase(),g=[];
-  if(auto.length)g.push(['📡 Radar otomatik — '+((R.generated||'').slice(0,10)||'güncel analiz'),auto]);
+  if(auto.length)g.push([T('📡 Radar otomatik — {d}',
+    {d:(R.generated||'').slice(0,10)||T('güncel analiz')}),auto]);
   g.push(['🏷️ Marka',[n,n+' game',n+' gameplay',n+' trailer']]);
   const kws=radarTargets(10);
   if(kws.length)g.push(['🔍 Radar kelimeleri (skora göre)',kws]);
@@ -1090,7 +1091,8 @@ function selectRecommendedTags(){
 function kwBankGroups(){
   const R=RADAR||{},A=ADVISOR||{},g=[];
   const auto=(R.auto||{}).tagGroup;
-  if(auto&&(auto.tags||[]).length)g.push([auto.group,auto.tags]);
+  if(auto&&(auto.tags||[]).length)
+    g.push([auto.date?T('📡 Radar otomatik — {d}',{d:auto.date}):auto.group,auto.tags]);
   const kws=radarTargets(12);
   if(kws.length)g.push(['🔍 Radar kelimeleri — skora göre sıralı',kws]);
   const opp=(R.tags||[]).filter(t=>t.opportunity).map(t=>t.tag).slice(0,12);
