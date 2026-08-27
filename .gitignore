@@ -1,0 +1,11 @@
+# Kişisel veri — kod ağacına asla girmez / personal data, never committed
+workspace/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

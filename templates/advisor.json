@@ -1,0 +1,39 @@
+{
+  "_help": "Bu dosyayı Claude analiz oturumlarında üretir/günceller — panelin ASO metinleri, lokalizasyon paketi ve tarihli önerileri buradan gelir. Şema ve üretim yöntemi: skills/marketinghub/. Motor (refresh.py) bu dosyaya DOKUNMAZ. / Claude produces this file; the panel reads its texts from here. Schema and method: skills/marketinghub/.",
+  "updated": "",
+
+  "_schema_recommendations": {
+    "id": "adv-YYYYMMDD-NN — tarih damgalı benzersiz kimlik",
+    "area": "roadmap | aso | video | tags | radar | playbook | i18n | campaign | general",
+    "priority": "1 (kritik) | 2 (önemli) | 3 (sıradaki)",
+    "title": "Tek satır, aksiyon cümlesi",
+    "detail": "Neden + nasıl. Veriye dayandır: hangi tarama bulgusu bunu tetikledi?",
+    "source": "Claude — <tarih>, <hangi analiz>"
+  },
+  "recommendations": [],
+
+  "_schema_asoSuggestions": {
+    "field": "iosTitle | iosSub | iosKw | iosPromo | iosDesc | iosWhatsNew | gpShort | gpLong",
+    "value": "Alana YAPIŞTIRILACAK nihai metin (karakter limitine uygun)",
+    "reason": "Neden bu metin? Reddedilen alternatif varsa onu da yaz — sonraki oturum aynı tartışmayı tekrar etmesin.",
+    "_limits": "iosTitle 30 · iosSub 30 · iosKw 100 · iosPromo 170 · iosDesc 4000 · gpShort 80 · gpLong 4000"
+  },
+  "asoSuggestions": [],
+
+  "_localizationNote": "Her dil AYRI keyword araştırmasıdır, çeviri değil — o dilde gerçekten aranan terimleri kullan. Marka adı korunur; keyword alanı EN'deki kavram listesinin yerel karşılığıdır, uydurma kelime eklenmez.",
+  "_schema_localization": {
+    "lang": "tr | de | pl | ar | es | pt-BR | fr | ru … (panelin dil kodu)",
+    "name": "Dilin görünen adı",
+    "flag": "🇹🇷",
+    "country": "TR — hangi pazar için",
+    "priority": "1 | 2 | 3",
+    "why": "Bu dil neden öncelikli? Radar bulgusuna bağla.",
+    "iosTitle": "≤30", "iosSub": "≤30", "iosKw": "≤100 (virgülle, boşluksuz)",
+    "gpShort": "≤80", "gpLong": "≤4000",
+    "screens": ["Ekran görüntüsü şerit başlıkları — kaynak dildekiyle aynı sırada"]
+  },
+  "localization": [],
+
+  "_schema_tagGroups": {"group": "🧠 Grup adı — tarih", "tags": ["etiket", "etiket"]},
+  "tagGroups": []
+}

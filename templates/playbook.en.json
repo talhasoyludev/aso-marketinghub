@@ -1,0 +1,150 @@
+{
+ "updated": "2026-08-27",
+ "note": "Growth METHOD base for mobile apps/games — generic, app-agnostic. MAINTENANCE RULE: once a method becomes a dated recommendation in advisor.json, or is implemented, DELETE it here (advisor.json becomes the single source); 'low impact + low effort' items are list padding and are never added. No generic ASO-101 content lives here. impact/effort: low|medium|high",
+ "categories": [
+  {
+   "name": "Store Levers",
+   "icon": "🏪",
+   "items": [
+    {"id": "pb-aso-2", "title": "Store page localization", "impact": "high", "effort": "medium",
+     "desc": "Even if the app itself stays English, translating the store listing opens a separate keyword index in every language. iOS bonus: some secondary locales (en-GB, es-MX) are also indexed in the main market → free extra keyword space.",
+     "steps": ["First wave: 6-10 languages chosen by audience, not by GDP", "Do keyword research per language (never a literal translation)", "iOS extra-locale trick: put different keyword sets in en-GB and es-MX", "Translate screenshot headings for at least the top 3 languages"]},
+    {"id": "pb-aso-3", "title": "Ratings & review management", "impact": "high", "effort": "low",
+     "desc": "Rating count and average are both a ranking signal and a conversion factor. Negative reviews that get an answer are frequently re-rated upward.",
+     "steps": ["Tie the native review prompt to an emotional peak (a record, a completed level)", "Never ask on app launch", "Answer every review within 48 hours", "Reply to negatives with a fix + 'updated — would you try it again?'"]},
+    {"id": "pb-aso-4", "title": "Visual A/B tests (icon, screenshots)", "impact": "high", "effort": "medium",
+     "desc": "Changing the icon alone can move conversion by 10-30%. Without traffic a test never reaches significance — visibility first.",
+     "steps": ["Play: Store Listing Experiments, one variable, min 7 days", "iOS: Product Page Optimization (up to 3 variants)", "Icon first, then the first 2 screenshots", "Ship the winner at 90%+ confidence, then start the next test"]}
+   ]
+  },
+  {
+   "name": "Store-Specific Weapons",
+   "icon": "🎪",
+   "items": [
+    {"id": "pb-store-1", "title": "Apple In-App Events", "impact": "high", "effort": "medium",
+     "desc": "Event cards get their own listings in App Store search and on Today — visible to users who have AND have not installed the app. A free second storefront.",
+     "steps": ["App Store Connect > In-App Events", "Tie it to something real in the app (a weekly tournament, a new theme)", "Event card art + 30s video", "Keep at least one event live per month"]},
+    {"id": "pb-store-2", "title": "Google Play LiveOps / Promotional Content", "impact": "high", "effort": "medium",
+     "desc": "Play's event cards; they surface on the store home and on your listing. Apps that use them consistently report a visible lift.",
+     "steps": ["Check your Play Console access to Promotional content", "Plan event/offer/major-update cards", "Turn every major update into a card"]},
+    {"id": "pb-store-3", "title": "Custom Product Pages (iOS)", "impact": "medium", "effort": "medium",
+     "desc": "Up to 35 alternative store pages for the same app — land each ad campaign on the page matching its message. A serious conversion lever.",
+     "steps": ["ASC > Custom Product Pages", "A screenshot set per campaign theme", "Point Search Ads and social ad links at the CPP"]},
+    {"id": "pb-store-4", "title": "Featuring nomination (Apple & Google)", "impact": "high", "effort": "low",
+     "desc": "Editorial featuring is not a lottery — there is a form. 'Finished, polished, uses a new platform feature' plus a story raises your odds. If there is a story behind the app (solo development, reviving a classic, an unusual technical solution), that story is the real strength of the submission.",
+     "steps": ["Apple: the Featuring nomination form (ASC > Promote) — 3+ weeks before launch", "Boil the story down to one sentence — the editor writes the shelf copy from it", "Google: featuring is mostly automatic — good Android vitals and using new Play features are the signals"]},
+    {"id": "pb-store-5", "title": "Play Shorts & the video-first store (2026)", "impact": "medium", "effort": "medium",
+     "desc": "In 2026 Play opened a TikTok-like Shorts discovery surface. Vertical short video now feeds discovery inside the store itself.",
+     "steps": ["Reuse the vertical videos you make for TikTok/Shorts in Play's video slots", "The first-3-seconds rule applies here too", "Track the video/promotional surfaces in Play Console"]},
+    {"id": "pb-store-6", "title": "Pre-registration — new app / major update", "impact": "medium", "effort": "low",
+     "desc": "A Play pre-registration page gives automatic install and a notification on launch day, amplifying the launch-week velocity signal.",
+     "steps": ["Open pre-registration ahead of a major update or sequel", "Define a pre-registration reward", "Attach a content calendar to launch day"]}
+   ]
+  },
+  {
+   "name": "Content & Community",
+   "icon": "📣",
+   "items": [
+    {"id": "pb-org-1", "title": "TikTok/Shorts/Reels pipeline (3+ per week)", "impact": "high", "effort": "medium",
+     "desc": "Short video is the main discovery channel in 2026: roughly 59% of TikTok's gaming users say they discover new games there. One viral clip can be thousands of installs.",
+     "steps": ["Pick a format: satisfying moment / fail / dev-log", "Capture raw footage at 60fps, cut to 15-25s", "First 2 seconds: strongest moment plus a text hook", "Reply to comments using the app's name (algorithm signal)", "Post the same cut to all three platforms"]},
+    {"id": "pb-org-2", "title": "Dev-log / the solo-developer narrative", "impact": "high", "effort": "low",
+     "desc": "People subscribe to a story more readily than to a product. 'I built this alone in a year' is the highest-converting content indies have.",
+     "steps": ["'After a year alone, my app is finally done' video", "Before/after comparisons (old build vs new)", "Share the failures too — a zero-downloads story is viral material"]},
+    {"id": "pb-org-3", "title": "Reddit strategy", "impact": "medium", "effort": "low",
+     "desc": "One honest post in the right subreddit beats any ad. Anything that smells like advertising gets banned; story plus question works.",
+     "steps": ["Start with the obvious ones: r/AndroidGaming, r/iosgaming, r/IndieDev", "Add topic communities: subreddits about what the app is actually for", "Rule: 10 genuine participations per 1 promotion", "AMA format: 'I built this alone, ask me anything'"]},
+    {"id": "pb-org-4", "title": "Discord community + community-led growth", "impact": "medium", "effort": "medium",
+     "desc": "A live Discord/Reddit community has become a primary acquisition source. For anything with a leaderboard, a tournament server is a natural fit.",
+     "steps": ["Open a Discord: a sharing channel + a weekly tournament channel", "Put the Discord link inside the app", "Tournament prize: a cosmetic or a name on the leaderboard", "Give the 10 most active members beta access (ownership)"]},
+    {"id": "pb-org-5", "title": "Press kit + niche press", "impact": "medium", "effort": "low",
+     "desc": "Big outlets are hard, but niche mobile sites and YouTube channels are hungry for content. A ready press kit makes saying yes ten times easier.",
+     "steps": ["A presskit()-style page: logo, icon, 5 images, video, description, developer story", "Build a list of outlets that cover your exact niche", "Email: 3 sentences + one image + a promo code", "When a relevant news wave breaks, send again with that angle"]},
+    {"id": "pb-org-7", "title": "Facebook groups (the 30-45 audience is there)", "impact": "medium", "effort": "low",
+     "desc": "The age segment TikTok does not reach (30-45) is still in Facebook groups. Groups about your app's subject — hobby, profession, nostalgia, local community — give organic reach without ads.",
+     "steps": ["Search for active groups about your app's subject (local + global)", "Join as a member first; take part in the conversation", "Post an image + link in a 'has anyone been looking for this? I built it' format", "Mind group rules: some ban links — post the image and put the link in a comment"]},
+    {"id": "pb-org-6", "title": "Web landing page + playable demo", "impact": "medium", "effort": "medium",
+     "desc": "Google SEO brings traffic that has nothing to do with store search. A web demo → try → store link funnel works well for indies (if you can export a WebGL/HTML5 build).",
+     "steps": ["One-page site: video + demo + store badges", "Blog: an 'apps like <closest competitor>' SEO article (you rank first in your own list)", "QR code on any printed or video material"]}
+   ]
+  },
+  {
+   "name": "Video & Creative Production",
+   "icon": "🎬",
+   "items": [
+    {"id": "pb-vid-1", "title": "AI-assisted ad creative pipeline", "impact": "high", "effort": "medium",
+     "desc": "The 2026 standard is not a few polished videos but high-volume variation with AI. The rule: the product footage stays real, AI produces hooks/b-roll/variations (fake product footage risks platform penalties).",
+     "steps": ["Generate an AI video brief from Creative Studio", "Produce 3-5s hook shots with Veo/Runway/Pika/Kling", "Combine with real capture in CapCut", "Test 3-5 variants a week, scale the CTR winner"]},
+    {"id": "pb-vid-2", "title": "UGC-style ads", "impact": "high", "effort": "medium",
+     "desc": "Real-user-reaction format is the highest-converting ad type of 2026 — it outperforms polished studio ads.",
+     "steps": ["Format: handheld camera + 'I tried this app' narration", "Use AI-UGC avatar tools for zero-cost variations", "Subtitles are mandatory (80%+ watch muted)"]},
+    {"id": "pb-vid-3", "title": "Store preview video", "impact": "high", "effort": "medium",
+     "desc": "On iOS it autoplays in search results — one of the single biggest conversion levers. Without one you are behind every competitor that has one.",
+     "steps": ["15-30s, vertical, best moment in the first 3 seconds", "No text, pure product + music", "iOS: App Preview (screen-capture rules apply), Play: a YouTube link"]},
+    {"id": "pb-vid-4", "title": "Playable ad", "impact": "medium", "effort": "high",
+     "desc": "Brings the highest-intent users (they tried it, liked it, installed). Used on Unity Ads/ironSource/AppLovin/Meta.",
+     "steps": ["Produce a single-file HTML5 playable and upload it to the networks", "Playable within the first 5 seconds, CTA at the end", "A/B different difficulty and CTA moments"]}
+   ]
+  },
+  {
+   "name": "Paid Growth (UA)",
+   "icon": "💰",
+   "items": [
+    {"id": "pb-ua-1", "title": "Apple Search Ads — keyword-precise start", "impact": "high", "effort": "low",
+     "desc": "In-store search ads = the highest intent there is. It starts on a tiny budget and, as a bonus, shows which keyword actually converts — that intelligence feeds organic ASO.",
+     "steps": ["Exact match on your 2-3 highest-intent terms, $5-10/day", "Start with Search Match off (protects the budget)", "Move converting keywords into organic metadata", "Match themes with Custom Product Pages"]},
+    {"id": "pb-ua-2", "title": "Google App Campaigns (UAC)", "impact": "medium", "effort": "low",
+     "desc": "Automated campaigns for Play installs. Little control, but the velocity effect on Play ranking can turn into organic lift. Don't burn money before conversion is proven.",
+     "steps": ["Fix store conversion first (otherwise the money is wasted)", "Learn your CPI at $10-20/day", "Creative: your best short videos"]},
+    {"id": "pb-ua-3", "title": "Micro-influencer swarm", "impact": "high", "effort": "medium",
+     "desc": "The 2026 model: 50-100 micro creators (10-50k followers, 2-5% engagement) instead of one mega. Scales on barter or low fees, and trust converts.",
+     "steps": ["TikTok Creator Marketplace or a hand-built list of creators in your category", "Offer: early access + something exclusive + a small fee", "Brief: 'play/use it your way' — never dictate a script", "Track with a code or link"]},
+    {"id": "pb-ua-5", "title": "Soft-launch protocol: buy data with $200-500", "impact": "high", "effort": "medium",
+     "desc": "PROVE the product retains before scaling. The goal is data, not profit: run a small campaign in a low-CPI, culturally close market, measure D1/D7, then decide. Spending big before passing the D1 gate is burning money.",
+     "steps": ["Prerequisite: funnel events must be live in analytics", "Google UAC: one market, $10-20/day, 14-21 days, 200-500 installs", "D1 <20% → stop the ads, find the churn point, fix the product, retest", "D1 20-30% → 2-3 improvements + a second $200 test", "D1 >30% and D7 >10% → the scaling gate is open: raise budget gradually", "Measure ARPDAU every round: no scaling without LTV > CPI"]}
+   ]
+  },
+  {
+   "name": "Retention → Store Signal",
+   "icon": "🔁",
+   "items": [
+    {"id": "pb-ret-1", "title": "Treat D1/D7 retention as a growth tool", "impact": "high", "effort": "high",
+     "desc": "Both stores weigh retention in ranking: the app that keeps users gets pushed. Casual game targets: D1 35%+, D7 12%+ (thresholds differ for utility apps — compare against your own category).",
+     "steps": ["Set up cohort tracking in your analytics", "First session: reach the 'wow' moment within 60 seconds", "Daily tasks + a streak system", "A curiosity loop (wanting to see what is next) is the retention engine"]},
+    {"id": "pb-ret-2", "title": "Notification strategy (not spam)", "impact": "medium", "effort": "low",
+     "desc": "The right notification measurably lifts D7; the wrong one gets the app deleted.",
+     "steps": ["Social competition: 'your record was beaten'", "Weekly event start", "Ask for permission after the first success moment — never on launch"]},
+    {"id": "pb-ret-3", "title": "Android vitals & technical health", "impact": "medium", "effort": "medium",
+     "desc": "Crash rate and ANR affect Play ranking DIRECTLY, and bad vitals disqualify you from featuring. Download size affects conversion too.",
+     "steps": ["Play Console > Android vitals: target 99%+ crash-free", "Shrink the APK/AAB and the iOS binary", "Test on low-end devices (most of Play's users are mid-range)"]}
+   ]
+  },
+  {
+   "name": "Moments & Trend Surfing",
+   "icon": "🌊",
+   "items": [
+    {"id": "pb-mom-1", "title": "Catching a trend or news wave", "impact": "high", "effort": "low",
+     "desc": "A news story, a viral trend or a competitor launch can spike search volume: a classic in your genre returning, a big rival shipping, a topic in your space hitting the news. Whoever is prepared wins.",
+     "steps": ["Google Alerts: your brand terms + your category terms + your closest rivals", "Stock content ahead of the wave", "On the day: promo text + an In-App Event + a content burst, all at once"]},
+    {"id": "pb-mom-2", "title": "Seasonal events & reskins", "impact": "medium", "effort": "medium",
+     "desc": "A seasonal icon plus an event is a search and featuring opportunity on both stores. If the app already supports themes or visual variants, the cost is small.",
+     "steps": ["Plan 4 seasons a year: icon variant + theme + event card", "Temporarily add the season keyword ('halloween', 'christmas')", "Roll it back when the season ends (don't look stale)"]}
+   ]
+  },
+  {
+   "name": "Measurement & Intelligence",
+   "icon": "📐",
+   "items": [
+    {"id": "pb-meas-1", "title": "Weekly radar scan routine", "impact": "high", "effort": "low",
+     "desc": "You cannot grow what you do not measure. refresh.py plus your console data should be a weekly ritual.",
+     "steps": ["Schedule refresh.py weekly (Task Scheduler / cron)", "Monday: read the Advisor tab and your console data", "Send Claude the 'Interpret Radar Data' prompt"]},
+    {"id": "pb-meas-2", "title": "Console API integration (real impressions/installs)", "impact": "medium", "effort": "high",
+     "desc": "The App Store Connect API plus the Play Developer Reporting API pull impressions/installs/CVR automatically — the paid core of tools like App Radar.",
+     "steps": ["ASC: Users and Access > Keys > generate an API key", "Play: a service account with Reporting API access", "Give Claude the keys' location and have it wire them into refresh.py"]},
+    {"id": "pb-meas-3", "title": "Competitor intelligence routine", "impact": "medium", "effort": "low",
+     "desc": "A competitor's metadata change is a market signal. Track who moved to which keyword and who launched an event.",
+     "steps": ["Watch competitor metrics in the radar history", "Add newly launched category rivals to the competitor list in config.json", "Read competitors' release notes — what are they investing in?"]}
+   ]
+  }
+ ]
+}

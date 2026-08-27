@@ -1,0 +1,30 @@
+{
+  "code": "tr",
+  "name": "Türkçe",
+  "_help": "Kaynak dil. Panelin metinleri index.html içinde Türkçe yazılıdır, bu yüzden 'ui' boştur. Başka bir dil eklemek için bu dosyayı kopyala, 'ui' altına <Türkçe metin>: <çeviri> çiftlerini yaz ve i18n/<kod>.json olarak kaydet; sonra index.html'deki LANGS listesine ekle.",
+  "ui": {},
+  "prompts": [
+    ["📡 Radar Verilerini Yorumla",
+     "MarketingHub/workspace/data.json dosyasını oku. Şunları yap: 1) Keyword sıralamalarımdaki değişimi geçen taramayla kıyasla, 2) Fırsat etiketlerinden hangilerini iOS keywords alanına / Play açıklamasına ekleyeceğimi somut olarak söyle (güncellenmiş metinleri ver), 3) Rakip metriklerindeki dikkat çekici değişimleri belirt, 4) Önümüzdeki hafta için tek cümlelik öncelik ver."],
+    ["🔄 Keyword Tazeleme",
+     "{app} için ASO keyword araştırmasını tazele. App Store ve Google Play'de şu kümelerde sıralanan rakiplerin başlık ve alt başlıklarını araştır: {kws}. Mevcut metadata'mla karşılaştır ve iOS keywords alanı için güncellenmiş 100 karakterlik bir set öner. Hacmi artan yeni kelime kümesi varsa belirt."],
+    ["🌍 Lokalizasyon Paketi",
+     "{app} için [DİL] dilinde mağaza metni üret. Birebir çeviri DEĞİL, ayrı bir keyword araştırması yap: o dilde gerçekten aranan terimleri kullan, marka adını koru, uydurma kelime ekleme. Karakter limitleri: başlık 30, alt başlık 30, iOS keywords 100 (virgülle, boşluksuz), Play kısa 80, uzun 4000. Çıktıyı workspace/advisor.json'daki localization şemasına uygun ver."],
+    ["📸 Ekran Görüntüsü Başlıkları",
+     "{app} için {ns} ekran görüntüsü başlık şeridi metni üret: [DİL] dilinde, her biri maks 5 kelime, büyük harf enerjisinde. Başlıklar mağaza metnindeki kelimelerle aynı vokabülerden gelsin (kapsama pekişsin). Her başlık için 2 alternatif ver."],
+    ["🎬 Kısa Video Senaryosu",
+     "{app} için 3 kısa video konsepti yaz (15-25 sn, dikey). Elimde şu kayıtlar var: [KAYITLARI TARİF ET]. Her konsept için: hook (ilk 2 sn ekranda ne var), akış, ekran metni, ses önerisi, caption + hashtag seti. Hedef: izleyen yorum yazsın."],
+    ["🕵️ ASO Denetimi",
+     "{app} uygulamasının güncel mağaza sayfalarını ({stores}) internetten çek ve denetle: başlık/alt başlık/açıklamalar paneldeki önerilerle uyumlu mu, karakter limitleri doğru kullanılmış mı, görünürlük sinyali kaçağı var mı? Fark listesi + öncelik sırası ver."],
+    ["🌊 Trend / Dalga Kontrolü",
+     "Şu terimlerin etrafındaki güncel gündemi araştır: {brands}. Yaklaşan bir lansman, remake, haber ya da viral akım var mı? Varsa {app} için o haftaya özel içerik planı ve promo text önerisi çıkar; yoksa \"dalga yok\" de ve bir sonraki kontrol tarihini öner."],
+    ["📊 Haftalık Veri Yorumu",
+     "Bu haftaki mağaza verilerim: gösterim [X], sayfa ziyareti [Y], indirme [Z]. Geçen hafta: [X2/Y2/Z2]. Bu veriye göre: darboğaz neresi (görünürlük mü dönüşüm mü), neye ağırlık vermeliyim, önümüzdeki hafta için 3 somut aksiyon öner."]
+  ],
+  "briefs": {
+    "trailer": "=== MAĞAZA TRAILER BRIEF — {app} ===\nAMAÇ: Mağaza sayfası dönüşümü (iOS App Preview + Play video)\nFORMAT: 9:16 dikey · 15-30 sn · metin overlay minimum · ses kapalı da anlaşılmalı\n\nSHOT LIST (gerçek ekran kaydı — 60fps):\n1. (0-3sn)  EN GÜÇLÜ AN: [ürünün en etkileyici 3 saniyesi] — logo/intro YOK\n2. (3-8sn)  temel döngü: [kullanıcının asıl yaptığı iş, hızlı gösterim]\n3. (8-13sn) çeşitlilik: [farklı ekran/mod/tema geçişleri]\n4. (13-18sn) derinlik: [ilerleme, koleksiyon, kişiselleştirme]\n5. (18-25sn) doruk an: [en yüksek skor / en iyi sonuç ekranı]\n6. (son 3sn) logo + \"Download Now\" + mağaza rozetleri\n\nAI HOOK (Veo/Runway/Pika/Kling — İngilizce prompt yaz):\n\"[ürünün ana fikrini betimleyen sinematik sahne], vertical 9:16, 3 seconds, high energy\"\nBu AI sahnesini yalnızca AÇILIŞ hook'u olarak kullan; kalan %90 gerçek kayıt olsun\n(sahte gameplay/ürün görüntüsü reklam ağlarında ceza sebebidir).\n\nKURGU: beat-senkron kesmeler · her kesme maks 1.5 sn · ilk karede hareket\nMÜZİK: telifsiz/lisanslı\nÇIKTILAR: 1080x1920 (mağaza) + 1920x1080 (YouTube)\nHEDEF KELİMELER: {kws}",
+    "ugc": "=== UGC / TANIKLIK BRIEF — {app} ===\nAMAÇ: Keşfet akışında organik erişim · yorum tetikleme\nFORMAT: 9:16 · 15-25 sn · el kamerası hissi · altyazı ZORUNLU (sessiz izleme %80+)\n\nSENARYO A \"itiraf\": \"[geliştirme hikayen tek cümle]\" → ürün gösterimi →\n\"...sonra [neyi düzelttiğin]. Bak ne oldu.\"\n\nSENARYO B \"tepki\": telefonu tutan el + gerçek kullanım, doruk anda doğal tepki\n\nSENARYO C \"kıyas\": \"[önce: eski/rakip yöntem]\" → \"[sonra: senin ürünün]\"\n\nAI DESTEK: aynı kancayı 5 farklı giriş cümlesiyle çoğalt; AI-UGC avatar araçlarıyla\nfarklı anlatıcı varyantları test et.\nCAPTION: [tek cümle + adı yorumlarda] · KURAL: reklam gibi durmasın.",
+    "satisfying": "=== SATISFYING / DETAY BRIEF — {app} ===\nAMAÇ: \"oddly satisfying\" akımı · sessiz izlenebilir · loop'lanabilir\nFORMAT: 9:16 · 10-18 sn · SES TASARIMI KRİTİK\n\nMALZEME: [ürünün en tatmin edici mikro anı — animasyon, geçiş, tamamlanma]\narka arkaya 5-6 tekrar, kesintisiz tek çekim varyantı da al.\n\nKURGU: her vuruş müzik beat'ine denk gelsin · loop için son kare = ilk kare\nSES: tok \"punch\" + hafif reverb; müzik minimal\nMETİN: tek satır, soru formatı (yorum çeker)\nÖLÇÜM: izlenme süresi %80+ hedef; ilk 3 videoda tutmazsa ses tasarımını değiştir.",
+    "wave": "=== TREND DALGASI BRIEF — {app} ===\nAMAÇ: Arama hacmi patlayan bir gündeme hazırlıklı yakalanmak\nİZLENEN TERİMLER: {brands}\nFORMAT: 9:16 · 20-30 sn · duygusal giriş + ürün gösterimi\n\nYAPI:\n1. (0-4sn) gündemin görsel dili: [dalganın estetiği — dönem, olay, akım]\n2. (4-7sn) köprü metni: [izleyiciyi gündemden ürüne bağlayan tek cümle]\n3. (7-20sn) SERT GEÇİŞ → ürün: [en güçlü 3 an]\n4. (20-25sn) kapanış iddiası + logo + mağaza rozetleri\n\nZAMANLAMA: dalga haberi çıktığı gün yayına hazır beklet (içeriği ÖNCEDEN üret).\nDİKKAT: başkasının marka adını REKLAM metninde kullanma (marka hakkı) — imalı dil yeterli.\nHEDEF KELİMELER: {kws}"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "_help": "Kopyası workspace/config.json olarak kullanılır. Yeni uygulama eklemek için apps altına blok ekle ve activeApp'i değiştir. refresh.py ve panel bu dosyayı okur. / Copy lives at workspace/config.json. Add a block under apps and switch activeApp to track another app.",
+  "lang": "en",
+  "activeApp": "my-app",
+  "apps": {
+    "my-app": {
+      "name": "My App",
+      "emoji": "🚀",
+      "tagline": "Pazarlama Komuta Merkezi",
+      "iosId": 0,
+      "playId": "com.example.myapp",
+      "goal": 100000,
+      "country": "us",
+      "countries": ["us", "gb", "de"],
+      "rateLimitSeconds": 3,
+      "brandTerms": [],
+      "downloadAssets": true,
+      "keywords": [
+        "kelime öbeği 1",
+        "kelime öbeği 2"
+      ],
+      "screenHeadings": [
+        "SCREENSHOT HEADING 1",
+        "SCREENSHOT HEADING 2",
+        "SCREENSHOT HEADING 3",
+        "SCREENSHOT HEADING 4",
+        "SCREENSHOT HEADING 5"
+      ],
+      "competitors": [
+        {"name": "Rakip Uygulama", "ios_id": 0, "play_id": "com.example.competitor"}
+      ]
+    }
+  },
+  "_fields": {
+    "name": "Mağazadaki uygulama adı — panel başlığı ve tag üretimi bunu kullanır",
+    "emoji": "Panel başlığındaki ve sekme ikonundaki emoji",
+    "tagline": "Başlık altındaki küçük yazı",
+    "iosId": "App Store sayısal id'si (apps.apple.com/.../id123456789 → 123456789). Yoksa 0",
+    "playId": "Play paket adı (play.google.com/...?id=com.x.y → com.x.y). Yoksa boş bırak",
+    "goal": "Rapor sekmesindeki indirme hedefi",
+    "countries": "Sıralama taraması yapılacak ülke kodları",
+    "brandTerms": "Rakip marka terimleri (ör. büyük rakiplerin adları). Denetim bunların GÖRÜNÜR metinlerde geçmediğini kontrol eder",
+    "keywords": "Takip edilecek arama öbekleri — radar bunların sıralamasını ölçer",
+    "screenHeadings": "Ekran görüntüsü şeritlerindeki kaynak dil başlıkları (Kreatif Stüdyo bunları kullanır)",
+    "competitors": "Rakip listesi; ios_id sayısal, play_id paket adı. Biri yoksa 0/boş bırak"
+  }
+}

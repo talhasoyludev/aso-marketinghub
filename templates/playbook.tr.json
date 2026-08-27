@@ -1,0 +1,455 @@
+{
+ "updated": "2026-08-27",
+ "note": "Mobil uygulama/oyun büyütme YÖNTEM tabanı — uygulamadan bağımsız, jenerik. BAKIM KURALI: bir yöntem advisor.json'a tarihli öneri olarak geçtiyse ya da uygulandıysa buradan SİLİNİR (tek kaynak advisor.json olur); 'düşük etki + düşük emek' maddeler liste dolgusudur, eklenmez. Genel ASO 101 bilgisi burada tutulmaz. impact/effort: düşük|orta|yüksek",
+ "categories": [
+  {
+   "name": "Mağaza Kaldıraçları",
+   "icon": "🏪",
+   "items": [
+    {
+     "id": "pb-aso-2",
+     "title": "Mağaza sayfası lokalizasyonu",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "Oyun İngilizce kalsa bile mağaza metnini çevirmek her dilde ayrı keyword indeksi açar. iOS'ta ek hile: bazı lokaller (en-GB, es-MX) ana pazarda da indekslenir → bedava ekstra keyword alanı.",
+     "steps": [
+      "İlk dalga: hedef kitleye göre 6-10 dil",
+      "Keyword araştırmasını dil başına yap (birebir çeviri değil)",
+      "iOS ek lokal hilesi: en-GB ve es-MX alanlarına ekstra keyword",
+      "Ekran görüntüsü başlıklarını en azından ilk 3 dilde çevir"
+     ]
+    },
+    {
+     "id": "pb-aso-3",
+     "title": "Puan & yorum yönetimi",
+     "impact": "yüksek",
+     "effort": "düşük",
+     "desc": "Puan sayısı ve ortalaması hem sıralama sinyali hem dönüşüm faktörü. Yanıtlanan olumsuz yorumların puanı sıkça güncellenir.",
+     "steps": [
+      "Native review prompt'u duygusal zirveye bağla (rekor, bölüm sonu)",
+      "Asla oyun açılışında sorma",
+      "Tüm yorumlara 48 saat içinde yanıt ver",
+      "Olumsuz yoruma çözüm + 'güncellendi, tekrar dener misin?'"
+     ]
+    },
+    {
+     "id": "pb-aso-4",
+     "title": "Görsel A/B testleri (ikon, ekran görüntüleri)",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "İkon değişimi tek başına dönüşümü %10-30 oynatabilir. Trafik yoksa test sonuçlanmaz — önce görünürlük.",
+     "steps": [
+      "Play: Store Listing Experiments, tek değişken, min 7 gün",
+      "iOS: Product Page Optimization (3 varyanta kadar)",
+      "Önce ikon, sonra ilk 2 ekran görüntüsü",
+      "Kazananı %90+ güvende uygula, sonraki testi başlat"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Mağaza Özel Silahları",
+   "icon": "🎪",
+   "items": [
+    {
+     "id": "pb-store-1",
+     "title": "Apple In-App Events",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "App Store'da etkinlik kartların arama sonuçlarında ve Today'de ayrıca listelenir — indirmiş VE indirmemiş kullanıcıya görünür, bedava ikinci vitrin.",
+     "steps": [
+      "App Store Connect > In-App Events",
+      "Oyun içi bir etkinliğe bağla (haftalık turnuva, yeni tema)",
+      "Etkinlik kartı görseli + 30 sn video",
+      "Ayda en az 1 etkinlik yayında tut"
+     ]
+    },
+    {
+     "id": "pb-store-2",
+     "title": "Google Play LiveOps / Promotional Content",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "Play'in etkinlik kartları; mağaza ana sayfasında ve listing'inde görünür. Aktif kullanan oyunlar belirgin görünürlük artışı raporlar.",
+     "steps": [
+      "Play Console > Promotional content erişimini kontrol et",
+      "Etkinlik/offer/major update kartları planla",
+      "Her büyük güncellemeyi karta dönüştür"
+     ]
+    },
+    {
+     "id": "pb-store-3",
+     "title": "Custom Product Pages (iOS)",
+     "impact": "orta",
+     "effort": "orta",
+     "desc": "Aynı uygulamaya 35'e kadar farklı mağaza sayfası — her reklam kampanyasını kendi temasına uygun sayfaya indir (hangi mesajla reklam verdiysen, o mesajın sayfasına). Dönüşümü ciddi artırır.",
+     "steps": [
+      "ASC > Custom Product Pages",
+      "Kampanya temasına özel ekran görüntüsü seti",
+      "ASA ve sosyal reklam linklerini CPP'ye yönlendir"
+     ]
+    },
+    {
+     "id": "pb-store-4",
+     "title": "Featuring başvurusu (Apple & Google)",
+     "impact": "yüksek",
+     "effort": "düşük",
+     "desc": "Editör vitrini loto değil, başvuru formu var. 'Bitmiş, cilalı, yeni özellikli' uygulamalar + hikaye anlatımı şansı artırır. Arkanda anlatılacak bir hikaye varsa (tek kişilik geliştirme, bir klasiğin ruhunu diriltme, sıra dışı teknik çözüm) başvurunun asıl gücü odur.",
+     "steps": [
+      "Apple: 'Featuring nomination' formu (ASC > Promote) — lansmandan 3+ hafta önce",
+      "Hikayeni tek cümleye indir — editör vitrin metnini o cümleden yazar",
+      "Google: featuring çoğunlukla otomatik — Android vitals + yeni Play özelliklerini kullanmak sinyaldir"
+     ]
+    },
+    {
+     "id": "pb-store-5",
+     "title": "Play Shorts & video-first mağaza (2026)",
+     "impact": "orta",
+     "effort": "orta",
+     "desc": "2026'da Play, TikTok benzeri Shorts akışıyla keşif yüzeyi açtı. Dikey kısa videoların mağazanın kendi içinde keşfe girmesi demek.",
+     "steps": [
+      "TikTok/Shorts için ürettiğin dikey videoları Play video alanlarına da uyarla",
+      "İlk 3 saniye kuralı burada da geçerli",
+      "Play Console'da video/promotional yüzeylerini takip et"
+     ]
+    },
+    {
+     "id": "pb-store-6",
+     "title": "Ön kayıt (Pre-registration) — yeni oyun/major update",
+     "impact": "orta",
+     "effort": "düşük",
+     "desc": "Play'de ön kayıt sayfası lansman günü otomatik kurulum + bildirim sağlar; lansman haftası hız sinyalini büyütür.",
+     "steps": [
+      "Büyük güncelleme/sequel öncesi ön kayıt aç",
+      "Ön kayıt ödülü tanımla (özel skin)",
+      "Lansman gününe içerik takvimi bağla"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "İçerik & Topluluk",
+   "icon": "📣",
+   "items": [
+    {
+     "id": "pb-org-1",
+     "title": "TikTok/Shorts/Reels hattı (haftada 3+)",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "2026'da oyun keşfinin ana kanalı kısa video: TikTok oyun kullanıcılarının ~%59'u yeni oyunları oradan keşfediyor. Tek viral klip binlerce indirme getirebilir.",
+     "steps": [
+      "Format seç: satisfying kill / combo fail / dev-log",
+      "Ham gameplay 60fps kaydet, CapCut'ta 15-25 sn kes",
+      "İlk 2 saniye: en güçlü an, metin kancası",
+      "Yorumlara oyun adıyla cevap ver (algoritma sinyali)",
+      "Aynı videoyu 3 platforma birden bas"
+     ]
+    },
+    {
+     "id": "pb-org-2",
+     "title": "Dev-log / 'yalnız geliştirici' anlatısı",
+     "impact": "yüksek",
+     "effort": "düşük",
+     "desc": "İnsanlar oyundan çok hikayeye abone olur. 'Tek başıma 1 yılda yaptım' formatı indie'lerin en yüksek dönüşümlü içeriği.",
+     "steps": [
+      "'1 yıldır tek başıma yaptığım oyun sonunda bitti' videosu",
+      "Öncesi/sonrası kıyas videoları (eski grafik vs yeni)",
+      "Başarısızlıkları da paylaş — 0 indirme hikayesi viral malzemedir"
+     ]
+    },
+    {
+     "id": "pb-org-3",
+     "title": "Reddit stratejisi",
+     "impact": "orta",
+     "effort": "düşük",
+     "desc": "Doğru subreddit'te samimi post > her reklam. Reklam kokusu = ban; hikaye + soru formatı çalışır.",
+     "steps": [
+      "r/AndroidGaming, r/iosgaming, r/IndieDev, r/incremental_games",
+      "Konu topluluklarını ekle: uygulamanın ilgi alanına göre subreddit'ler",
+      "Kural: 10 katılım : 1 tanıtım oranı",
+      "AMA formatı: 'Bunu tek başıma yaptım, sorun bana'"
+     ]
+    },
+    {
+     "id": "pb-org-4",
+     "title": "Discord topluluğu + topluluk-led büyüme",
+     "impact": "orta",
+     "effort": "orta",
+     "desc": "2026 trendi: aktif Discord/Reddit topluluğu ana kullanıcı edinme kaynağı. Skor rekabeti olan oyunlar için turnuva sunucusu doğal uyum.",
+     "steps": [
+      "Discord aç: skor paylaşım + haftalık turnuva kanalı",
+      "Oyun içine Discord linki koy",
+      "Turnuva ödülü: özel skin/isim liderlik tablosunda",
+      "En aktif 10 oyuncuya beta erişimi ver (sahiplik hissi)"
+     ]
+    },
+    {
+     "id": "pb-org-5",
+     "title": "Basın kiti + niş basın",
+     "impact": "orta",
+     "effort": "düşük",
+     "desc": "Büyük siteler zor ama niş mobil oyun siteleri/YouTube kanalları içerik arıyor. Hazır basın kiti cevabı 10 kat kolaylaştırır.",
+     "steps": [
+      "presskit() formatında sayfa: logo, ikon, 5 görsel, video, açıklama, geliştirici hikayesi",
+      "TouchArcade, PocketGamer, AndroidPolice tip listesi çıkar",
+      "E-posta: 3 cümle + görsel + promo kod",
+      "Remake haberi çıktığında 'mobil alternatif' açısıyla tekrar gönder"
+     ]
+    },
+    {
+     "id": "pb-org-7",
+     "title": "Facebook grupları (30-45 yaş kitlesi orada)",
+     "impact": "orta",
+     "effort": "düşük",
+     "desc": "TikTok'un yakalayamadığı yaş segmenti (30-45) hâlâ Facebook gruplarında. Uygulamanın konusuyla ilgili gruplar — hobi, meslek, nostalji, yerel topluluk — reklamsız organik erişim verir.",
+     "steps": [
+      "Uygulamanın konusuyla ilgili aktif grupları ara (yerel + global)",
+      "Önce üye gibi katıl, anı paylaşımlarına katıl",
+      "'Bunu arayan var mıydı? Yaptım' formatlı görsel + link",
+      "Grup kurallarına dikkat: bazıları link yasaklar, görsel + yorumda link kullan"
+     ]
+    },
+    {
+     "id": "pb-org-6",
+     "title": "Web landing page + oynanabilir demo",
+     "impact": "orta",
+     "effort": "orta",
+     "desc": "Google SEO, mağaza aramasından bağımsız trafik getirir. Web demo → oyna → mağaza linki hunisi indie'lerde iyi çalışır (WebGL/HTML5 build çıkarabiliyorsan).",
+     "steps": [
+      "Tek sayfa site: video + demo + mağaza rozetleri",
+      "Blog: '<en yakın rakip> benzeri uygulamalar' SEO makalesi (kendi listende 1.sin)",
+      "QR kod → basılı/video materyallere"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Video & Kreatif Üretim",
+   "icon": "🎬",
+   "items": [
+    {
+     "id": "pb-vid-1",
+     "title": "AI destekli reklam kreatifi hattı",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "2026 standardı: az sayıda cilalı video değil, AI ile yüksek hacimli varyasyon. Kural: gameplay gerçek kalır, AI hook/b-roll/varyasyon üretir (sahte gameplay reklamı platform cezası riski).",
+     "steps": [
+      "Kreatif Stüdyo'dan AI video brief'i üret",
+      "Veo/Runway/Pika/Kling ile 3-5 sn hook sahneleri üret",
+      "CapCut'ta gerçek gameplay ile birleştir",
+      "Haftada 3-5 varyant test et, CTR kazananı ölçekle"
+     ]
+    },
+    {
+     "id": "pb-vid-2",
+     "title": "UGC tarzı reklamlar",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "Gerçek oyuncu tepkisi formatı 2026'nın en yüksek dönüşümlü reklam türü — cilalı stüdyo reklamından iyi performans veriyor.",
+     "steps": [
+      "Format: el kamerası + 'bu oyunu denedim' anlatımı",
+      "AI UGC üreticileri (ör. sanal insan araçları) ile maliyetsiz varyasyon",
+      "Altyazı zorunlu (sessiz izleme %80+)"
+     ]
+    },
+    {
+     "id": "pb-vid-3",
+     "title": "Mağaza önizleme videosu",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "iOS'ta arama sonucunda otomatik oynar — tek başına dönüşümün en büyük kaldıraçlarından. Yoksa rakiplerinin gerisindesin.",
+     "steps": [
+      "15-30 sn, dikey, ilk 3 sn en iyi an",
+      "Metin yok, saf gameplay + müzik",
+      "iOS: App Preview (ekran kaydı kuralı), Play: YouTube linki"
+     ]
+    },
+    {
+     "id": "pb-vid-4",
+     "title": "Oynanabilir reklam (playable ad)",
+     "impact": "orta",
+     "effort": "yüksek",
+     "desc": "En yüksek niyetli kullanıcıyı getirir (denedi, sevdi, indirdi). Unity Ads/ironSource/AppLovin/Meta ağlarında kullanılır.",
+     "steps": [
+      "Tek dosyalık HTML5 playable üret ve ağlara yükle (Unity/ironSource/AppLovin)",
+      "İlk 5 saniyede oynanır olsun, 15 katta CTA",
+      "A/B: farklı zorluk/CTA anları"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Ücretli Büyüme (UA)",
+   "icon": "💰",
+   "items": [
+    {
+     "id": "pb-ua-1",
+     "title": "Apple Search Ads — kelime hassas başlangıç",
+     "impact": "yüksek",
+     "effort": "düşük",
+     "desc": "Mağaza içi arama reklamı = en yüksek niyet. Küçük bütçeyle başlanabilir; ayrıca hangi kelimenin dönüştürdüğünü gösterip organik ASO'yu besler (keyword istihbaratı).",
+     "steps": [
+      "Exact match: en yüksek niyetli 2-3 kelimen, 5-10$/gün",
+      "Search Match kapalı başla (bütçe korunur)",
+      "Dönüşen kelimeleri organik metadata'ya taşı",
+      "CPP ile tema eşle"
+     ]
+    },
+    {
+     "id": "pb-ua-2",
+     "title": "Google App Campaigns (UAC)",
+     "impact": "orta",
+     "effort": "düşük",
+     "desc": "Play indirmeleri için otomatik kampanya. Kontrol az, ama Play sıralama hızına etkisi organik itmeye dönüşebilir. CVR kanıtlanmadan yakma.",
+     "steps": [
+      "Önce mağaza dönüşümünü düzelt (yoksa para çöp)",
+      "Günlük 10-20$ ile CPI öğren",
+      "Kreatif: en iyi TikTok videoların"
+     ]
+    },
+    {
+     "id": "pb-ua-3",
+     "title": "Mikro-influencer sürüsü",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "2026 modeli: 1 mega yerine 50-100 mikro (10-50k takipçi, %2-5 etkileşim). Barter/düşük ücretle ölçeklenir, güven dönüşümü yüksek.",
+     "steps": [
+      "TikTok Creator Marketplace / elle liste: mobil oyun içerikçileri",
+      "Teklif: erken erişim + özel skin + küçük ücret",
+      "Brief: 'kendi tarzında oyna' (senaryo dayatma)",
+      "Kod/link ile takip et"
+     ]
+    },
+    {
+     "id": "pb-ua-5",
+     "title": "Soft launch protokolü: $200-500 ile veri satın al",
+     "impact": "yüksek",
+     "effort": "orta",
+     "desc": "Ölçeklemeden önce oyunun tutup tutmadığını KANITLA. Amaç kâr değil veri: düşük CPI'lı, kültürel yakınlığı yüksek pazarda (TR/PL) küçük kampanya aç, D1/D7 ölç, karara bağla. D1 kapısı geçilmeden büyük harcama = parayı yakmak.",
+     "steps": [
+      "Önkoşul: Firebase/GameAnalytics funnel eventleri canlı olmalı",
+      "Google UAC: TR, $10-20/gün, 14-21 gün, 200-500 install hedefi",
+      "D1 <%20 → reklamı durdur, churn noktasını bul, oyunu düzelt, tekrar test",
+      "D1 %20-30 → 2-3 iyileştirme + ikinci $200 test",
+      "D1 >%30 ve D7 >%10 → ölçek kapısı açık: bütçeyi kademeli artır",
+      "Her turda ARPDAU'yu da ölç: LTV > CPI olmadan ölçekleme yok"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Retention → Mağaza Sinyali",
+   "icon": "🔁",
+   "items": [
+    {
+     "id": "pb-ret-1",
+     "title": "D1/D7 retention'ı büyüme aracı olarak gör",
+     "impact": "yüksek",
+     "effort": "yüksek",
+     "desc": "Her iki mağaza da elde tutmayı sıralamada tartar: kullanıcıyı tutan uygulamayı öne çıkarır. Casual oyun hedefi: D1 %35+, D7 %12+ (araç/üretkenlik uygulamalarında eşikler farklıdır — kendi kategorinin ortalamasına bak).",
+     "steps": [
+      "Firebase ile cohort takibi kur",
+      "İlk oturum: 60 saniyede 'vay' anı",
+      "Günlük görev + streak sistemi",
+      "Merak döngüsü (bir sonrakini görme isteği) = retention motoru"
+     ]
+    },
+    {
+     "id": "pb-ret-2",
+     "title": "Bildirim stratejisi (spam değil)",
+     "impact": "orta",
+     "effort": "düşük",
+     "desc": "Doğru bildirim D7'yi belirgin artırır; yanlışı kaldırtır.",
+     "steps": [
+      "'Rekorun kırıldı!' — sosyal rekabet bildirimi",
+      "Haftalık turnuva başlangıcı",
+      "İzin isteme anı: ilk rekor sonrası (asla açılışta)"
+     ]
+    },
+    {
+     "id": "pb-ret-3",
+     "title": "Android vitals & teknik sağlık",
+     "impact": "orta",
+     "effort": "orta",
+     "desc": "Crash oranı ve ANR, Play sıralamasını DOĞRUDAN etkiler; kötü vitals featuring'i kapatır. Boyut da dönüşümü etkiler.",
+     "steps": [
+      "Play Console > Android vitals: crash-free %99+ hedef",
+      "APK/AAB boyutunu küçült (iOS 220MB → <150MB hedef)",
+      "Düşük cihazlarda test (Play'in çok kullanıcısı orta segment)"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Fırsat Anları & Trend Sörfü",
+   "icon": "🌊",
+   "items": [
+    {
+     "id": "pb-mom-1",
+     "title": "Trend/haber dalgası yakalama",
+     "impact": "yüksek",
+     "effort": "düşük",
+     "desc": "Bir haber, viral akım ya da rakip lansmanı arama hacmini patlatır: türünde bir klasiğin geri dönüşü, büyük bir rakibin çıkışı, konunla ilgili bir gündem. Hazırlıklı olan kazanır.",
+     "steps": [
+      "Google Alerts: marka terimlerin + tür kelimelerin + en yakın rakiplerin",
+      "Dalga öncesi içerik stoku hazırla",
+      "Dalga günü: promo text + In-App Event + içerik seli aynı anda"
+     ]
+    },
+    {
+     "id": "pb-mom-2",
+     "title": "Sezonluk etkinlik & reskin",
+     "impact": "orta",
+     "effort": "orta",
+     "desc": "Sezon temalı ikon + etkinlik her mağazada arama ve featuring fırsatı. Uygulamada tema/görsel varyant desteği varsa maliyeti düşüktür.",
+     "steps": [
+      "Yılda 4 sezon planı: ikon varyantı + tema + etkinlik kartı",
+      "Sezon kelimesini geçici ekle ('halloween', 'christmas', 'yılbaşı'...)",
+      "Sezon bitince geri al (stale görünme)"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Ölçüm & İstihbarat",
+   "icon": "📐",
+   "items": [
+    {
+     "id": "pb-meas-1",
+     "title": "Haftalık radar taraması rutini",
+     "impact": "yüksek",
+     "effort": "düşük",
+     "desc": "Ölçmediğin şeyi büyütemezsin. refresh.py + konsol verisi haftalık ritüel olmalı.",
+     "steps": [
+      "Görev Zamanlayıcı: haftalık refresh.bat",
+      "Pazartesi: Danışman sekmesi + konsol verilerine bak",
+      "Claude'a 'Radar Verilerini Yorumla' promptunu at"
+     ]
+    },
+    {
+     "id": "pb-meas-2",
+     "title": "Konsol API entegrasyonu (gerçek indirme/gösterim)",
+     "impact": "orta",
+     "effort": "yüksek",
+     "desc": "App Store Connect API + Play Developer Reporting API ile gösterim/indirme/CVR otomatik çekilir — App Radar'ın ücretli çekirdeği.",
+     "steps": [
+      "ASC: Users and Access > Keys > API anahtarı üret",
+      "Play: servis hesabı + Reporting API yetkisi",
+      "Claude'a anahtarları ver → refresh.py'ye bağlasın"
+     ]
+    },
+    {
+     "id": "pb-meas-3",
+     "title": "Rakip istihbaratı rutini",
+     "impact": "orta",
+     "effort": "düşük",
+     "desc": "Rakip metadata değişimi = pazar sinyali. Kim hangi kelimeye kaydı, kim etkinlik açtı takip et.",
+     "steps": [
+      "Radar geçmişinde rakip metriklerini izle",
+      "Yeni çıkan tür rakiplerini config.json'daki rakip listesine ekle",
+      "Rakip güncelleme notlarını oku (neye yatırım yapıyorlar?)"
+     ]
+    }
+   ]
+  }
+ ]
+}
