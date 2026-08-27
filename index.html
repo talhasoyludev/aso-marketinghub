@@ -96,19 +96,6 @@ ul.autochecks li .mark{width:18px;height:18px;min-width:18px;border-radius:6px;d
 ul.autochecks li.pass .mark{background:var(--ok)}
 ul.autochecks li.fail .mark{background:var(--bad)}
 ul.autochecks li.skip .mark{background:var(--muted)}
-.setup-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:820px){.setup-grid{grid-template-columns:1fr}}
-.comp-row{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:8px;margin-bottom:8px;align-items:center}
-@media(max-width:820px){.comp-row{grid-template-columns:1fr 1fr auto}}
-.comp-row .del{background:none;border:1px solid var(--border);color:var(--muted);
-  border-radius:8px;cursor:pointer;padding:6px 10px;font-size:.8rem}
-#scanLog{background:#0b0d12;border:1px solid var(--border);border-radius:10px;padding:12px;
-  font-family:ui-monospace,Consolas,monospace;font-size:.74rem;line-height:1.5;color:#b9c4d4;
-  max-height:280px;overflow:auto;white-space:pre-wrap;display:none;margin-top:12px}
-.pill{display:inline-block;font-size:.72rem;padding:3px 10px;border-radius:12px;
-  border:1px solid var(--border);color:var(--muted);margin-right:6px}
-.pill.ok{color:var(--ok);border-color:var(--ok)}
-.pill.bad{color:var(--bad);border-color:var(--bad)}
 ul.autochecks li i{display:block;font-style:normal;font-size:.78rem;color:var(--muted);margin-top:3px}
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
 .chip{font-size:.79rem;padding:5px 12px;border-radius:16px;background:var(--card2);
@@ -182,7 +169,6 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
   <button data-tab="studio">🎨 Kreatif Stüdyo</button>
   <button data-tab="claude">🤖 Claude Desteği</button>
   <button data-tab="report">📊 Rapor & KPI</button>
-  <button data-tab="setup">⚙️ Kurulum</button>
 </nav>
 
 <main>
@@ -332,90 +318,6 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
   buradan silinir — aynı iş iki dosyada durmaz.</p>
   <div class="chips" id="pbCats" style="margin-bottom:14px"></div>
   <div id="pbList"></div>
-</section>
-
-<!-- ================= KURULUM ================= -->
-<section class="tab" id="tab-setup">
-  <h2>⚙️ Kurulum</h2>
-  <p class="sub">Uygulamanı buradan tanımla — dosya düzenlemene gerek yok. Kaydettiğinde
-  <code>workspace/config.json</code> yazılır, "Taramayı Başlat" dediğinde motor mağazaları tarar.
-  Mağaza linkini olduğu gibi yapıştırabilirsin, kimlik otomatik çıkarılır.</p>
-
-  <div class="note blue" id="setupApiWarn" style="display:none">⚠️ Bu sayfa dosya yazamayan bir sunucudan
-  açılmış. Formun kaydedebilmesi için paneli <code>start.bat</code> / <code>start.command</code> ile aç
-  (<code>python serve.py</code>). Şimdilik aşağıdaki <b>JSON'u Kopyala</b> ile
-  <code>workspace/config.json</code>'a elle yapıştırabilirsin.</div>
-
-  <div class="note">🤖 <b>Türünden ya da rakiplerinden emin değil misin?</b> Claude Code'da proje klasörünün
-  yolunu ver ve şunu söyle: <i>"şu projeyi MarketingHub'a kur: &lt;yol&gt;"</i>. Projeye bakıp motorunu
-  (Unity/Godot/Flutter/native) ve türünü tespit eder, pazar araştırmasıyla rakipleri ve hedef kelimeleri
-  belirler, bu formu senin yerine doldurur. Biliyorsan kendin de girebilirsin.</div>
-
-  <div class="card">
-    <h3>📱 Uygulama <span class="badge">zorunlu alanlar yıldızlı</span> <span id="setupState"></span></h3>
-    <div class="setup-grid">
-      <div>
-        <label class="f"><b>Uygulama adı *</b></label>
-        <input type="text" id="cfgName" placeholder="mağazadaki adı">
-        <label class="f"><b>App Store linki veya ID</b></label>
-        <input type="text" id="cfgIos" placeholder="https://apps.apple.com/…/id123456789 ya da 123456789">
-        <label class="f"><b>Play linki veya paket adı</b></label>
-        <input type="text" id="cfgPlay" placeholder="https://play.google.com/…?id=com.x.y ya da com.x.y">
-        <label class="f"><b>Taranacak ülkeler</b> (virgülle)</label>
-        <input type="text" id="cfgCountries" placeholder="us, gb, de, tr">
-      </div>
-      <div>
-        <label class="f"><b>Emoji</b> · <b>Alt başlık</b></label>
-        <div style="display:flex;gap:8px">
-          <input type="text" id="cfgEmoji" placeholder="🚀" style="max-width:80px">
-          <input type="text" id="cfgTagline" placeholder="Pazarlama Komuta Merkezi">
-        </div>
-        <label class="f"><b>İndirme hedefi</b></label>
-        <input type="number" id="cfgGoal" placeholder="100000">
-        <label class="f"><b>Panel dili</b></label>
-        <select id="cfgLang"><option value="tr">Türkçe</option><option value="en">English</option></select>
-        <label class="f"><b>Rakip marka terimleri</b> (virgülle · görünür metinlerde yasak sayılır)</label>
-        <input type="text" id="cfgBrands" placeholder="büyük rakiplerin adları">
-      </div>
-    </div>
-  </div>
-
-  <div class="grid2">
-    <div class="card">
-      <h3>🔍 Hedef kelimeler * <span class="badge">her satıra bir öbek</span></h3>
-      <p class="sub" style="margin-bottom:6px">İnsanların gerçekten yazdığı öbekler olsun — tek kelimeler değil.
-      Radar bunların sıralamasını ölçer.</p>
-      <textarea id="cfgKeywords" rows="8" placeholder="tower climb&#10;endless jumper&#10;arcade platformer"></textarea>
-    </div>
-    <div class="card">
-      <h3>📸 Ekran görüntüsü başlıkları <span class="badge">kaynak dil</span></h3>
-      <p class="sub" style="margin-bottom:6px">Kreatif Stüdyo bu başlıkları şeritlere basar; diğer diller
-      advisor'ın lokalizasyon paketinden gelir.</p>
-      <textarea id="cfgScreens" rows="8" placeholder="CLIMB THE TOWER&#10;BEAT YOUR FRIENDS"></textarea>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>🏁 Rakipler * <span class="badge">etiket matrisi bunlardan çıkar</span></h3>
-    <p class="sub" style="margin-bottom:8px">Hayran olduğun devleri değil, hedef kelimelerinde <b>gerçekten
-    sıralanan</b> uygulamaları gir — senin üstünde duran küçükler kırılabilir konumlardır.
-    Mağaza linkini yapıştırman yeterli.</p>
-    <div id="cfgComps"></div>
-    <div class="btnrow"><button class="btn mini" id="cfgAddComp">➕ Rakip ekle</button></div>
-  </div>
-
-  <div class="card">
-    <h3>💾 Kaydet & Tara</h3>
-    <div id="setupProblems"></div>
-    <div class="btnrow">
-      <button class="btn primary" id="cfgSave">Kaydet</button>
-      <button class="btn primary" id="cfgSaveScan">Kaydet ve Taramayı Başlat</button>
-      <button class="btn mini" id="cfgCopy">JSON'u Kopyala</button>
-    </div>
-    <p class="sub" style="margin-top:8px">Tarama mağazaları tek tek gezer ve hız limitine uyar —
-    ülke ve rakip sayısına göre birkaç dakika sürer. Bittiğinde panel kendini tazeler.</p>
-    <div id="scanLog"></div>
-  </div>
 </section>
 
 <!-- ================= KREATİF STÜDYO ================= -->
@@ -830,7 +732,6 @@ async function loadConfig(){
   catch(e){CONFIG=null}
   await loadLang();
   applyConfig();
-  initSetupTab();
   updateCovers();renderYtChips();renderKwBank();renderStudioLangs();buildUtm();renderReports();renderPrompts();
 }
 function goalN(){return (+((CONFIG||{}).goal)||100000)}
@@ -996,180 +897,6 @@ function renderAsoChecks(){
     <span class="mark">${x.ok?'✓':'!'}</span>
     <span><b>${esc(x.t)}</b><i>${esc(x.d)}</i></span></li>`).join('');   // t/d zaten T() ile çevrildi
 }
-
-/* ============ KURULUM SEKMESİ ============ */
-// Tarayıcı dosya yazamaz; config.json'u yazan ve taramayı başlatan uçlar
-// serve.py'de. Panel düz `python -m http.server` ile açıldıysa API 404 döner —
-// o durumda form yine çalışır ama yalnızca "JSON'u Kopyala" sunar.
-let API_OK=false,scanPoll=null;
-
-function parseIosId(v){
-  v=String(v||'').trim();
-  const m=v.match(/id(\d{6,12})/i)||v.match(/^(\d{6,12})$/);
-  return m?+m[1]:0;
-}
-function parsePlayId(v){
-  v=String(v||'').trim();
-  const m=v.match(/[?&]id=([A-Za-z0-9_.]+)/)
-        ||v.match(/^([A-Za-z][A-Za-z0-9_]*(?:\.[A-Za-z0-9_]+)+)$/);
-  return m?m[1]:'';
-}
-const toLines=v=>String(v||'').split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
-const toList=v=>String(v||'').split(',').map(s=>s.trim()).filter(Boolean);
-
-function compRowHtml(c){
-  c=c||{};
-  const ios=c.ios_id?String(c.ios_id):'',play=c.play_id||'';
-  return `<div class="comp-row">
-    <input type="text" class="c-name" value="${esc(c.name||'')}" placeholder="${esc(T('rakip adı'))}">
-    <input type="text" class="c-ios" value="${esc(ios)}" placeholder="App Store linki / ID">
-    <input type="text" class="c-play" value="${esc(play)}" placeholder="Play linki / paket">
-    <button class="del" data-delcomp>✕</button></div>`;
-}
-function renderComps(list){
-  const box=$('#cfgComps');if(!box)return;
-  box.innerHTML=((list&&list.length)?list:[{}]).map(compRowHtml).join('');
-}
-function readComps(){
-  return [...$$('#cfgComps .comp-row')].map(r=>({
-    name:r.querySelector('.c-name').value.trim(),
-    ios_id:parseIosId(r.querySelector('.c-ios').value),
-    play_id:parsePlayId(r.querySelector('.c-play').value)
-  })).filter(c=>c.name||c.ios_id||c.play_id);
-}
-function fillSetupForm(){
-  const c=CONFIG||{};
-  if(!$('#cfgName'))return;
-  const set=(id,v)=>{const el=$(id);if(el&&!el.value)el.value=v==null?'':v};
-  set('#cfgName',c.name==='My App'?'':c.name);
-  set('#cfgEmoji',c.emoji);set('#cfgTagline',c.tagline);
-  set('#cfgIos',c.iosId?String(c.iosId):'');
-  set('#cfgPlay',c.playId==='com.example.myapp'?'':c.playId);
-  set('#cfgCountries',(c.countries||[]).join(', '));
-  set('#cfgGoal',c.goal||'');
-  set('#cfgBrands',(c.brandTerms||[]).join(', '));
-  const kw=(c.keywords||[]).filter(k=>!/^kelime öbeği/.test(k));
-  set('#cfgKeywords',kw.join('\n'));
-  const sc=(c.screenHeadings||[]).filter(s=>!/^SCREENSHOT HEADING/.test(s));
-  set('#cfgScreens',sc.join('\n'));
-  const sel=$('#cfgLang');if(sel)sel.value=langCode;
-  const comps=(c.competitors||[]).filter(x=>x.name!=='Rakip Uygulama');
-  if(!$('#cfgComps').children.length)renderComps(comps);
-}
-function readSetupForm(){
-  return {
-    lang:$('#cfgLang').value,
-    app:{
-      name:$('#cfgName').value.trim(),
-      emoji:$('#cfgEmoji').value.trim()||'🚀',
-      tagline:$('#cfgTagline').value.trim(),
-      iosId:parseIosId($('#cfgIos').value),
-      playId:parsePlayId($('#cfgPlay').value),
-      countries:toList($('#cfgCountries').value).map(s=>s.toLowerCase()),
-      country:(toList($('#cfgCountries').value)[0]||'us').toLowerCase(),
-      goal:+$('#cfgGoal').value||100000,
-      rateLimitSeconds:((CONFIG||{}).rateLimitSeconds)||3,
-      downloadAssets:((CONFIG||{}).downloadAssets)!==false,
-      brandTerms:toList($('#cfgBrands').value),
-      keywords:toLines($('#cfgKeywords').value),
-      screenHeadings:toLines($('#cfgScreens').value),
-      competitors:readComps()
-    }
-  };
-}
-// setup.py / serve.py ile aynı kurallar — kullanıcı iki farklı cevap görmesin
-function setupProblems(a){
-  const p=[];
-  if(!a.name)p.push(T('Uygulama adı gerekli'));
-  if(!a.iosId&&!a.playId)p.push(T("App Store ID'si ya da Play paket adından en az biri gerekli"));
-  if(!a.keywords.length)p.push(T('En az bir hedef kelime gerekli'));
-  if(!a.competitors.length)p.push(T('En az bir rakip gerekli'));
-  if(!a.countries.length)p.push(T('En az bir ülke gerekli'));
-  return p;
-}
-function renderSetupState(problems){
-  const box=$('#setupProblems'),st=$('#setupState');
-  if(!box)return;
-  box.innerHTML=problems.length
-    ?`<ul class="autochecks">${problems.map(p=>
-       `<li class="fail"><span class="mark">!</span><span><b>${esc(p)}</b></span></li>`).join('')}</ul>`
-    :`<ul class="autochecks"><li class="pass"><span class="mark">✓</span>
-       <span><b>${esc(T('Kurulum tamam — taramayı başlatabilirsin'))}</b></span></li></ul>`;
-  if(st)st.innerHTML=problems.length
-    ?`<span class="imp" style="color:var(--warn);border-color:var(--warn)">${esc(T('{n} eksik',{n:problems.length}))}</span>`
-    :`<span class="imp yüksek">${esc(T('hazır'))}</span>`;
-}
-async function apiStatus(){
-  try{const r=await fetch('api/status',{cache:'no-store'});
-    if(!r.ok)throw 0;
-    API_OK=true;return await r.json()}
-  catch(e){API_OK=false;return null}
-}
-async function saveConfig(){
-  const body=readSetupForm(),probs=setupProblems(body.app);
-  renderSetupState(probs);
-  if(!API_OK){toast(T('Sunucu yazamıyor — JSON\'u Kopyala kullan'));return false}
-  try{
-    const r=await fetch('api/config',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(body)});
-    const j=await r.json();
-    if(!j.ok)throw new Error(j.error||'?');
-    toast(T('Kaydedildi ✓'));
-    renderSetupState(j.problems||[]);
-    return !(j.problems||[]).length;
-  }catch(e){toast(T('Kaydedilemedi: ')+e.message);return false}
-}
-async function startScan(){
-  if(!API_OK){toast(T('Tarama için paneli start.bat ile aç'));return}
-  const log=$('#scanLog');log.style.display='block';log.textContent=T('tarama başlatılıyor…');
-  try{
-    const r=await fetch('api/scan',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
-    const j=await r.json();
-    if(!j.ok){toast(j.error||'?');return}
-  }catch(e){toast(T('Tarama başlatılamadı'));return}
-  clearInterval(scanPoll);
-  scanPoll=setInterval(async()=>{
-    const s=await apiStatus();if(!s)return;
-    const sc=s.scan||{};
-    log.textContent=(sc.lines||[]).join('\n')||T('tarama başlatılıyor…');
-    log.scrollTop=log.scrollHeight;
-    if(sc.done&&!sc.running){
-      clearInterval(scanPoll);scanPoll=null;
-      log.textContent+='\n\n'+(sc.code===0?T('✓ Tarama bitti — panel tazeleniyor…')
-        :T('✗ Tarama hata verdi (çıkış kodu ')+sc.code+')');
-      if(sc.code===0)setTimeout(()=>location.reload(),1200);
-    }
-  },1200);
-}
-function setupJson(){
-  const b=readSetupForm();
-  const cfg={lang:b.lang,activeApp:(b.app.name||'app').toLowerCase().replace(/[^a-z0-9]+/g,'-'),apps:{}};
-  cfg.apps[cfg.activeApp]=b.app;
-  return JSON.stringify(cfg,null,2);
-}
-async function initSetupTab(){
-  if(!$('#cfgName'))return;
-  const s=await apiStatus();
-  $('#setupApiWarn').style.display=API_OK?'none':'block';
-  fillSetupForm();
-  renderSetupState(setupProblems(readSetupForm().app));
-  // kurulum eksikse kullanıcıyı doğrudan bu sekmeye al
-  if(s&&(s.problems||[]).length&&!store.get('setupSeen',false)){
-    $('#nav button[data-tab="setup"]').click();
-    store.set('setupSeen',true);
-  }
-  if(s&&s.scan&&s.scan.running)startScan();
-}
-document.addEventListener('click',e=>{
-  if(e.target.closest('#cfgAddComp')){
-    $('#cfgComps').insertAdjacentHTML('beforeend',compRowHtml({}));return}
-  const d=e.target.closest('[data-delcomp]');
-  if(d){const rows=$$('#cfgComps .comp-row');
-    if(rows.length>1)d.closest('.comp-row').remove();else renderComps([{}]);return}
-  if(e.target.closest('#cfgSave')){saveConfig();return}
-  if(e.target.closest('#cfgSaveScan')){saveConfig().then(ok=>{if(ok)startScan()});return}
-  if(e.target.closest('#cfgCopy')){copyText(setupJson());return}
-});
 
 /* ============ YAYIN DOĞRULAMA ============ */
 // "2xx doğrulama değildir": panoya yazılmış metin, mağazadan GERİ OKUNUP eşleşmedikçe
