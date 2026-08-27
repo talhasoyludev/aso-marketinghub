@@ -75,24 +75,6 @@ Two principles are enforced by the tool, not by discipline:
   What cannot be read (the hidden iOS keywords field) is labelled unverifiable
   rather than silently skipped.
 
-## Two separate flows
-
-| What you want | Command | Port | Which data |
-|---|---|---|---|
-| **See your own work** | `start.bat` / `start.command` | 8137 | `workspace/` — your config, scans and analyses |
-| **Test the published version** | `release.bat` / `release.command` | 8138 | a clean copy with a template workspace — exactly what someone cloning the repo sees |
-
-`release.bat` copies the code tree to `../MarketingHub-release` (excluding
-`workspace/`, `.git/`, `__pycache__/`), audits it for personal-data leaks, runs
-`setup.py` and serves the panel on 8138. It never touches your own folder, so
-you can keep both open at once.
-
-To produce the archive you would publish:
-
-```bash
-python make_release.py --zip
-```
-
 ## Layout
 
 ```
@@ -103,7 +85,6 @@ export_metadata.py      advisor.json → per-locale, store-ready text files
 i18n/                   panel languages (tr, en) — add your own
 templates/              seed files copied into workspace/ on first run
 skills/marketinghub/    the Claude Code skill: how to produce the analysis
-make_release.py         builds a clean, publishable copy (no personal data)
 workspace/              YOUR data — git-ignored, never committed
 ```
 

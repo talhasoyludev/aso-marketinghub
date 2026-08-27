@@ -9,3 +9,8 @@ __pycache__/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Bakim araclari - depoya girmez, yerelde kalir / maintainer-only tooling
+make_release.py
+release.bat
+release.command

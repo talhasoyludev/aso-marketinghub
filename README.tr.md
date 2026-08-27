@@ -75,24 +75,6 @@ gösterdiği mağaza metinlerini, lokalizasyon paketini ve tarihli önerileri
   Okunamayan alan (iOS'un gizli keywords alanı) sessizce atlanmaz,
   "doğrulanamaz" olarak işaretlenir.
 
-## İki ayrı akış
-
-| Ne yapmak istiyorsun | Komut | Port | Hangi veri |
-|---|---|---|---|
-| **Kendi çalışmanı görmek** | `start.bat` / `start.command` | 8137 | `workspace/` — senin config, tarama ve analizlerin |
-| **Yayın halini denemek** | `release.bat` / `release.command` | 8138 | temiz kopya, şablon workspace — repoyu klonlayan biri ne görüyorsa o |
-
-`release.bat` şunu yapar: kod ağacını `../MarketingHub-release` klasörüne kopyalar
-(`workspace/`, `.git/`, `__pycache__/` hariç), kişisel veri sızmadığını denetler,
-`setup.py`'yi çalıştırır ve paneli 8138'de açar. Kendi klasörüne dokunmaz —
-ikisini aynı anda açık tutabilirsin.
-
-Yayınlanacak arşivi üretmek için:
-
-```bash
-python make_release.py --zip
-```
-
 ## Dosya düzeni
 
 ```
@@ -103,7 +85,6 @@ export_metadata.py      advisor.json → dil dil, mağazaya girilebilir metin do
 i18n/                   panel dilleri (tr, en) — kendi dilini ekleyebilirsin
 templates/              ilk çalıştırmada workspace/'e kopyalanan şablonlar
 skills/marketinghub/    Claude Code skill'i: analizin nasıl üretileceği
-make_release.py         yayınlanabilir temiz kopya üretir (kişisel veri yok)
 workspace/              SENİN verin — git'e girmez, paylaşılmaz
 ```
 
