@@ -146,6 +146,8 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
 </style>
 </head>
 <body>
+<div id="demoBanner" style="display:none;padding:7px 28px;font-size:.78rem;color:var(--accent2);
+  background:rgba(77,208,225,.08);border-bottom:1px solid rgba(77,208,225,.3)"></div>
 
 <header>
   <h1 id="appTitle">Pazarlama Merkezi<small id="appTagline">config.json bekleniyor</small></h1>
@@ -223,7 +225,7 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
     <div class="kpi"><div class="v" id="i18nCount">0</div><div class="l">Hazır Dil</div></div>
     <div class="kpi"><div class="v" id="i18nP1">0</div><div class="l">Öncelik 1</div></div>
     <div class="kpi"><div class="v">8x</div><div class="l">Görünür Pazar</div></div>
-    <div class="kpi"><div class="v">~0₺</div><div class="l">Maliyet</div></div>
+    <div class="kpi"><div class="v">~0</div><div class="l">Maliyet</div></div>
   </div>
   <div class="card">
     <h3>🔍 Lokalizasyon Denetimi <span class="badge">8 dil otomatik taranır</span>
@@ -396,7 +398,7 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
   <h2>Rakip Radar</h2>
   <p class="sub">App Radar mantığı: rakiplerin mağaza metinlerinden etiketler çıkarılır, seninkilerle kıyaslanır,
   eksik olduğun yüksek değerli etiketler <b>🔥 fırsat</b> olarak işaretlenir. Veriler <code>refresh.py</code> ile
-  mağazalardan canlı çekilir — rakip eklemek için <code>refresh.py</code> içindeki COMPETITORS listesine satır ekle.</p>
+  mağazalardan canlı çekilir — rakip eklemek için <code>workspace/config.json</code> içindeki competitors listesine satır ekle.</p>
 
   <div class="card" id="radarStatus">⏳ data.json yükleniyor…</div>
 
@@ -471,7 +473,7 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
       <label class="f"><b>Promo Text</b> (maks 170 · indekslenmez, incelemesiz güncellenir — etkinlik/güncelleme duyurusu için) <span class="counter" data-for="iosPromo" data-max="170"></span></label>
       <textarea id="iosPromo" data-store placeholder="Etkinlik/güncelleme duyurusu — incelemeden geçmeden değişir" rows="2"></textarea>
       <label class="f"><b>Açıklama (Description)</b> (maks 4000 · aramada İNDEKSLENMEZ — saf dönüşüm metni; ilk 2-3 satır "daha fazla"dan önce görünür) <span class="counter" data-for="iosDesc" data-max="4000"></span></label>
-      <textarea id="iosDesc" data-store placeholder="Dönüşüm metni — ilk 2-3 satır "daha fazla"dan önce görünür" rows="12"></textarea>
+      <textarea id="iosDesc" data-store placeholder="Dönüşüm metni — ilk 2-3 satır &quot;daha fazla&quot;dan önce görünür" rows="12"></textarea>
       <label class="f"><b>What's New (Sürüm Notu)</b> (maks 4000 · indekslenmez ama aktif geliştirme sinyali + güncelleme sekmesinde dönüşüm) <span class="counter" data-for="iosWhatsNew" data-max="4000"></span></label>
       <textarea id="iosWhatsNew" data-store placeholder="Sürüm notu" rows="10"></textarea>
       <div class="btnrow">
@@ -639,9 +641,17 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:18px;border
 <script>
 /* ============ yardımcılar ============ */
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+/* ============ DEMO MODU (?demo=1) ============ */
+// Kurulumsuz tanıtım: config/data/advisor/playbook workspace/ yerine demo/ klasöründen
+// okunur (kurgusal uygulama). Tüm workspace/ okumaları wsPath() üzerinden geçer.
+// localStorage anahtarları demo'da ayrı önek alır — gerçek kurulumun işaretleri,
+// düzenlemeleri bozulmaz (dil seçimi ortaktır).
+const DEMO=(()=>{const q=new URLSearchParams(location.search).get('demo');return q!==null&&q!=='0'&&q!=='false'})();
+const wsPath=f=>(DEMO?'demo/':'workspace/')+f;
+const skey=k=>'ruhub_'+(DEMO&&k!=='lang'?'demo_':'')+k;
 const store={
-  get(k,d){try{const v=localStorage.getItem('ruhub_'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
-  set(k,v){localStorage.setItem('ruhub_'+k,JSON.stringify(v))}
+  get(k,d){try{const v=localStorage.getItem(skey(k));return v===null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){localStorage.setItem(skey(k),JSON.stringify(v))}
 };
 function toast(msg){const t=$('#toast');t.textContent=msg||T('Kopyalandı ✓');t.classList.add('show');
   clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1600)}
@@ -678,6 +688,8 @@ function T(key,p){
   if(p)Object.keys(p).forEach(k=>{s=s.split('{'+k+'}').join(p[k])});
   return s;
 }
+// Sayı/tarih biçimi panel diline uyar (tr → 1.234, en → 1,234)
+function nloc(){return langCode==='tr'?'tr-TR':'en-US'}
 function fill(s,c){
   return String(s||'').split('{app}').join(c.n).split('{kws}').join(c.kws)
     .split('{stores}').join(c.st||'').split('{brands}').join(c.br||'')
@@ -713,7 +725,7 @@ function applyI18n(root){
   let n;
   while(n=w.nextNode()){
     const p=n.parentElement;
-    if(!p||p.closest('script,style,textarea,pre,option'))continue;
+    if(!p||p.closest('script,style,textarea,pre,#langSel'))continue;
     const raw=n.nodeValue,key=raw.replace(/\s+/g,' ').trim();
     const val=dict[key];
     if(!val||val===key)continue;
@@ -725,12 +737,13 @@ function applyI18n(root){
 }
 let checks=store.get('checks',{});
 async function loadConfig(){
-  try{const c=await (await fetch('workspace/config.json',{cache:'no-store'})).json();
+  try{const c=await (await fetch(wsPath('config.json'),{cache:'no-store'})).json();
     const app=(c.apps&&c.apps[c.activeApp])||null;
     // lang üst seviyededir (uygulama başına değil, kullanıcı tercihi)
     CONFIG=app?{lang:c.lang,...app}:null}
   catch(e){CONFIG=null}
   await loadLang();
+  if(DEMO){renderDemoBanner();await seedDemo()}
   applyConfig();
   updateCovers();renderYtChips();renderKwBank();renderStudioLangs();buildUtm();renderReports();renderPrompts();
 }
@@ -744,16 +757,48 @@ function applyConfig(){
   document.title=(emo?emo+' ':'')+name+' — '+suffix;
   const h=$('#appTitle');
   if(h)h.childNodes[0].nodeValue=(emo?emo+' ':'')+name;
-  const tg=$('#appTagline');if(tg)tg.textContent=c.tagline||'Pazarlama Komuta Merkezi';
+  const tg=$('#appTagline');if(tg)tg.textContent=c.tagline||LT('Pazarlama Komuta Merkezi','Marketing Command Center');
   const fa=$('#footerApp');if(fa)fa.textContent=name+' — '+suffix;
-  const nloc=langCode==='tr'?'tr-TR':'en-US',gn=goalN().toLocaleString(nloc);
+  const gn=goalN().toLocaleString(nloc());
   const gl=$('#goalLabel');if(gl)gl.textContent=T('{n} indirme',{n:gn});
   const rt=$('#roadmapTitle');
   if(rt)rt.textContent=T('{n} İndirmeye Giden Yol',{n:gn});
   // Kurulum uyarısı: config yoksa ya da hâlâ şablon değerlerindeyse görünür
   const tpl=!c.name||c.name==='My App'||c.playId==='com.example.myapp'||!(c.keywords||[]).length
     ||((c.keywords||[])[0]||'').startsWith('kelime öbeği');
-  const bn=$('#setupBanner');if(bn)bn.style.display=tpl?'block':'none';
+  const bn=$('#setupBanner');if(bn)bn.style.display=tpl&&!DEMO?'block':'none';
+}
+// Kaynak dil Türkçe; sözlükte karşılığı yoksa en dışındaki dillerde İngilizce yedek kullanılır.
+function LT(tr,en){const v=T(tr);return v!==tr?v:(langCode==='tr'?tr:en)}
+function renderDemoBanner(){
+  const b=$('#demoBanner');if(!b)return;
+  b.innerHTML=`🧪 <b>${esc(LT('Demo verisi','Demo data'))}</b> — ${esc(LT(
+    'kurgusal bir uygulama (Tidal Tiles) ve kurgusal rakipler. Kendi uygulamanı kullanmak için python setup.py çalıştır.',
+    'a fictional app (Tidal Tiles) and fictional competitors. Run python setup.py to use your own.'))}
+    &nbsp;<a href="${esc(location.pathname)}" style="color:var(--accent)">${esc(LT('Demodan çık','Exit demo'))}</a>
+    &nbsp;·&nbsp;<a href="#" id="demoReset" style="color:var(--muted)">${esc(LT('Demoyu sıfırla','Reset demo'))}</a>`;
+  b.style.display='block';
+  $('#demoReset').onclick=e=>{e.preventDefault();
+    Object.keys(localStorage).filter(k=>k.startsWith('ruhub_demo_')).forEach(k=>localStorage.removeItem(k));
+    location.reload()};
+}
+// Demo'nun tarayıcı tarafı durumu (kampanya kaydı, haftalık rapor, işaretler, video tag'leri)
+// demo/seed.json'dan BİR KEZ demo önekli anahtarlara yazılır; sonra kullanıcı serbestçe değiştirir.
+async function seedDemo(){
+  if(!store.get('seeded',false)){
+    let s=null;try{s=await (await fetch('demo/seed.json',{cache:'no-store'})).json()}catch(e){}
+    if(s&&s.store){Object.entries(s.store).forEach(([k,v])=>store.set(k,v));store.set('seeded',true)}
+    checks=store.get('checks',{});pbAdded=store.get('pbAdded',[]);campaigns=store.get('campaigns',[]);
+    reports=store.get('reports',[]);ytSel=store.get('ytSel',[]);customTags=store.get('customTags',[]);
+    $('#baseDl').value=store.get('base',0)||'';
+    $$('[data-store]').forEach(el=>{el.value=store.get('f_'+el.id,el.value)});
+    renderCustomTags();renderCampaigns();updateCounters();
+  }
+  // Kreatif Stüdyo boş kanvas yerine örnek oyun görüntüsü + ilk şerit başlığıyla açılsın
+  const img=new Image();
+  img.onload=()=>{ssImage=img;
+    if(!$('#ssCap').value)$('#ssCap').value=(srcScreens()[0]||'');drawSS()};
+  img.src='demo/gameplay.svg';
 }
 document.addEventListener('click',e=>{
   const head=e.target.closest('.phase-head');
@@ -1102,7 +1147,7 @@ function kwBankGroups(){
   (A.tagGroups||[]).forEach(x=>g.push([x.group,x.tags]));
   (A.localization||[]).forEach(L=>{
     const tags=String(L.iosKw||'').split(',').map(s=>s.trim()).filter(Boolean);
-    if(tags.length)g.push([(L.flag||'🌍')+' '+(L.name||L.lang||'')+' kelime kümesi',tags]);
+    if(tags.length)g.push([(L.flag||'🌍')+' '+T('{x} kelime kümesi',{x:L.name||L.lang||''}),tags]);
   });
   return g;
 }
@@ -1111,8 +1156,8 @@ function renderKwBank(){
   $('#kwBank').innerHTML=groups.length?groups.map(([g,tags])=>`
     <div class="card"><h3>${esc(g)} <span class="badge">tıkla → kopyala</span></h3>
     <div class="chips">${tags.map(t=>`<span class="chip" data-copy="${esc(t)}">${esc(t)}</span>`).join('')}</div></div>`).join('')
-    :`<div class="card">Henüz kelime verisi yok — <code>refresh.bat</code> ile bir tarama çalıştır
-      (ya da sayfayı <code>start.bat</code> ile sunucudan aç).</div>`;
+    :`<div class="card">${T('Henüz kelime verisi yok — {a} ile bir tarama çalıştır (ya da sayfayı {b} ile sunucudan aç).',
+      {a:'<code>refresh.bat</code>',b:'<code>start.bat</code>'})}</div>`;
 }
 let customTags=store.get('customTags',[]);
 function renderCustomTags(){
@@ -1141,11 +1186,11 @@ document.addEventListener('dblclick',e=>{
 // marka terimleri config.json + data.json'dan enjekte edilir.
 function promptCtx(){
   const c=CONFIG||{},R=RADAR||{};
-  const n=c.name||((R.myApp||{}).name)||'UYGULAMA';
-  const kws=radarTargets(5).join(', ')||((c.keywords||[]).slice(0,5).join(', '))||'[hedef kelimeler]';
+  const n=c.name||((R.myApp||{}).name)||T('UYGULAMA');
+  const kws=radarTargets(5).join(', ')||((c.keywords||[]).slice(0,5).join(', '))||T('[hedef kelimeler]');
   const st=[c.iosId?('App Store id'+c.iosId):'',c.playId?('Play '+c.playId):''].filter(Boolean).join(', ')
-    ||'[mağaza kimlikleri config.json\'da tanımlı değil]';
-  const br=((c.brandTerms||[]).join(', '))||'[rakip marka terimleri config.json > brandTerms]';
+    ||T('[mağaza kimlikleri config.json\'da tanımlı değil]');
+  const br=((c.brandTerms||[]).join(', '))||T('[rakip marka terimleri config.json > brandTerms]');
   const ns=(((c.screenHeadings)||[]).length)||5;
   return {n,kws,st,br,ns};
 }
@@ -1167,7 +1212,7 @@ function parseBracket(b){ // "50M+" -> 50000000, "1,000+" -> 1000
 }
 async function loadRadar(){
   try{
-    const res=await fetch('workspace/data.json',{cache:'no-store'});
+    const res=await fetch(wsPath('data.json'),{cache:'no-store'});
     if(!res.ok)throw new Error(res.status);
     RADAR=await res.json();
     renderRadar();renderAutoReport();renderReports();
@@ -1208,7 +1253,7 @@ function dltTxt(v,long){
 }
 function renderRankSection(){
   const d=RADAR,rs=normRanks(),countries=d.countries||[d.country||'us'];
-  $('#radarCountry').textContent=countries.length+' ülke taranıyor';
+  $('#radarCountry').textContent=T('{n} ülke taranıyor',{n:countries.length});
   if(rankCountry!=='ALL'&&!countries.includes(rankCountry))rankCountry='ALL';
   $('#rankCountries').innerHTML=['ALL',...countries].map(c=>
     `<span class="chip ${rankCountry===c?'sel':''}" data-rc="${c}">${c==='ALL'?'🌍 Tümü (matris)':c.toUpperCase()}</span>`).join('');
@@ -1222,7 +1267,7 @@ function renderRankSection(){
           const v=r.countries[c];
           if(!v)return '<td style="color:var(--muted)">—</td>';
           const col=v.myRank?(v.myRank<=10?'var(--ok)':v.myRank<=50?'var(--warn)':'var(--text)'):'var(--bad)';
-          return `<td class="num" style="color:${col}" title="hacim ${v.volume??'?'} · zorluk ${v.difficulty??'?'} · ${v.total??'?'} sonuç">${v.myRank?'#'+v.myRank:'—'}${dltTxt(v)}</td>`;
+          return `<td class="num" style="color:${col}" title="${esc(T('hacim {v} · zorluk {d} · {t} sonuç',{v:v.volume??'?',d:v.difficulty??'?',t:v.total??'?'}))}">${v.myRank?'#'+v.myRank:'—'}${dltTxt(v)}</td>`;
         }).join('')}<td class="num">${volBadge(avg)}</td></tr>`;
       }).join('')+'</tbody></table>';
   }else{
@@ -1261,9 +1306,9 @@ function renderAsoPlan(){
 function renderRadar(){
   const d=RADAR;
   const cList=(d.countries||[d.country||'us']).map(c=>c.toUpperCase()).join(', ');
-  $('#radarStatus').innerHTML=`✅ Son tarama: <b>${new Date(d.generated).toLocaleString('tr-TR')}</b>
+  $('#radarStatus').innerHTML=`✅ Son tarama: <b>${new Date(d.generated).toLocaleString(nloc())}</b>
     &nbsp;·&nbsp; Ülkeler: <b>${cList}</b>
-    &nbsp;·&nbsp; ${d.competitors.length} rakip, ${d.keywordRanks.length} anahtar kelime, ${d.tags.length} etiket
+    &nbsp;·&nbsp; ${esc(T('{c} rakip, {k} anahtar kelime, {t} etiket',{c:d.competitors.length,k:d.keywordRanks.length,t:d.tags.length}))}
     <br><span style="font-size:.78rem;color:var(--muted)">Yenilemek için: <code>MarketingHub\\refresh.bat</code> —
     ülke/rakip/kelime eklemek için <code>config.json</code>. Günlük Δ takibi için taramayı her gün çalıştır
     (Görev Zamanlayıcı önerilir).</span>`;
@@ -1272,7 +1317,7 @@ function renderRadar(){
   const opps=d.tags.filter(t=>t.opportunity);
   $('#radarOpp').style.display='block';
   $('#oppChips').innerHTML=opps.length?opps.map(t=>
-    `<span class="chip" data-copy="${esc(t.tag)}">🔥 ${esc(t.tag)} <small style="color:var(--muted)">(${t.usedBy} rakip)</small></span>`).join('')
+    `<span class="chip" data-copy="${esc(t.tag)}">🔥 ${esc(t.tag)} <small style="color:var(--muted)">${esc(T('({n} rakip)',{n:t.usedBy}))}</small></span>`).join('')
     :'<i style="color:var(--muted)">Fırsat kalmadı — tüm güçlü etiketler sende var 🎉</i>';
 
   // keyword sıraları (çoklu ülke) + mağaza değişiklik planı
@@ -1281,7 +1326,7 @@ function renderRadar(){
   renderAsoPlan();
 
   // uygulama karşılaştırma
-  const apps=[{name:d.myApp.name+' (SEN)',ios:d.myApp.ios,play:d.myApp.play,me:1},...d.competitors];
+  const apps=[{name:T('{x} (SEN)',{x:d.myApp.name}),ios:d.myApp.ios,play:d.myApp.play,me:1},...d.competitors];
   $('#radarAppsCard').style.display='block';
   $('#radarApps').innerHTML=apps.map(a=>`<tr style="${a.me?'color:var(--accent2);font-weight:600':''}">
     <td>${esc(a.name)}</td>
@@ -1298,7 +1343,7 @@ function renderTagMatrix(){
   $('#tagFilterAll').classList.toggle('primary',!tagFilterOpp);
   $('#tagFilterOpp').classList.toggle('primary',tagFilterOpp);
   $('#radarTags').innerHTML=rows.map(t=>`<tr>
-    <td>${t.opportunity?'🔥 ':''}<b data-copy="${esc(t.tag)}" style="cursor:pointer" title="kopyala">${esc(t.tag)}</b></td>
+    <td>${t.opportunity?'🔥 ':''}<b data-copy="${esc(t.tag)}" style="cursor:pointer" title="${esc(T('kopyala'))}">${esc(t.tag)}</b></td>
     <td class="num">${t.usedBy}</td><td class="num">${t.inTitles}</td><td class="num">${t.score}</td>
     <td>${t.mine?'<span style="color:var(--ok)">✓</span>':'<span style="color:var(--bad)">✗</span>'}</td>
     <td style="font-size:.75rem;color:var(--muted)">${t.apps.map(esc).join(', ')}</td></tr>`).join('')
@@ -1330,8 +1375,8 @@ function allRecs(){
   return [ ...((ADVISOR&&ADVISOR.recommendations)||[]), ...((RADAR&&RADAR.recommendations)||[]) ];
 }
 async function loadAdvisor(){
-  try{ADVISOR=await (await fetch('workspace/advisor.json',{cache:'no-store'})).json()}catch(e){ADVISOR=null}
-  try{PLAYBOOK=await (await fetch('workspace/playbook.json',{cache:'no-store'})).json()}catch(e){PLAYBOOK=null}
+  try{ADVISOR=await (await fetch(wsPath('advisor.json'),{cache:'no-store'})).json()}catch(e){ADVISOR=null}
+  try{PLAYBOOK=await (await fetch(wsPath('playbook.json'),{cache:'no-store'})).json()}catch(e){PLAYBOOK=null}
   syncAnalysisToFields();
   renderAdvisor();renderAdviceSlots();renderAsoSuggest();renderKwBank();renderPB();renderDynPhase();
   renderI18n();renderI18nAudit();renderPubVerify();renderCampaigns();buildUtm();renderStudioLangs();
@@ -1367,7 +1412,7 @@ function renderAdvisor(){
         <span class="badge">${esc(AREA_NAMES[r.area]||r.area)}</span>
         <div class="tt" style="font-weight:600;margin-top:7px">${esc(r.title)}</div>
         <div style="font-size:.83rem;color:var(--muted);margin-top:5px;line-height:1.55">${esc(r.detail)}</div>
-        <div class="src">${esc(T('Kaynak: {x}',{x:r.source||'—'}))}</div>
+        <div class="src">${esc(T('Kaynak: {x}',{x:T(r.source||'—')}))}</div>
       </div></div>`).join('')
     ||'<div class="card">🎉 Açık öneri yok — yeni tarama (refresh.bat) veya Claude analizi yeni öneriler getirir.</div>';
 }
@@ -1510,7 +1555,7 @@ document.addEventListener('click',e=>{
   if(b){const L=ADVISOR.localization[+b.dataset.i18n];copyText(L[b.dataset.f]);return}
   const a=e.target.closest('[data-i18nall]');
   if(a){const L=ADVISOR.localization[+a.dataset.i18nall];
-    copyText(`# ${L.name} (${L.country})\n\niOS Başlık: ${L.iosTitle}\niOS Alt Başlık: ${L.iosSub}\niOS Keywords: ${L.iosKw}\nPlay Kısa Açıklama: ${L.gpShort}\n\n--- Play Uzun Açıklama ---\n${L.gpLong||''}\n\n--- Ekran şeritleri ---\n${L.screens.map(s=>'- '+s).join('\n')}`);return}
+    copyText(`# ${L.name} (${L.country})\n\n${T('iOS Başlık')}: ${L.iosTitle}\n${T('iOS Alt Başlık')}: ${L.iosSub}\niOS Keywords: ${L.iosKw}\n${T('Play Kısa Açıklama')}: ${L.gpShort}\n\n--- ${T('Play Uzun Açıklama')} ---\n${L.gpLong||''}\n\n--- ${T('Ekran şeritleri')} ---\n${L.screens.map(s=>'- '+s).join('\n')}`);return}
   const c=e.target.closest('[data-copyid]');
   if(c){copyText($('#'+c.dataset.copyid).textContent)}
 });
@@ -1547,10 +1592,12 @@ function renderCampaigns(){
     const spend=withData.reduce((s,c)=>s+c.spend,0),inst=withData.reduce((s,c)=>s+c.installs,0);
     const cpi=spend/inst;
     v.style.display='block';
-    v.innerHTML=`📊 Toplam: <b>$${spend.toFixed(2)}</b> → <b>${inst}</b> kurulum · Ortalama CPI <b>$${cpi.toFixed(2)}</b><br>`+
-      (cpi<=1?'Bu CPI casual oyun için <b>iyi</b> — kanal çalışıyor, ölçeklemeyi düşünebilirsin (önce D1/D7 tutunmasına bak).':
-       cpi<=2.5?'Bu CPI <b>normal bandın üstü</b>. Kreatifi değiştirip tekrar dene; dönüşüm mağaza sayfasında da kaybediliyor olabilir.':
-       'Bu CPI <b>çok yüksek</b>. Ücretli kanalı durdur; önce mağaza dönüşümünü ve D1 tutunmasını düzelt — aksi halde her dolar kaybolur.');
+    const B=x=>'<b>'+x+'</b>';
+    v.innerHTML=T('📊 Toplam: {s} → {i} kurulum · Ortalama CPI {c}',
+      {s:B('$'+spend.toFixed(2)),i:B(inst),c:B('$'+cpi.toFixed(2))})+'<br>'+
+      (cpi<=1?T('Bu CPI casual oyun için {x}',{x:B(T('iyi'))})+' '+T('— kanal çalışıyor, ölçeklemeyi düşünebilirsin (önce D1/D7 tutunmasına bak).'):
+       cpi<=2.5?T('Bu CPI {x}',{x:B(T('normal bandın üstü'))})+T('. Kreatifi değiştirip tekrar dene; dönüşüm mağaza sayfasında da kaybediliyor olabilir.'):
+       T('Bu CPI {x}',{x:B(T('çok yüksek'))})+T('. Ücretli kanalı durdur; önce mağaza dönüşümünü ve D1 tutunmasını düzelt — aksi halde her dolar kaybolur.'));
   }else v.style.display='none';
 }
 document.addEventListener('click',e=>{
@@ -1562,7 +1609,7 @@ document.addEventListener('click',e=>{
     campaigns.sort((a,b)=>a.date.localeCompare(b.date));
     store.set('campaigns',campaigns);
     $('#cmpName').value='';$('#cmpSpend').value='';$('#cmpInstalls').value='';
-    renderCampaigns();toast('Kaydedildi ✓');return;
+    renderCampaigns();toast(T('Kaydedildi ✓'));return;
   }
   const d=e.target.closest('[data-cmpdel]');
   if(d){campaigns.splice(+d.dataset.cmpdel,1);store.set('campaigns',campaigns);renderCampaigns()}
@@ -1581,7 +1628,7 @@ let ssTheme=0,ssImage=null,ssPos='bottom',ssLang='en';
 // Kaynak dil ekran başlıkları config.json > screenHeadings'ten gelir.
 function srcScreens(){return ((CONFIG||{}).screenHeadings)||[]}
 function studioLangs(){
-  return [{lang:'en',flag:'🇬🇧',name:'Kaynak dil',screens:srcScreens()},
+  return [{lang:'en',flag:'🇬🇧',name:T('Kaynak dil'),screens:srcScreens()},
           ...((ADVISOR&&ADVISOR.localization)||[])];
 }
 function renderStudioLangs(){
@@ -1687,7 +1734,7 @@ function initStudio(){
   $('#ssDl').addEventListener('click',()=>{
     const cv=$('#ssCanvas');
     cv.toBlob(b=>{const a=document.createElement('a');
-      a.href=URL.createObjectURL(b);a.download='store_screenshot_'+$('#ssSize').value+'.png';a.click();toast('PNG indirildi ✓')},'image/png');
+      a.href=URL.createObjectURL(b);a.download='store_screenshot_'+$('#ssSize').value+'.png';a.click();toast(T('PNG indirildi ✓'))},'image/png');
   });
   drawSS();
 }
@@ -1732,9 +1779,9 @@ function initStudioThemes(){
 /* ---- AI video brief üretici ---- */
 function briefCtx(){
   const c=CONFIG||{},R=RADAR||{};
-  return {n:c.name||((R.myApp||{}).name)||'UYGULAMA',
-          kws:radarTargets(5).join(', ')||'[hedef kelimeler]',
-          br:((c.brandTerms||[]).join(', '))||'[rakip marka / nostalji terimleri]'};
+  return {n:c.name||((R.myApp||{}).name)||T('UYGULAMA'),
+          kws:radarTargets(5).join(', ')||T('[hedef kelimeler]'),
+          br:((c.brandTerms||[]).join(', '))||T('[rakip marka / nostalji terimleri]')};
 }
 // Brief'ler uygulamadan bağımsız iskelettir: köşeli parantezli yerleri kendi
 // ürününle doldurursun, kelime ve marka bilgisi config/radar'dan gelir.
@@ -1758,7 +1805,7 @@ function addReport(){
   renderReports();toast('Hafta kaydedildi ✓');
 }
 function delReport(i){reports.splice(i,1);store.set('reports',reports);renderReports()}
-function fmt(n){return n.toLocaleString('tr-TR')}
+function fmt(n){return n.toLocaleString(nloc())}
 function renderReports(){
   const base=store.get('base',0),tb=$('#rTable tbody');
   let cum=base;
@@ -1782,11 +1829,11 @@ function renderReports(){
   $('#kpiCvr').textContent=last&&last.vw?(last.ins/last.vw*100).toFixed(1)+'%':'—';
   if(last&&last.ins>0){
     const weeks=Math.ceil((goalN()-total)/last.ins);
-    $('#kpiEta').textContent=total>=goalN()?'🎉 Ulaşıldı!':(weeks>520?'∞':'~'+weeks+' hafta');
+    $('#kpiEta').textContent=total>=goalN()?'🎉 Ulaşıldı!':(weeks>520?'∞':T('~{n} hafta',{n:weeks}));
   }else $('#kpiEta').textContent='—';
   const pct=Math.min(100,total/goalN()*100);
   $('#goalBar').style.width=pct+'%';
-  $('#goalTxt').textContent=(approx?'≥':'')+fmt(total)+' / '+fmt(goalN())+' (%'+pct.toFixed(1)+')';
+  $('#goalTxt').textContent=(approx?'≥':'')+fmt(total)+' / '+fmt(goalN())+' ('+(langCode==='tr'?'%'+pct.toFixed(1):pct.toFixed(1)+'%')+')';
 }
 
 /* ============ başlat ============ */

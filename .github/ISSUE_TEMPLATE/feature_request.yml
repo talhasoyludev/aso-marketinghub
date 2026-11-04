@@ -1,0 +1,44 @@
+name: Feature request
+description: Suggest a new panel feature, store country, language or analysis method.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        MarketingHub keeps nothing hardcoded: features should derive from config.json, the scan, or advisor.json rather than ship fixed lists or example copy.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: The decision or task you cannot do well today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What you would like to happen. Which data would it be derived from?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options:
+        - Scanner (refresh.py)
+        - Panel (index.html)
+        - Panel language (i18n)
+        - Claude Code skill
+        - Setup / install
+        - Other
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to open a pull request for this.

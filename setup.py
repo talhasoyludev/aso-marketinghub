@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""İlk kurulum ve sağlık kontrolü.
+"""First-run setup and health check.
 
-    python setup.py            # eksik dosyaları şablondan oluşturur, durumu yazar
-    python setup.py --check    # hiçbir şey yazmaz, yalnızca durumu raporlar
+    python setup.py            # creates missing files from templates, reports status
+    python setup.py --check    # writes nothing, only reports status
 
-Kişisel veri (config, tarama çıktısı, analizler, görseller) workspace/ altında
-durur ve git'e girmez; kod ağacı herkese açık paylaşılabilir kalır.
+Personal data (config, scan output, analyses, images) lives under workspace/
+and stays out of git, so the code tree can be shared publicly.
+Output language follows config.json > lang (MARKETINGHUB_LANG overrides it).
 """
 import json
 import shutil
 import sys
 from pathlib import Path
+
+import mh_text
+from mh_text import t
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -22,15 +26,15 @@ BASE = Path(__file__).resolve().parent
 WS = BASE / "workspace"
 TPL = BASE / "templates"
 
-# şablondan kopyalanacak dosyalar: (workspace adı, şablon adı, zorunlu mu)
-# (workspace adı, şablon adı, zorunlu mu) — playbook dile göre seçilir
+# files seeded from templates: (workspace name, template name, required?)
+# — the playbook template is picked by language
 SEED = [("config.json", "config.json", True),
         ("advisor.json", "advisor.json", False),
         ("playbook.json", None, False)]
 
 
 def playbook_template(lang):
-    """Dil paketine uygun playbook şablonu; yoksa İngilizce."""
+    """Playbook template for the language pack; English if there is none."""
     for name in (f"playbook.{lang}.json", "playbook.en.json"):
         if (TPL / name).exists():
             return name
@@ -45,24 +49,19 @@ def main():
 
     WS.mkdir(exist_ok=True)
 
-    # Kök dizinde eski yerleşimden kalan dosya varsa workspace'e taşı
+    # Move files left in the repo root by the old layout into workspace/
     for name, _, _ in SEED:
         old = BASE / name
         if old.exists() and not (WS / name).exists():
             if check_only:
-                print(WARN + f"{name} kök dizinde — `python setup.py` workspace'e taşır")
+                print(WARN + t("s.root_found", name=name))
             else:
                 shutil.move(str(old), str(WS / name))
-                print(PASS + f" {name} → workspace/ taşındı (eski yerleşimden)")
+                print(PASS + t("s.moved", name=name))
 
-    lang = "en"
-    try:
-        lang = json.loads((WS / "config.json").read_text(encoding="utf-8")).get("lang", "en")
-    except Exception:
-        try:
-            lang = json.loads((TPL / "config.json").read_text(encoding="utf-8")).get("lang", "en")
-        except Exception:
-            pass
+    # config may have just moved into workspace/ — re-read the language
+    mh_text.set_lang(mh_text.detect_lang(BASE))
+    lang = mh_text.raw_lang(BASE)
 
     for name, tpl, required in SEED:
         tpl = tpl or playbook_template(lang)
@@ -71,41 +70,40 @@ def main():
             print(PASS + f" workspace/{name}")
             continue
         if check_only:
-            (problems if required else []).append(f"workspace/{name} yok")
-            print((FAIL if required else WARN) + f" workspace/{name} yok"
-                  + (f" — şablon: templates/{tpl}" if source.exists() else ""))
+            (problems if required else []).append(t("s.ws_missing", name=name))
+            print((FAIL if required else WARN) + " " + t("s.ws_missing", name=name)
+                  + (t("s.template_hint", tpl=tpl) if source.exists() else ""))
             continue
         if source.exists():
             shutil.copy(str(source), str(target))
-            print(PASS + f" workspace/{name} şablondan oluşturuldu")
+            print(PASS + t("s.created", name=name))
         else:
-            problems.append(f"templates/{tpl} bulunamadı")
+            problems.append(t("s.tpl_missing", tpl=tpl))
 
     cfg_path = WS / "config.json"
     if not cfg_path.exists():
-        problems.append("config.json yok")
+        problems.append(t("s.no_config"))
     else:
         try:
             cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
             app = (cfg.get("apps") or {}).get(cfg.get("activeApp")) or {}
             if not app:
-                problems.append("config.json: activeApp, apps içindeki bir bloğa işaret etmiyor")
+                problems.append(t("s.bad_active"))
             else:
                 if app.get("name") in (None, "", "My App"):
-                    problems.append("config.json: apps.<app>.name hâlâ şablon değerinde")
+                    problems.append(t("s.name_tpl"))
                 if not app.get("iosId") and not app.get("playId"):
-                    problems.append("config.json: iosId veya playId'den en az biri gerekli")
+                    problems.append(t("s.need_id"))
                 if not app.get("keywords"):
-                    problems.append("config.json: keywords listesi boş — radar ölçecek bir şey bulamaz")
+                    problems.append(t("s.no_keywords"))
                 if app.get("playId") == "com.example.myapp":
-                    problems.append("config.json: playId hâlâ örnek değerinde")
+                    problems.append(t("s.play_example"))
         except json.JSONDecodeError as e:
-            problems.append(f"config.json geçerli JSON değil: {e}")
+            problems.append(t("s.config_bad_json", e=e))
 
     data = WS / "data.json"
     print((PASS if data.exists() else WARN) +
-          (" workspace/data.json" if data.exists()
-           else " workspace/data.json yok — henüz tarama yapılmadı"))
+          (t("s.data_ok") if data.exists() else t("s.data_missing")))
 
     adv = WS / "advisor.json"
     if adv.exists():
@@ -113,25 +111,22 @@ def main():
             a = json.loads(adv.read_text(encoding="utf-8"))
             n = len(a.get("recommendations") or []) + len(a.get("asoSuggestions") or [])
             print((PASS if n else WARN) +
-                  (f" workspace/advisor.json — {n} kayıt" if n
-                   else " workspace/advisor.json boş — henüz Claude analizi yapılmadı"))
+                  (t("s.adv_count", n=n) if n else t("s.adv_empty")))
         except json.JSONDecodeError as e:
-            problems.append(f"advisor.json geçerli JSON değil: {e}")
+            problems.append(t("s.adv_bad_json", e=e))
 
     print()
     if problems:
-        print("Eksikler:")
+        print(t("s.problems"))
         for p in problems:
             print("   ·", p)
-        print("\nSıradaki adım: workspace/config.json'u kendi uygulamanla doldur "
-              "(alan açıklamaları dosyanın içinde), sonra bu betiği tekrar çalıştır.")
+        print(t("s.fix_hint"))
         return 1
 
-    print("Kurulum tamam. Sıradaki adımlar:")
-    print("   1. python refresh.py        → mağaza taraması, workspace/data.json üretir")
-    print("   2. start.bat / start.command → paneli aç")
-    print("   3. Claude Code'da: \"bu uygulamanın ASO analizini yap\" "
-          "(skills/marketinghub yükleyip advisor.json'u üretir)")
+    print(t("s.done"))
+    print(t("s.step1"))
+    print(t("s.step2"))
+    print(t("s.step3"))
     return 0
 
 

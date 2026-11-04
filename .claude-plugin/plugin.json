@@ -1,0 +1,13 @@
+{
+  "name": "marketinghub",
+  "displayName": "MarketingHub",
+  "description": "Run the full ASO/growth analysis for a mobile app inside a MarketingHub checkout: config, store scan, and the advisor.json the local panel displays.",
+  "author": {
+    "name": "Talha Soylu",
+    "url": "https://github.com/talhasoyludev"
+  },
+  "homepage": "https://github.com/talhasoyludev/aso-marketinghub",
+  "repository": "https://github.com/talhasoyludev/aso-marketinghub",
+  "license": "MIT",
+  "keywords": ["aso", "app-store-optimization", "google-play", "app-store", "mobile", "marketing", "localization"]
+}

@@ -1,0 +1,45 @@
+{
+  "_help": "DEMO configuration for index.html?demo=1. Tidal Tiles and every competitor below are FICTIONAL: names are invented, store ids are 0 / com.example.*. refresh.py never reads this folder. To use your own app run `python setup.py`.",
+  "lang": "en",
+  "activeApp": "tidal-tiles",
+  "apps": {
+    "tidal-tiles": {
+      "name": "Tidal Tiles",
+      "emoji": "🌊",
+      "tagline": "Marketing Command Center · demo",
+      "iosId": 0,
+      "playId": "com.example.tidaltiles",
+      "goal": 100000,
+      "country": "us",
+      "countries": ["us", "gb", "de", "br", "jp", "mx"],
+      "rateLimitSeconds": 3,
+      "brandTerms": ["brickfall", "cubeway"],
+      "downloadAssets": false,
+      "keywords": [
+        "block puzzle",
+        "wood block puzzle",
+        "relaxing games",
+        "brain games",
+        "tile match",
+        "offline games",
+        "sudoku blocks",
+        "puzzle games for adults"
+      ],
+      "screenHeadings": [
+        "RELAX WITH EVERY DROP",
+        "NO TIMER. NO STRESS.",
+        "PLAY OFFLINE ANYWHERE",
+        "A NEW TIDE EVERY DAY",
+        "300+ CALM LEVELS"
+      ],
+      "competitors": [
+        {"name": "Brickfall Saga", "ios_id": 0, "play_id": "com.example.brickfall"},
+        {"name": "Cubeway Classic", "ios_id": 0, "play_id": "com.example.cubeway"},
+        {"name": "Woodgrain Blocks", "ios_id": 0, "play_id": "com.example.woodgrain"},
+        {"name": "Zen Grid Puzzle", "ios_id": 0, "play_id": "com.example.zengrid"},
+        {"name": "Mosaic Match 3D", "ios_id": 0, "play_id": "com.example.mosaicmatch"},
+        {"name": "Pocket Sudoku Blocks", "ios_id": 0, "play_id": "com.example.pocketsudoku"}
+      ]
+    }
+  }
+}

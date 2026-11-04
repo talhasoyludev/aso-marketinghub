@@ -1,39 +1,39 @@
 {
-  "_help": "Bu dosyayı Claude analiz oturumlarında üretir/günceller — panelin ASO metinleri, lokalizasyon paketi ve tarihli önerileri buradan gelir. Şema ve üretim yöntemi: skills/marketinghub/. Motor (refresh.py) bu dosyaya DOKUNMAZ. / Claude produces this file; the panel reads its texts from here. Schema and method: skills/marketinghub/.",
+  "_help": "Claude produces and updates this file in analysis sessions; the panel reads its store copy, localization pack and dated recommendations from here. Schema and method: skills/marketinghub/. The engine (refresh.py) never touches it. / TR: Bu dosyayı Claude analiz oturumlarında üretir; motor (refresh.py) dokunmaz.",
   "updated": "",
 
   "_schema_recommendations": {
-    "id": "adv-YYYYMMDD-NN — tarih damgalı benzersiz kimlik",
+    "id": "adv-YYYYMMDD-NN — date-stamped unique id",
     "area": "roadmap | aso | video | tags | radar | playbook | i18n | campaign | general",
-    "priority": "1 (kritik) | 2 (önemli) | 3 (sıradaki)",
-    "title": "Tek satır, aksiyon cümlesi",
-    "detail": "Neden + nasıl. Veriye dayandır: hangi tarama bulgusu bunu tetikledi?",
-    "source": "Claude — <tarih>, <hangi analiz>"
+    "priority": "1 (critical) | 2 (important) | 3 (next)",
+    "title": "One line, phrased as an action",
+    "detail": "Why + how. Ground it in data: which scan finding triggered this?",
+    "source": "Claude — <date>, <which analysis>"
   },
   "recommendations": [],
 
   "_schema_asoSuggestions": {
     "field": "iosTitle | iosSub | iosKw | iosPromo | iosDesc | iosWhatsNew | gpShort | gpLong",
-    "value": "Alana YAPIŞTIRILACAK nihai metin (karakter limitine uygun)",
-    "reason": "Neden bu metin? Reddedilen alternatif varsa onu da yaz — sonraki oturum aynı tartışmayı tekrar etmesin.",
+    "value": "The final text to PASTE into the field (within its character limit)",
+    "reason": "Why this text? Note any rejected alternative too, so the next session doesn't repeat the same debate.",
     "_limits": "iosTitle 30 · iosSub 30 · iosKw 100 · iosPromo 170 · iosDesc 4000 · gpShort 80 · gpLong 4000"
   },
   "asoSuggestions": [],
 
-  "_localizationNote": "Her dil AYRI keyword araştırmasıdır, çeviri değil — o dilde gerçekten aranan terimleri kullan. Marka adı korunur; keyword alanı EN'deki kavram listesinin yerel karşılığıdır, uydurma kelime eklenmez.",
+  "_localizationNote": "Every language is SEPARATE keyword research, not a translation — use the terms people actually search for in that language. The brand name is preserved; the keyword field is the local equivalent of the English concept list, with no invented words.",
   "_schema_localization": {
-    "lang": "tr | de | pl | ar | es | pt-BR | fr | ru … (panelin dil kodu)",
-    "name": "Dilin görünen adı",
-    "flag": "🇹🇷",
-    "country": "TR — hangi pazar için",
+    "lang": "tr | de | pl | ar | es | pt-BR | fr | ru … (panel language code)",
+    "name": "Display name of the language",
+    "flag": "🇩🇪",
+    "country": "DE — which market this pack targets",
     "priority": "1 | 2 | 3",
-    "why": "Bu dil neden öncelikli? Radar bulgusuna bağla.",
-    "iosTitle": "≤30", "iosSub": "≤30", "iosKw": "≤100 (virgülle, boşluksuz)",
+    "why": "Why is this language a priority? Tie it to a radar finding.",
+    "iosTitle": "≤30", "iosSub": "≤30", "iosKw": "≤100 (comma-separated, no spaces)",
     "gpShort": "≤80", "gpLong": "≤4000",
-    "screens": ["Ekran görüntüsü şerit başlıkları — kaynak dildekiyle aynı sırada"]
+    "screens": ["Screenshot strip headings — same order as in the source language"]
   },
   "localization": [],
 
-  "_schema_tagGroups": {"group": "🧠 Grup adı — tarih", "tags": ["etiket", "etiket"]},
+  "_schema_tagGroups": {"group": "🧠 Group name — date", "tags": ["tag", "tag"]},
   "tagGroups": []
 }

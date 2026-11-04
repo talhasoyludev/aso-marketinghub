@@ -1,26 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""advisor.json'daki dil paketini mağazaya girilebilir dosya ağacına çevirir.
+"""Turns the language pack in advisor.json into a file tree you can enter in the stores.
 
-Neden: metinler şu an yalnızca tarayıcı panosunda duruyor. Buradan çıkan ağaç
-(a) elle giriş yaparken dil dil kopyalanacak tek kaynak, (b) ileride App Store
-Connect API / fastlane deliver ile otomatik yüklemenin beklediği düzen.
+Why: the copy otherwise lives only in the browser panel. The tree produced here is
+(a) the single source to copy from, language by language, when entering it by hand,
+and (b) the layout App Store Connect API / fastlane deliver expect for automated upload.
 
-    python export_metadata.py            # export/ klasörüne yazar
-    python export_metadata.py --check    # yazmaz, yalnızca limitleri denetler
+    python export_metadata.py            # writes to workspace/export/
+    python export_metadata.py --check    # writes nothing, only checks limits
 
-Çıktı:
+Output:
     export/asc/<apple-locale>/{name,subtitle,keywords,description,
                                promotional_text,_screenshot_headings}.txt
     export/play/<play-locale>/{title,short_description,full_description}.txt
 
-Limit aşan alan varsa çıkış kodu 1 olur — mağaza zaten o yazımı reddeder.
+Exit code is 1 if any field exceeds its limit — the store would reject it anyway.
+Console output follows config.json > lang (MARKETINGHUB_LANG overrides it).
 """
 import json
 import sys
 from pathlib import Path
 
-# Windows konsolu (cp1254) Unicode karakterlerde patlamasın — refresh.py ile aynı koruma
+from mh_text import t
+
+# Keep Windows consoles (cp1254 etc.) from crashing on Unicode — same guard as refresh.py
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
@@ -34,16 +37,16 @@ EXPORT = WS / "export"
 # ya da reddedilen yazım. Apple bazı dilleri ülke ekiyle ister (ar-SA, pt-BR),
 # bazılarını çıplak (tr, pl, ru); Play'de Arapça çıplak "ar", Türkçe "tr-TR".
 LOCALES = {
-    # hub kodu: (Apple locale, Play locale, görünen ad)
-    "en":    ("en-US", "en-US", "İngilizce (kaynak)"),
-    "tr":    ("tr",    "tr-TR", "Türkçe"),
-    "de":    ("de-DE", "de-DE", "Almanca"),
-    "pl":    ("pl",    "pl-PL", "Lehçe"),
-    "ar":    ("ar-SA", "ar",    "Arapça"),
-    "es":    ("es-ES", "es-ES", "İspanyolca"),
-    "pt-BR": ("pt-BR", "pt-BR", "Portekizce (BR)"),
-    "fr":    ("fr-FR", "fr-FR", "Fransızca"),
-    "ru":    ("ru",    "ru-RU", "Rusça"),
+    # hub code: (Apple locale, Play locale, display name)
+    "en":    ("en-US", "en-US", t("e.lang.en")),
+    "tr":    ("tr",    "tr-TR", t("e.lang.tr")),
+    "de":    ("de-DE", "de-DE", t("e.lang.de")),
+    "pl":    ("pl",    "pl-PL", t("e.lang.pl")),
+    "ar":    ("ar-SA", "ar",    t("e.lang.ar")),
+    "es":    ("es-ES", "es-ES", t("e.lang.es")),
+    "pt-BR": ("pt-BR", "pt-BR", t("e.lang.pt-BR")),
+    "fr":    ("fr-FR", "fr-FR", t("e.lang.fr")),
+    "ru":    ("ru",    "ru-RU", t("e.lang.ru")),
 }
 
 ASC_LIMITS = {"name": 30, "subtitle": 30, "keywords": 100,
@@ -85,7 +88,7 @@ def rows():
     for loc in adv.get("localization", []):
         code = loc.get("lang")
         if code not in LOCALES:
-            print(f"  ! {code}: Apple/Play kod eşlemesi yok, atlandı")
+            print(t("e.no_mapping", code=code))
             continue
         out.append((code, loc.get("name") or code, {
             "iosTitle": loc.get("iosTitle"),
@@ -111,9 +114,12 @@ def write(path, text):
 def main():
     check_only = "--check" in sys.argv
     problems, written, missing = [], 0, []
+    if not (WS / "advisor.json").exists():
+        print(t("e.no_advisor"))
+        return 1
 
-    print("Dil paketi dışa aktarımı" + (" (yalnızca denetim)" if check_only else ""))
-    print(f"{'dil':16} {'name':>7} {'subtitle':>9} {'keywords':>9} {'short':>7} {'long':>7}")
+    print(t("e.title") + (t("e.check_only") if check_only else ""))
+    print(f"{t('e.col_lang'):16} {'name':>7} {'subtitle':>9} {'keywords':>9} {'short':>7} {'long':>7}")
     print("-" * 60)
 
     for code, name, f in rows():
@@ -165,21 +171,18 @@ def main():
 
     print("-" * 60)
     if not check_only:
-        print(f"✓ {written} dosya yazıldı → {EXPORT}")
+        print(t("e.written", n=written, path=EXPORT))
     if missing:
-        print(f"\nBoş alanlar ({len(missing)}) — mağazada elle doldurulacak ya da "
-              f"advisor.json'a eklenecek:")
+        print(t("e.missing", n=len(missing)))
         for m in sorted(set(missing)):
             print("   ·", m)
     if problems:
-        print("\n✗ LİMİT AŞIMI — mağaza bu yazımı reddeder:")
+        print(t("e.over_limit"))
         for p in problems:
             print("   ·", p)
         return 1
-    print("\n✓ Tüm alanlar karakter limitleri içinde.")
-    print("Not: Gizlilik politikası URL'i her locale için ZORUNLU (App Store "
-          "gönderiminde locale başına hata verir) — bu araç URL üretmez, "
-          "ASC'de dil dil gir.")
+    print(t("e.ok"))
+    print(t("e.privacy_note"))
     return 0
 
 

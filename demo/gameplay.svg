@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1290" height="2796" viewBox="0 0 1290 2796">
+  <!-- Fictional gameplay mock for demo mode (Tidal Tiles is not a real app). -->
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b3d5c"/><stop offset=".55" stop-color="#11698e"/><stop offset="1" stop-color="#19a7b8"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7b77a"/><stop offset="1" stop-color="#b9783d"/>
+    </linearGradient>
+    <linearGradient id="foam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#bff3f7"/><stop offset="1" stop-color="#7fe0ea"/>
+    </linearGradient>
+  </defs>
+  <rect width="1290" height="2796" fill="url(#sea)"/>
+  <path d="M0 420 Q160 370 320 420 T640 420 T960 420 T1290 420 V0 H0Z" fill="#0a3350" opacity=".7"/>
+  <text x="645" y="250" font-family="Segoe UI,Arial" font-size="92" font-weight="800" fill="#fff" text-anchor="middle">Daily Tide</text>
+  <text x="645" y="335" font-family="Segoe UI,Arial" font-size="48" fill="#bff3f7" text-anchor="middle">Board 214 · Score 3,480</text>
+  <rect x="105" y="520" width="1080" height="1080" rx="48" fill="#082a40" opacity=".85"/>
+  <g id="grid">
+    <!-- 9x9 grid, cell 112, origin 135,550 -->
+    <g fill="#0f4664">
+      <rect x="135" y="550" width="1020" height="1020" rx="24"/>
+    </g>
+    <g stroke="#1d6487" stroke-width="4">
+      <path d="M248 550V1570M361 550V1570M474 550V1570M587 550V1570M700 550V1570M813 550V1570M926 550V1570M1039 550V1570"/>
+      <path d="M135 663H1155M135 776H1155M135 889H1155M135 1002H1155M135 1115H1155M135 1228H1155M135 1341H1155M135 1454H1155"/>
+    </g>
+    <g stroke="#3fb6cf" stroke-width="10">
+      <path d="M474 550V1570M813 550V1570M135 889H1155M135 1228H1155"/>
+    </g>
+  </g>
+  <g fill="url(#wood)" stroke="#8a5424" stroke-width="6">
+    <rect x="142" y="557" width="99" height="99" rx="16"/><rect x="255" y="557" width="99" height="99" rx="16"/>
+    <rect x="142" y="670" width="99" height="99" rx="16"/><rect x="594" y="557" width="99" height="99" rx="16"/>
+    <rect x="707" y="670" width="99" height="99" rx="16"/><rect x="933" y="557" width="99" height="99" rx="16"/>
+    <rect x="1046" y="557" width="99" height="99" rx="16"/><rect x="1046" y="670" width="99" height="99" rx="16"/>
+    <rect x="255" y="896" width="99" height="99" rx="16"/><rect x="368" y="896" width="99" height="99" rx="16"/>
+    <rect x="368" y="1009" width="99" height="99" rx="16"/><rect x="820" y="1009" width="99" height="99" rx="16"/>
+    <rect x="933" y="1009" width="99" height="99" rx="16"/><rect x="142" y="1235" width="99" height="99" rx="16"/>
+    <rect x="142" y="1348" width="99" height="99" rx="16"/><rect x="255" y="1461" width="99" height="99" rx="16"/>
+    <rect x="707" y="1348" width="99" height="99" rx="16"/><rect x="820" y="1348" width="99" height="99" rx="16"/>
+    <rect x="1046" y="1235" width="99" height="99" rx="16"/><rect x="1046" y="1461" width="99" height="99" rx="16"/>
+  </g>
+  <!-- the row being cleared by the tide -->
+  <g fill="url(#foam)" opacity=".92">
+    <rect x="142" y="1122" width="1006" height="99" rx="20"/>
+  </g>
+  <text x="645" y="1192" font-family="Segoe UI,Arial" font-size="64" font-weight="800" fill="#0b3d5c" text-anchor="middle">COMBO ×3</text>
+  <g fill="url(#wood)" stroke="#8a5424" stroke-width="6">
+    <rect x="190" y="1780" width="99" height="99" rx="16"/><rect x="303" y="1780" width="99" height="99" rx="16"/><rect x="303" y="1893" width="99" height="99" rx="16"/>
+    <rect x="596" y="1780" width="99" height="99" rx="16"/><rect x="596" y="1893" width="99" height="99" rx="16"/><rect x="596" y="2006" width="99" height="99" rx="16"/>
+    <rect x="889" y="1836" width="99" height="99" rx="16"/><rect x="1002" y="1836" width="99" height="99" rx="16"/>
+  </g>
+  <path d="M0 2300 Q160 2250 320 2300 T640 2300 T960 2300 T1290 2300 V2796 H0Z" fill="#bff3f7" opacity=".18"/>
+  <path d="M0 2380 Q200 2330 400 2380 T800 2380 T1290 2380 V2796 H0Z" fill="#bff3f7" opacity=".14"/>
+</svg>
