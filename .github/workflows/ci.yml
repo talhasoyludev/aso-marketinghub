@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.9", "3.12"]
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONIOENCODING: utf-8
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Byte-compile every .py file
+        run: |
+          python - <<'EOF'
+          import pathlib, py_compile, sys
+          skip = {".git", "workspace"}
+          files = [p for p in pathlib.Path(".").rglob("*.py")
+                   if not skip.intersection(p.parts)]
+          failed = 0
+          for p in files:
+              try:
+                  py_compile.compile(str(p), doraise=True)
+                  print("ok  ", p)
+              except py_compile.PyCompileError as e:
+                  failed += 1
+                  print("FAIL", p, "\n", e.msg)
+          print(f"{len(files)} files, {failed} failed")
+          sys.exit(1 if failed or not files else 0)
+          EOF
+
+      - name: Check every .json file parses
+        run: |
+          python - <<'EOF'
+          import json, pathlib, sys
+          skip = {".git", "workspace", "node_modules"}
+          files = [p for p in pathlib.Path(".").rglob("*.json")
+                   if not skip.intersection(p.parts)]
+          failed = 0
+          for p in files:
+              try:
+                  json.loads(p.read_text(encoding="utf-8"))
+                  print("ok  ", p)
+              except Exception as e:
+                  failed += 1
+                  print("FAIL", p, "-", e)
+          print(f"{len(files)} files, {failed} failed")
+          sys.exit(1 if failed or not files else 0)
+          EOF
+
+      # setup.py exits 1 while the config still holds template values, which is
+      # expected on a fresh checkout. CI only requires that it runs cleanly:
+      # exit code 0 or 1 and no Python traceback. No store requests are made.
+      - name: Run setup.py against the templates
+        run: |
+          python - <<'EOF'
+          import subprocess, sys
+          sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+          def run(*args):
+              r = subprocess.run([sys.executable, "setup.py", *args],
+                                 capture_output=True, text=True,
+                                 encoding="utf-8", errors="replace")
+              out = r.stdout + r.stderr
+              print(f"$ python setup.py {' '.join(args)}  (exit {r.returncode})")
+              print(out)
+              if r.returncode not in (0, 1) or "Traceback" in out:
+                  sys.exit(f"setup.py {' '.join(args)} crashed")
+          run("--check")   # empty workspace
+          run()            # seeds workspace/ from templates/
+          run("--check")   # validates the seeded template config
+          EOF

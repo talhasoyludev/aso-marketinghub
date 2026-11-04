@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/talhasoyludev/aso-marketinghub#readme
+    about: Quick start, what each panel tab does, and how the Claude Code skill fits in.
+  - name: Contributing guide
+    url: https://github.com/talhasoyludev/aso-marketinghub/blob/main/CONTRIBUTING.md
+    about: How to run it locally, the project's principles, and how to add a panel language.

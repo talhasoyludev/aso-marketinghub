@@ -1,0 +1,77 @@
+name: Bug report
+description: Something in the scanner, the panel or the skill does not work as expected.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please remove anything personal (store IDs you do not want public, keywords, analyses) from logs before posting.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. python setup.py
+        2. python refresh.py
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      description: Output of `python --version`
+      placeholder: Python 3.12.4
+    validations:
+      required: true
+  - type: dropdown
+    id: store
+    attributes:
+      label: Store
+      multiple: true
+      options:
+        - App Store (iOS)
+        - Google Play
+        - Not store-related (panel / skill)
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      multiple: true
+      options:
+        - refresh.py (scanner)
+        - setup.py
+        - export_metadata.py
+        - Panel (index.html)
+        - Claude Code skill / plugin
+        - Other
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output
+      description: Full terminal output of the failing command (and the browser console for panel issues).
+      render: text
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?

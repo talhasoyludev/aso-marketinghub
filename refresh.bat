@@ -1,5 +1,5 @@
 @echo off
-rem ASO Radar verilerini mağazalardan çeker ve data.json'ı günceller.
+rem Pulls fresh ASO Radar data from the stores and updates workspace/data.json.
 cd /d "%~dp0"
 python refresh.py
 echo.

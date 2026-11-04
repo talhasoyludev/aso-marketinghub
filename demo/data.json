@@ -1,0 +1,3073 @@
+{
+ "generated": "2026-11-03T08:14:22",
+ "country": "us",
+ "countries": [
+  "us",
+  "gb",
+  "de",
+  "br",
+  "jp",
+  "mx"
+ ],
+ "myApp": {
+  "name": "Tidal Tiles",
+  "ios": {
+   "id": 0,
+   "title": "Tidal Tiles: Block Puzzle",
+   "subtitle": "Relaxing Brain Game",
+   "description": "Tidal Tiles is a calm wood block puzzle that plays like a breath of sea air.\n\nDrop wooden tiles onto the grid, fill rows, columns and 3x3 squares, and watch the tide wash them away. No timer, no lives, no pressure — just you, the board and the sound of waves.\n\nWHY PLAYERS STAY\n• Classic block puzzle rules with a sudoku twist: clear squares, not just lines\n• Play offline — no wifi needed on the train, on a plane or at the beach\n• Daily Tide: one new hand-made board every day\n• 300+ calm levels that slowly teach smarter moves\n• Soft ocean sounds and haptics you can turn off\n\nA brain game for adults who want to unwind, not to grind. Easy to learn, satisfying to master.\n\nTidal Tiles is free to play. Optional ads can be removed with a one-time purchase.",
+   "rating": 4.6,
+   "ratingCount": 412,
+   "genre": "Games",
+   "version": "1.4.2",
+   "url": "https://apps.apple.com/app/id0",
+   "icon": "demo/gameplay.svg",
+   "screenshots": [
+    "demo/gameplay.svg",
+    "demo/gameplay.svg",
+    "demo/gameplay.svg",
+    "demo/gameplay.svg"
+   ],
+   "languages": [
+    "EN",
+    "DE"
+   ]
+  },
+  "play": {
+   "id": "com.example.tidaltiles",
+   "title": "Tidal Tiles: Block Puzzle",
+   "short": "Relaxing ocean block puzzle. No timer, no wifi needed.",
+   "description": "Tidal Tiles is a relaxing wood block puzzle with an ocean soul.\n\nPlace wooden blocks on the board, complete rows, columns and 3x3 squares, and let the tide clear them. There is no timer and no stress: every board can be solved at your own pace.\n\n★ Wood block puzzle meets sudoku — clear squares as well as lines\n★ Offline games done right: play anywhere, no internet connection needed\n★ Daily Tide challenge: a fresh board every day, the same for every player\n★ 300+ calm levels, from a gentle start to real brain teasers\n★ Soothing waves, soft haptics, a dark mode for evening sessions\n\nMade for adults who want a short, calm break — a block puzzle that trains your brain without shouting at you.\n\nFree to play. Remove ads with a single purchase. No subscriptions.",
+   "rating": 4.5,
+   "ratingCount": 1180,
+   "installs": "50K+",
+   "url": "https://play.google.com/store/apps/details?id=com.example.tidaltiles&hl=en&gl=US"
+  }
+ },
+ "competitors": [
+  {
+   "name": "Brickfall Saga",
+   "ios": {
+    "id": 0,
+    "title": "Brickfall Saga: Block Puzzle",
+    "subtitle": "Classic Brain Teaser Game",
+    "description": "Brickfall Saga is the classic block puzzle loved by millions. Drop bricks, clear lines, build combo streaks and climb the daily challenge leaderboard. Thousands of levels, a free daily challenge, brain teaser modes and seasonal events. Play offline anytime.",
+    "rating": 4.7,
+    "ratingCount": 182400,
+    "genre": "Games",
+    "version": "7.12.1",
+    "url": "https://apps.apple.com/app/id0",
+    "icon": null,
+    "screenshots": [],
+    "languages": [
+     "EN"
+    ]
+   },
+   "play": {
+    "id": "com.example.brickfall",
+    "title": "Brickfall Saga - Block Puzzle",
+    "short": "Classic block puzzle with combo streaks and a daily challenge.",
+    "description": "Brickfall Saga is the classic block puzzle loved by millions. Drop bricks, clear lines, build combo streaks and climb the daily challenge leaderboard. Thousands of levels, a free daily challenge, brain teaser modes and seasonal events. Play offline anytime.",
+    "rating": 4.5,
+    "ratingCount": 1204000,
+    "installs": "50M+",
+    "url": "https://play.google.com/store/apps/details?id=com.example.brickfall&hl=en&gl=US"
+   }
+  },
+  {
+   "name": "Cubeway Classic",
+   "ios": {
+    "id": 0,
+    "title": "Cubeway Classic - Block Games",
+    "subtitle": "Brain Teaser & Daily Challenge",
+    "description": "Cubeway Classic brings the classic cube block puzzle to your phone. Fit cubes, clear the grid, chain combo bonuses. New daily challenge every morning, hundreds of levels, brain teaser packs. Free block games for all ages, play offline.",
+    "rating": 4.5,
+    "ratingCount": 64210,
+    "genre": "Games",
+    "version": "5.0.4",
+    "url": "https://apps.apple.com/app/id0",
+    "icon": null,
+    "screenshots": [],
+    "languages": [
+     "EN"
+    ]
+   },
+   "play": {
+    "id": "com.example.cubeway",
+    "title": "Cubeway Classic: Block Games",
+    "short": "Free classic block games — combo, daily challenge, brain teaser levels.",
+    "description": "Cubeway Classic brings the classic cube block puzzle to your phone. Fit cubes, clear the grid, chain combo bonuses. New daily challenge every morning, hundreds of levels, brain teaser packs. Free block games for all ages, play offline.",
+    "rating": 4.4,
+    "ratingCount": 410000,
+    "installs": "10M+",
+    "url": "https://play.google.com/store/apps/details?id=com.example.cubeway&hl=en&gl=US"
+   }
+  },
+  {
+   "name": "Woodgrain Blocks",
+   "ios": {
+    "id": 0,
+    "title": "Woodgrain: Wood Block Puzzle",
+    "subtitle": "Jigsaw & Sudoku Brain Game",
+    "description": "Woodgrain is a wood block puzzle with a jigsaw heart. Place wooden pieces, complete the jigsaw picture, solve sudoku squares. Relaxing wood block puzzle levels, daily challenge, no wifi needed. A brain game for adults.",
+    "rating": 4.6,
+    "ratingCount": 23880,
+    "genre": "Games",
+    "version": "2.8.0",
+    "url": "https://apps.apple.com/app/id0",
+    "icon": null,
+    "screenshots": [],
+    "languages": [
+     "EN"
+    ]
+   },
+   "play": {
+    "id": "com.example.woodgrain",
+    "title": "Woodgrain - Wood Block Puzzle",
+    "short": "Wood block puzzle with jigsaw pictures and sudoku squares. Play offline.",
+    "description": "Woodgrain is a wood block puzzle with a jigsaw heart. Place wooden pieces, complete the jigsaw picture, solve sudoku squares. Relaxing wood block puzzle levels, daily challenge, no wifi needed. A brain game for adults.",
+    "rating": 4.6,
+    "ratingCount": 96500,
+    "installs": "5M+",
+    "url": "https://play.google.com/store/apps/details?id=com.example.woodgrain&hl=en&gl=US"
+   }
+  },
+  {
+   "name": "Zen Grid Puzzle",
+   "ios": {
+    "id": 0,
+    "title": "Zen Grid: Sudoku Blocks",
+    "subtitle": "Calm Puzzle Games for Adults",
+    "description": "Zen Grid is calm sudoku blocks for adults. Fill the grid, clear squares, breathe. No timer, relaxing music, daily challenge, jigsaw mode. Relaxing puzzle games for adults, free and offline.",
+    "rating": 4.4,
+    "ratingCount": 3120,
+    "genre": "Games",
+    "version": "1.9.3",
+    "url": "https://apps.apple.com/app/id0",
+    "icon": null,
+    "screenshots": [],
+    "languages": [
+     "EN"
+    ]
+   },
+   "play": {
+    "id": "com.example.zengrid",
+    "title": "Zen Grid: Sudoku Blocks",
+    "short": "Calm sudoku blocks and relaxing puzzle games for adults. No timer.",
+    "description": "Zen Grid is calm sudoku blocks for adults. Fill the grid, clear squares, breathe. No timer, relaxing music, daily challenge, jigsaw mode. Relaxing puzzle games for adults, free and offline.",
+    "rating": 4.3,
+    "ratingCount": 8900,
+    "installs": "500K+",
+    "url": "https://play.google.com/store/apps/details?id=com.example.zengrid&hl=en&gl=US"
+   }
+  },
+  {
+   "name": "Mosaic Match 3D",
+   "ios": {
+    "id": 0,
+    "title": "Mosaic Match 3D: Tile Match",
+    "subtitle": "Relaxing Triple Tile Game",
+    "description": "Mosaic Match 3D is a relaxing tile match game. Match three tiles, clear the board, build combo streaks. Hundreds of levels, daily challenge, brain teaser boosters. Free tile match fun, play offline.",
+    "rating": 4.3,
+    "ratingCount": 9450,
+    "genre": "Games",
+    "version": "4.1.0",
+    "url": "https://apps.apple.com/app/id0",
+    "icon": null,
+    "screenshots": [],
+    "languages": [
+     "EN"
+    ]
+   },
+   "play": {
+    "id": "com.example.mosaicmatch",
+    "title": "Mosaic Match 3D - Tile Match",
+    "short": "Relaxing triple tile match with combo streaks and daily challenge.",
+    "description": "Mosaic Match 3D is a relaxing tile match game. Match three tiles, clear the board, build combo streaks. Hundreds of levels, daily challenge, brain teaser boosters. Free tile match fun, play offline.",
+    "rating": 4.2,
+    "ratingCount": 41000,
+    "installs": "1M+",
+    "url": "https://play.google.com/store/apps/details?id=com.example.mosaicmatch&hl=en&gl=US"
+   }
+  },
+  {
+   "name": "Pocket Sudoku Blocks",
+   "ios": {
+    "id": 0,
+    "title": "Pocket Sudoku Blocks",
+    "subtitle": "Wood Block Brain Training",
+    "description": "Pocket Sudoku Blocks mixes sudoku and wood block puzzle. Place blocks, clear squares, train your brain. Classic levels, daily challenge, jigsaw packs, play offline with no wifi.",
+    "rating": 4.5,
+    "ratingCount": 1980,
+    "genre": "Games",
+    "version": "1.3.2",
+    "url": "https://apps.apple.com/app/id0",
+    "icon": null,
+    "screenshots": [],
+    "languages": [
+     "EN"
+    ]
+   },
+   "play": {
+    "id": "com.example.pocketsudoku",
+    "title": "Pocket Sudoku Blocks",
+    "short": "Sudoku meets wood block puzzle — brain training you can play offline.",
+    "description": "Pocket Sudoku Blocks mixes sudoku and wood block puzzle. Place blocks, clear squares, train your brain. Classic levels, daily challenge, jigsaw packs, play offline with no wifi.",
+    "rating": 4.4,
+    "ratingCount": 4300,
+    "installs": "100K+",
+    "url": "https://play.google.com/store/apps/details?id=com.example.pocketsudoku&hl=en&gl=US"
+   }
+  }
+ ],
+ "keywordRanks": [
+  {
+   "kw": "block puzzle",
+   "countries": {
+    "us": {
+     "myRank": 41,
+     "prev": 48,
+     "total": 200,
+     "volume": 78,
+     "difficulty": 74,
+     "top": [
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 182400
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 64210
+      },
+      {
+       "name": "Blockly Drop",
+       "id": 0,
+       "ratings": 51200
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 1,
+      "Cubeway Classic": 3,
+      "Woodgrain Blocks": 6,
+      "Pocket Sudoku Blocks": 22
+     }
+    },
+    "gb": {
+     "myRank": 33,
+     "prev": 39,
+     "total": 200,
+     "volume": 71,
+     "difficulty": 70,
+     "top": [
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 40128
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 14126
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 5254
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 1,
+      "Cubeway Classic": 2,
+      "Woodgrain Blocks": 3,
+      "Pocket Sudoku Blocks": 19
+     }
+    },
+    "de": {
+     "myRank": 27,
+     "prev": 35,
+     "total": 200,
+     "volume": 66,
+     "difficulty": 66,
+     "top": [
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 25536
+      },
+      {
+       "name": "Klotzwerk",
+       "id": 0,
+       "ratings": 8800
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 8989
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 1,
+      "Cubeway Classic": 3,
+      "Woodgrain Blocks": 5
+     }
+    },
+    "br": {
+     "myRank": 58,
+     "prev": 61,
+     "total": 200,
+     "volume": 63,
+     "difficulty": 61,
+     "top": [
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 16416
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 5779
+      },
+      {
+       "name": "Bloco Mania",
+       "id": 0,
+       "ratings": 12600
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 1,
+      "Cubeway Classic": 2,
+      "Woodgrain Blocks": 9
+     }
+    },
+    "jp": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 58,
+     "difficulty": 63,
+     "top": [
+      {
+       "name": "Hako Puzzle",
+       "id": 0,
+       "ratings": 40300
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 9120
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 3210
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 3
+     }
+    },
+    "mx": {
+     "myRank": 64,
+     "prev": null,
+     "total": 200,
+     "volume": 60,
+     "difficulty": 58,
+     "top": [
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 12768
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 4495
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 1672
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 1,
+      "Cubeway Classic": 2,
+      "Woodgrain Blocks": 3
+     }
+    }
+   }
+  },
+  {
+   "kw": "wood block puzzle",
+   "countries": {
+    "us": {
+     "myRank": 19,
+     "prev": 24,
+     "total": 200,
+     "volume": 64,
+     "difficulty": 61,
+     "top": [
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 23880
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 182400
+      },
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 1980
+      }
+     ],
+     "compRanks": {
+      "Woodgrain Blocks": 1,
+      "Brickfall Saga": 2,
+      "Pocket Sudoku Blocks": 3,
+      "Cubeway Classic": 8
+     }
+    },
+    "gb": {
+     "myRank": 14,
+     "prev": 17,
+     "total": 200,
+     "volume": 58,
+     "difficulty": 57,
+     "top": [
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 5254
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 40128
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 14126
+      }
+     ],
+     "compRanks": {
+      "Woodgrain Blocks": 1,
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 3,
+      "Pocket Sudoku Blocks": 7
+     }
+    },
+    "de": {
+     "myRank": 11,
+     "prev": 22,
+     "total": 200,
+     "volume": 52,
+     "difficulty": 50,
+     "top": [
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 3343
+      },
+      {
+       "name": "Holzklotz",
+       "id": 0,
+       "ratings": 2100
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 25536
+      }
+     ],
+     "compRanks": {
+      "Woodgrain Blocks": 1,
+      "Brickfall Saga": 3,
+      "Pocket Sudoku Blocks": 6
+     }
+    },
+    "br": {
+     "myRank": 29,
+     "prev": 31,
+     "total": 200,
+     "volume": 49,
+     "difficulty": 44,
+     "top": [
+      {
+       "name": "Madeira Blocos",
+       "id": 0,
+       "ratings": 94
+      },
+      {
+       "name": "Quebra Madeira",
+       "id": 0,
+       "ratings": 71
+      },
+      {
+       "name": "Bloco Zen",
+       "id": 0,
+       "ratings": 58
+      }
+     ],
+     "compRanks": {
+      "Woodgrain Blocks": 12,
+      "Pocket Sudoku Blocks": 18
+     }
+    },
+    "jp": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 31,
+     "difficulty": 38,
+     "top": [
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 1194
+      },
+      {
+       "name": "Mokuzai",
+       "id": 0,
+       "ratings": 900
+      },
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 99
+      }
+     ],
+     "compRanks": {
+      "Woodgrain Blocks": 1,
+      "Pocket Sudoku Blocks": 3
+     }
+    },
+    "mx": {
+     "myRank": 37,
+     "prev": 40,
+     "total": 200,
+     "volume": 47,
+     "difficulty": 42,
+     "top": [
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 1672
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 12768
+      },
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 139
+      }
+     ],
+     "compRanks": {
+      "Woodgrain Blocks": 1,
+      "Brickfall Saga": 2,
+      "Pocket Sudoku Blocks": 3
+     }
+    }
+   }
+  },
+  {
+   "kw": "relaxing games",
+   "countries": {
+    "us": {
+     "myRank": 88,
+     "prev": 79,
+     "total": 200,
+     "volume": 70,
+     "difficulty": 68,
+     "top": [
+      {
+       "name": "Calm Cove",
+       "id": 0,
+       "ratings": 98100
+      },
+      {
+       "name": "Lantern Garden",
+       "id": 0,
+       "ratings": 71400
+      },
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 9450
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 3,
+      "Zen Grid Puzzle": 14
+     }
+    },
+    "gb": {
+     "myRank": 72,
+     "prev": 70,
+     "total": 200,
+     "volume": 64,
+     "difficulty": 63,
+     "top": [
+      {
+       "name": "Calm Cove",
+       "id": 0,
+       "ratings": 21000
+      },
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 2079
+      },
+      {
+       "name": "Lantern Garden",
+       "id": 0,
+       "ratings": 15100
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 2,
+      "Zen Grid Puzzle": 11
+     }
+    },
+    "de": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 55,
+     "difficulty": 55,
+     "top": [
+      {
+       "name": "Ruhepol",
+       "id": 0,
+       "ratings": 5400
+      },
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 1323
+      },
+      {
+       "name": "Calm Cove",
+       "id": 0,
+       "ratings": 3900
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 2
+     }
+    },
+    "br": {
+     "myRank": 104,
+     "prev": null,
+     "total": 200,
+     "volume": 58,
+     "difficulty": 52,
+     "top": [
+      {
+       "name": "Calm Cove",
+       "id": 0,
+       "ratings": 8800
+      },
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 850
+      },
+      {
+       "name": "Jogo Calmo",
+       "id": 0,
+       "ratings": 2500
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 2,
+      "Zen Grid Puzzle": 31
+     }
+    },
+    "jp": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 44,
+     "difficulty": 49,
+     "top": [
+      {
+       "name": "Iyashi Niwa",
+       "id": 0,
+       "ratings": 12800
+      },
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 472
+      },
+      {
+       "name": "Calm Cove",
+       "id": 0,
+       "ratings": 4100
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 2
+     }
+    },
+    "mx": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 52,
+     "difficulty": 47,
+     "top": [
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 662
+      },
+      {
+       "name": "Calm Cove",
+       "id": 0,
+       "ratings": 6200
+      },
+      {
+       "name": "Juego Zen",
+       "id": 0,
+       "ratings": 1400
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 1,
+      "Zen Grid Puzzle": 24
+     }
+    }
+   }
+  },
+  {
+   "kw": "brain games",
+   "countries": {
+    "us": {
+     "myRank": 38,
+     "prev": 47,
+     "total": 200,
+     "volume": 72,
+     "difficulty": 76,
+     "top": [
+      {
+       "name": "Neuronik",
+       "id": 0,
+       "ratings": 240300
+      },
+      {
+       "name": "Mind Ladder",
+       "id": 0,
+       "ratings": 118000
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 182400
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 3,
+      "Cubeway Classic": 9,
+      "Zen Grid Puzzle": 33
+     }
+    },
+    "gb": {
+     "myRank": 44,
+     "prev": 47,
+     "total": 200,
+     "volume": 66,
+     "difficulty": 71,
+     "top": [
+      {
+       "name": "Neuronik",
+       "id": 0,
+       "ratings": 52800
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 40128
+      },
+      {
+       "name": "Mind Ladder",
+       "id": 0,
+       "ratings": 26000
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 7
+     }
+    },
+    "de": {
+     "myRank": 51,
+     "prev": 49,
+     "total": 200,
+     "volume": 59,
+     "difficulty": 64,
+     "top": [
+      {
+       "name": "Neuronik",
+       "id": 0,
+       "ratings": 33600
+      },
+      {
+       "name": "Denkfabrik",
+       "id": 0,
+       "ratings": 9900
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 25536
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 3,
+      "Cubeway Classic": 12
+     }
+    },
+    "br": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 61,
+     "difficulty": 58,
+     "top": [
+      {
+       "name": "Neuronik",
+       "id": 0,
+       "ratings": 21600
+      },
+      {
+       "name": "Cérebro Ativo",
+       "id": 0,
+       "ratings": 7800
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 16416
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 3,
+      "Cubeway Classic": 6
+     }
+    },
+    "jp": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 52,
+     "difficulty": 61,
+     "top": [
+      {
+       "name": "Noutore Daily",
+       "id": 0,
+       "ratings": 77000
+      },
+      {
+       "name": "Neuronik",
+       "id": 0,
+       "ratings": 12000
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 9120
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 3
+     }
+    },
+    "mx": {
+     "myRank": 77,
+     "prev": 81,
+     "total": 200,
+     "volume": 57,
+     "difficulty": 55,
+     "top": [
+      {
+       "name": "Neuronik",
+       "id": 0,
+       "ratings": 16800
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 12768
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 4495
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 3
+     }
+    }
+   }
+  },
+  {
+   "kw": "tile match",
+   "countries": {
+    "us": {
+     "myRank": 9,
+     "prev": 11,
+     "total": 200,
+     "volume": 62,
+     "difficulty": 59,
+     "top": [
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 9450
+      },
+      {
+       "name": "Tilestorm",
+       "id": 0,
+       "ratings": 64100
+      },
+      {
+       "name": "Triple Bloom",
+       "id": 0,
+       "ratings": 30500
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 1,
+      "Cubeway Classic": 14
+     }
+    },
+    "gb": {
+     "myRank": 4,
+     "prev": 6,
+     "total": 200,
+     "volume": 57,
+     "difficulty": 55,
+     "top": [
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 2079
+      },
+      {
+       "name": "Tilestorm",
+       "id": 0,
+       "ratings": 14100
+      },
+      {
+       "name": "Tidal Tiles: Block Puzzle",
+       "id": 0,
+       "ratings": 91
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 1,
+      "Cubeway Classic": 11
+     }
+    },
+    "de": {
+     "myRank": 31,
+     "prev": 18,
+     "total": 200,
+     "volume": 51,
+     "difficulty": 49,
+     "top": [
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 1323
+      },
+      {
+       "name": "Kachel Kombi",
+       "id": 0,
+       "ratings": 3100
+      },
+      {
+       "name": "Tilestorm",
+       "id": 0,
+       "ratings": 9000
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 1,
+      "Cubeway Classic": 9,
+      "Woodgrain Blocks": 21
+     }
+    },
+    "br": {
+     "myRank": 12,
+     "prev": 14,
+     "total": 200,
+     "volume": 47,
+     "difficulty": 41,
+     "top": [
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 850
+      },
+      {
+       "name": "Tilestorm",
+       "id": 0,
+       "ratings": 5800
+      },
+      {
+       "name": "Trio Azulejo",
+       "id": 0,
+       "ratings": 690
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 1
+     }
+    },
+    "jp": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 46,
+     "difficulty": 52,
+     "top": [
+      {
+       "name": "Pai Match",
+       "id": 0,
+       "ratings": 18400
+      },
+      {
+       "name": "Mosaic Match 3D",
+       "id": 0,
+       "ratings": 472
+      },
+      {
+       "name": "Tilestorm",
+       "id": 0,
+       "ratings": 3200
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 2
+     }
+    },
+    "mx": {
+     "myRank": 16,
+     "prev": 21,
+     "total": 200,
+     "volume": 45,
+     "difficulty": 40,
+     "top": [
+      {
+       "name": "Fichas Trio",
+       "id": 0,
+       "ratings": 88
+      },
+      {
+       "name": "Azulejo Zen",
+       "id": 0,
+       "ratings": 62
+      },
+      {
+       "name": "Match Calma",
+       "id": 0,
+       "ratings": 40
+      }
+     ],
+     "compRanks": {
+      "Mosaic Match 3D": 7
+     }
+    }
+   }
+  },
+  {
+   "kw": "offline games",
+   "countries": {
+    "us": {
+     "myRank": 45,
+     "prev": 43,
+     "total": 200,
+     "volume": 67,
+     "difficulty": 66,
+     "top": [
+      {
+       "name": "No Signal Arcade",
+       "id": 0,
+       "ratings": 152000
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 182400
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 64210
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 3,
+      "Woodgrain Blocks": 17,
+      "Pocket Sudoku Blocks": 29
+     }
+    },
+    "gb": {
+     "myRank": 52,
+     "prev": 57,
+     "total": 200,
+     "volume": 61,
+     "difficulty": 62,
+     "top": [
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 40128
+      },
+      {
+       "name": "No Signal Arcade",
+       "id": 0,
+       "ratings": 33400
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 14126
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 1,
+      "Cubeway Classic": 3,
+      "Woodgrain Blocks": 15
+     }
+    },
+    "de": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 57,
+     "difficulty": 56,
+     "top": [
+      {
+       "name": "Ohne Netz",
+       "id": 0,
+       "ratings": 14200
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 25536
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 8989
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 3
+     }
+    },
+    "br": {
+     "myRank": 71,
+     "prev": null,
+     "total": 200,
+     "volume": 63,
+     "difficulty": 53,
+     "top": [
+      {
+       "name": "Jogos Sem Net",
+       "id": 0,
+       "ratings": 20100
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 16416
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 5779
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 3
+     }
+    },
+    "jp": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 49,
+     "difficulty": 50,
+     "top": [
+      {
+       "name": "Offline Tengoku",
+       "id": 0,
+       "ratings": 16100
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 9120
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 3210
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 3
+     }
+    },
+    "mx": {
+     "myRank": 66,
+     "prev": 63,
+     "total": 200,
+     "volume": 58,
+     "difficulty": 51,
+     "top": [
+      {
+       "name": "Juegos Sin Red",
+       "id": 0,
+       "ratings": 13300
+      },
+      {
+       "name": "Brickfall Saga",
+       "id": 0,
+       "ratings": 12768
+      },
+      {
+       "name": "Cubeway Classic",
+       "id": 0,
+       "ratings": 4495
+      }
+     ],
+     "compRanks": {
+      "Brickfall Saga": 2,
+      "Cubeway Classic": 3
+     }
+    }
+   }
+  },
+  {
+   "kw": "sudoku blocks",
+   "countries": {
+    "us": {
+     "myRank": 6,
+     "prev": 8,
+     "total": 200,
+     "volume": 46,
+     "difficulty": 37,
+     "top": [
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 1980
+      },
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 3120
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 23880
+      }
+     ],
+     "compRanks": {
+      "Pocket Sudoku Blocks": 1,
+      "Zen Grid Puzzle": 2,
+      "Woodgrain Blocks": 3,
+      "Brickfall Saga": 11
+     }
+    },
+    "gb": {
+     "myRank": 3,
+     "prev": 3,
+     "total": 200,
+     "volume": 41,
+     "difficulty": 34,
+     "top": [
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 436
+      },
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 686
+      },
+      {
+       "name": "Tidal Tiles: Block Puzzle",
+       "id": 0,
+       "ratings": 91
+      }
+     ],
+     "compRanks": {
+      "Pocket Sudoku Blocks": 1,
+      "Zen Grid Puzzle": 2,
+      "Woodgrain Blocks": 4
+     }
+    },
+    "de": {
+     "myRank": 5,
+     "prev": 7,
+     "total": 200,
+     "volume": 38,
+     "difficulty": 31,
+     "top": [
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 437
+      },
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 277
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 3343
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 1,
+      "Pocket Sudoku Blocks": 2,
+      "Woodgrain Blocks": 3
+     }
+    },
+    "br": {
+     "myRank": 2,
+     "prev": 9,
+     "total": 200,
+     "volume": 44,
+     "difficulty": 26,
+     "top": [
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 281
+      },
+      {
+       "name": "Tidal Tiles: Block Puzzle",
+       "id": 0,
+       "ratings": 37
+      },
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 178
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 1,
+      "Pocket Sudoku Blocks": 3,
+      "Woodgrain Blocks": 8
+     }
+    },
+    "jp": {
+     "myRank": 14,
+     "prev": null,
+     "total": 200,
+     "volume": 29,
+     "difficulty": 28,
+     "top": [
+      {
+       "name": "Suudoku Hako",
+       "id": 0,
+       "ratings": 2400
+      },
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 156
+      },
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 99
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 2,
+      "Pocket Sudoku Blocks": 3
+     }
+    },
+    "mx": {
+     "myRank": 4,
+     "prev": 6,
+     "total": 200,
+     "volume": 40,
+     "difficulty": 27,
+     "top": [
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 218
+      },
+      {
+       "name": "Pocket Sudoku Blocks",
+       "id": 0,
+       "ratings": 139
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 1672
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 1,
+      "Pocket Sudoku Blocks": 2,
+      "Woodgrain Blocks": 3
+     }
+    }
+   }
+  },
+  {
+   "kw": "puzzle games for adults",
+   "countries": {
+    "us": {
+     "myRank": 74,
+     "prev": 84,
+     "total": 200,
+     "volume": 58,
+     "difficulty": 63,
+     "top": [
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 3120
+      },
+      {
+       "name": "Grown-Up Logic",
+       "id": 0,
+       "ratings": 41200
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 23880
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 1,
+      "Woodgrain Blocks": 3,
+      "Brickfall Saga": 12
+     }
+    },
+    "gb": {
+     "myRank": 96,
+     "prev": null,
+     "total": 200,
+     "volume": 52,
+     "difficulty": 58,
+     "top": [
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 686
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 5254
+      },
+      {
+       "name": "Grown-Up Logic",
+       "id": 0,
+       "ratings": 9100
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 1,
+      "Woodgrain Blocks": 2
+     }
+    },
+    "de": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 40,
+     "difficulty": 47,
+     "top": [
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 437
+      },
+      {
+       "name": "Rätsel Plus",
+       "id": 0,
+       "ratings": 4200
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 3343
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 1,
+      "Woodgrain Blocks": 3
+     }
+    },
+    "br": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 37,
+     "difficulty": 40,
+     "top": [
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 281
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 2149
+      },
+      {
+       "name": "Quebra-Cabeça Adulto",
+       "id": 0,
+       "ratings": 1900
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 1,
+      "Woodgrain Blocks": 2
+     }
+    },
+    "jp": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 22,
+     "difficulty": 33,
+     "top": [
+      {
+       "name": "Otona no Puzzle",
+       "id": 0,
+       "ratings": 5600
+      },
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 156
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 1194
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 2
+     }
+    },
+    "mx": {
+     "myRank": null,
+     "prev": null,
+     "total": 200,
+     "volume": 35,
+     "difficulty": 39,
+     "top": [
+      {
+       "name": "Zen Grid Puzzle",
+       "id": 0,
+       "ratings": 218
+      },
+      {
+       "name": "Woodgrain Blocks",
+       "id": 0,
+       "ratings": 1672
+      },
+      {
+       "name": "Rompecabezas Pro",
+       "id": 0,
+       "ratings": 1300
+      }
+     ],
+     "compRanks": {
+      "Zen Grid Puzzle": 1,
+      "Woodgrain Blocks": 2
+     }
+    }
+   }
+  }
+ ],
+ "tags": [
+  {
+   "tag": "brain",
+   "usedBy": 5,
+   "inTitles": 4,
+   "score": 13,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Woodgrain Blocks",
+    "Mosaic Match 3D",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "block",
+   "usedBy": 4,
+   "inTitles": 4,
+   "score": 12,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Woodgrain Blocks",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "puzzle",
+   "usedBy": 5,
+   "inTitles": 3,
+   "score": 11,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "game",
+   "usedBy": 3,
+   "inTitles": 3,
+   "score": 9,
+   "apps": [
+    "Brickfall Saga",
+    "Woodgrain Blocks",
+    "Mosaic Match 3D"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "sudoku",
+   "usedBy": 3,
+   "inTitles": 3,
+   "score": 9,
+   "apps": [
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "challenge",
+   "usedBy": 6,
+   "inTitles": 1,
+   "score": 8,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle",
+    "Mosaic Match 3D",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "daily",
+   "usedBy": 6,
+   "inTitles": 1,
+   "score": 8,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle",
+    "Mosaic Match 3D",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "classic",
+   "usedBy": 3,
+   "inTitles": 2,
+   "score": 7,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "teaser",
+   "usedBy": 3,
+   "inTitles": 2,
+   "score": 7,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "block puzzle",
+   "usedBy": 2,
+   "inTitles": 2,
+   "score": 6,
+   "apps": [
+    "Brickfall Saga",
+    "Woodgrain Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "blocks",
+   "usedBy": 2,
+   "inTitles": 2,
+   "score": 6,
+   "apps": [
+    "Zen Grid Puzzle",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "brain teaser",
+   "usedBy": 2,
+   "inTitles": 2,
+   "score": 6,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "games",
+   "usedBy": 2,
+   "inTitles": 2,
+   "score": 6,
+   "apps": [
+    "Cubeway Classic",
+    "Zen Grid Puzzle"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "offline",
+   "usedBy": 6,
+   "inTitles": 0,
+   "score": 6,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle",
+    "Mosaic Match 3D",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "sudoku blocks",
+   "usedBy": 2,
+   "inTitles": 2,
+   "score": 6,
+   "apps": [
+    "Zen Grid Puzzle",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "wood",
+   "usedBy": 2,
+   "inTitles": 2,
+   "score": 6,
+   "apps": [
+    "Woodgrain Blocks",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "wood block",
+   "usedBy": 2,
+   "inTitles": 2,
+   "score": 6,
+   "apps": [
+    "Woodgrain Blocks",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "clear",
+   "usedBy": 5,
+   "inTitles": 0,
+   "score": 5,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Zen Grid Puzzle",
+    "Mosaic Match 3D",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "jigsaw",
+   "usedBy": 3,
+   "inTitles": 1,
+   "score": 5,
+   "apps": [
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "levels",
+   "usedBy": 5,
+   "inTitles": 0,
+   "score": 5,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Woodgrain Blocks",
+    "Mosaic Match 3D",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "play",
+   "usedBy": 5,
+   "inTitles": 0,
+   "score": 5,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Woodgrain Blocks",
+    "Mosaic Match 3D",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "relaxing",
+   "usedBy": 3,
+   "inTitles": 1,
+   "score": 5,
+   "apps": [
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle",
+    "Mosaic Match 3D"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "adults",
+   "usedBy": 2,
+   "inTitles": 1,
+   "score": 4,
+   "apps": [
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "free",
+   "usedBy": 4,
+   "inTitles": 0,
+   "score": 4,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Zen Grid Puzzle",
+    "Mosaic Match 3D"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "grid",
+   "usedBy": 2,
+   "inTitles": 1,
+   "score": 4,
+   "apps": [
+    "Cubeway Classic",
+    "Zen Grid Puzzle"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "block brain",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "block games",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Cubeway Classic"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "brain game",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Woodgrain Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "brain training",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "brickfall",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Brickfall Saga"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "brickfall saga",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Brickfall Saga"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "calm",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Zen Grid Puzzle"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "calm puzzle",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Zen Grid Puzzle"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "classic block",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Cubeway Classic"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "classic brain",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Brickfall Saga"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "combo",
+   "usedBy": 3,
+   "inTitles": 0,
+   "score": 3,
+   "apps": [
+    "Brickfall Saga",
+    "Cubeway Classic",
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "cubeway",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Cubeway Classic"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "cubeway classic",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Cubeway Classic"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "daily challenge",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Cubeway Classic"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "games adults",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Zen Grid Puzzle"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "grid sudoku",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Zen Grid Puzzle"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "jigsaw sudoku",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Woodgrain Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "match",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "match tile",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "mosaic",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "mosaic match",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "pocket",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "pocket sudoku",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "puzzle games",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Zen Grid Puzzle"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "relaxing triple",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "saga",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Brickfall Saga"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "saga block",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Brickfall Saga"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "squares",
+   "usedBy": 3,
+   "inTitles": 0,
+   "score": 3,
+   "apps": [
+    "Woodgrain Blocks",
+    "Zen Grid Puzzle",
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": true,
+   "opportunity": false
+  },
+  {
+   "tag": "sudoku brain",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Woodgrain Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "teaser daily",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Cubeway Classic"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "teaser game",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Brickfall Saga"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "tile",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "tile game",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "tile match",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Mosaic Match 3D"
+   ],
+   "mine": false,
+   "opportunity": true
+  },
+  {
+   "tag": "training",
+   "usedBy": 1,
+   "inTitles": 1,
+   "score": 3,
+   "apps": [
+    "Pocket Sudoku Blocks"
+   ],
+   "mine": false,
+   "opportunity": true
+  }
+ ],
+ "recommendations": [
+  {
+   "id": "auto-2026-11-03-0",
+   "source": "rule engine",
+   "area": "aso",
+   "priority": 2,
+   "title": "Your best position: \"sudoku blocks\" — BR #2",
+   "detail": "Lean on your strongest keyword/country pair: move the term into visible fields, open a listing in that country's language, produce content for it."
+  },
+  {
+   "id": "auto-2026-11-03-1",
+   "source": "rule engine",
+   "area": "radar",
+   "priority": 2,
+   "title": "Brickfall Saga is top 10 on your keywords (22 places)",
+   "detail": "Example: \"block puzzle\" US #1, \"block puzzle\" GB #1, \"block puzzle\" DE #1. This niche is filling up — if you don't push metadata + rating mass on the same terms, they close the gap."
+  },
+  {
+   "id": "auto-2026-11-03-2",
+   "source": "rule engine",
+   "area": "radar",
+   "priority": 2,
+   "title": "Woodgrain Blocks is top 10 on your keywords (20 places)",
+   "detail": "Example: \"block puzzle\" US #6, \"block puzzle\" GB #3, \"block puzzle\" DE #5. This niche is filling up — if you don't push metadata + rating mass on the same terms, they close the gap."
+  },
+  {
+   "id": "auto-2026-11-03-3",
+   "source": "rule engine",
+   "area": "radar",
+   "priority": 2,
+   "title": "Cubeway Classic is top 10 on your keywords (19 places)",
+   "detail": "Example: \"block puzzle\" US #3, \"block puzzle\" GB #2, \"block puzzle\" DE #3. This niche is filling up — if you don't push metadata + rating mass on the same terms, they close the gap."
+  },
+  {
+   "id": "auto-2026-11-03-4",
+   "source": "rule engine",
+   "area": "aso",
+   "priority": 1,
+   "title": "Breakable top: \"wood block puzzle\" BR — you #29, top 3 is weak",
+   "detail": "The strongest app in the top 3 for this term has only 94 ratings (volume 49/100). A PT listing + 50-100 real ratings + content for that country = top 3 is a realistic target."
+  },
+  {
+   "id": "auto-2026-11-03-5",
+   "source": "rule engine",
+   "area": "aso",
+   "priority": 1,
+   "title": "Breakable top: \"tile match\" MX — you #16, top 3 is weak",
+   "detail": "The strongest app in the top 3 for this term has only 88 ratings (volume 45/100). A ES listing + 50-100 real ratings + content for that country = top 3 is a realistic target."
+  },
+  {
+   "id": "auto-2026-11-03-6",
+   "source": "rule engine",
+   "area": "radar",
+   "priority": 3,
+   "title": "Rising: \"wood block puzzle\" DE #22 → #11",
+   "detail": "There is momentum — give this term content and visible metadata weight."
+  },
+  {
+   "id": "auto-2026-11-03-7",
+   "source": "rule engine",
+   "area": "radar",
+   "priority": 3,
+   "title": "Rising: \"puzzle games for adults\" US #84 → #74",
+   "detail": "There is momentum — give this term content and visible metadata weight."
+  },
+  {
+   "id": "auto-2026-11-03-8",
+   "source": "rule engine",
+   "area": "radar",
+   "priority": 3,
+   "title": "Falling: \"tile match\" DE #18 → #31",
+   "detail": "Could be a competitor move or an index update; keep this term's weight in your metadata."
+  },
+  {
+   "id": "auto-2026-11-03-9",
+   "source": "rule engine",
+   "area": "radar",
+   "priority": 3,
+   "title": "iOS rating count up: 371 → 412",
+   "detail": "Growth signal — note which action worked and repeat it."
+  },
+  {
+   "id": "auto-2026-11-03-10",
+   "source": "rule engine",
+   "area": "radar",
+   "priority": 3,
+   "title": "Play rating count up: 1121 → 1180",
+   "detail": "Growth signal — note which action worked and repeat it."
+  }
+ ],
+ "asoPlan": [
+  {
+   "id": "plan-increase-weight-on-offline-games-move-the-phr",
+   "store": "ios",
+   "field": "keywords/subtitle",
+   "action": "Increase weight on \"offline games\": move the phrase closer to the subtitle/title",
+   "reason": "The phrase is in your text but your rank is #45. Volume 59/100, difficulty 56/100 — field position (title > subtitle > description) sets the weight.",
+   "priority": 2
+  },
+  {
+   "id": "plan-increase-weight-on-relaxing-games-move-the-ph",
+   "store": "ios",
+   "field": "keywords/subtitle",
+   "action": "Increase weight on \"relaxing games\": move the phrase closer to the subtitle/title",
+   "reason": "The phrase is in your text but your rank is #72. Volume 57/100, difficulty 56/100 — field position (title > subtitle > description) sets the weight.",
+   "priority": 2
+  },
+  {
+   "id": "plan-increase-weight-on-brain-games-move-the-phras",
+   "store": "ios",
+   "field": "keywords/subtitle",
+   "action": "Increase weight on \"brain games\": move the phrase closer to the subtitle/title",
+   "reason": "The phrase is in your text but your rank is #38. Volume 61/100, difficulty 64/100 — field position (title > subtitle > description) sets the weight.",
+   "priority": 2
+  },
+  {
+   "id": "plan-increase-weight-on-puzzle-games-for-adults-mo",
+   "store": "ios",
+   "field": "keywords/subtitle",
+   "action": "Increase weight on \"puzzle games for adults\": move the phrase closer to the subtitle/title",
+   "reason": "The phrase is in your text but your rank is #74. Volume 41/100, difficulty 47/100 — field position (title > subtitle > description) sets the weight.",
+   "priority": 2
+  },
+  {
+   "id": "plan-open-a-pt-store-page-for-br",
+   "store": "both",
+   "field": "localization",
+   "action": "Open a PT store page for BR",
+   "reason": "BR average keyword volume is 53/100 but your app does not support PT — you are invisible in that country's own-language searches.",
+   "priority": 2
+  },
+  {
+   "id": "plan-open-a-ja-store-page-for-jp",
+   "store": "both",
+   "field": "localization",
+   "action": "Open a JA store page for JP",
+   "reason": "JP average keyword volume is 41/100 but your app does not support JA — you are invisible in that country's own-language searches.",
+   "priority": 2
+  },
+  {
+   "id": "plan-open-a-es-store-page-for-mx",
+   "store": "both",
+   "field": "localization",
+   "action": "Open a ES store page for MX",
+   "reason": "MX average keyword volume is 49/100 but your app does not support ES — you are invisible in that country's own-language searches.",
+   "priority": 2
+  },
+  {
+   "id": "plan-the-hidden-keywords-field-cannot-be-verified",
+   "store": "ios",
+   "field": "keywords (hidden field)",
+   "action": "The hidden keywords field cannot be verified from outside — make sure it matches the 100-character set in ASO Center exactly",
+   "reason": "The iTunes API returns visible fields only; the hidden field is visible in App Store Connect alone.",
+   "priority": 3
+  }
+ ],
+ "auto": {
+  "asoSuggestions": [],
+  "tagGroup": {
+   "group": "📡 Radar otomatik — 03.11.2026",
+   "date": "03.11.2026",
+   "tags": [
+    "sudoku blocks",
+    "tile match",
+    "wood block puzzle",
+    "offline games",
+    "block puzzle",
+    "brain games",
+    "teaser",
+    "brain teaser",
+    "sudoku blocks",
+    "jigsaw",
+    "block brain",
+    "block games"
+   ]
+  },
+  "videoTags": [
+   "tidal tiles",
+   "tidal tiles gameplay",
+   "sudoku blocks",
+   "tile match",
+   "wood block puzzle",
+   "offline games",
+   "block puzzle",
+   "brain games",
+   "relaxing games",
+   "puzzle games for adults",
+   "brain teaser",
+   "block brain",
+   "block games"
+  ],
+  "playbookFocus": [
+   {
+    "id": "pb-aso-2",
+    "why": "No local listing in 3 markets with volume (BR, JP, MX)"
+   },
+   {
+    "id": "pb-meas-1",
+    "why": "Rankings are forming — daily Δ tracking is a must"
+   }
+  ],
+  "keywordScores": [
+   {
+    "kw": "sudoku blocks",
+    "vol": 40,
+    "dif": 30,
+    "best": 2,
+    "score": 42.6
+   },
+   {
+    "kw": "tile match",
+    "vol": 51,
+    "dif": 49,
+    "best": 4,
+    "score": 41.0
+   },
+   {
+    "kw": "wood block puzzle",
+    "vol": 50,
+    "dif": 49,
+    "best": 11,
+    "score": 40.8
+   },
+   {
+    "kw": "offline games",
+    "vol": 59,
+    "dif": 56,
+    "best": 45,
+    "score": 40.8
+   },
+   {
+    "kw": "block puzzle",
+    "vol": 66,
+    "dif": 65,
+    "best": 27,
+    "score": 37.9
+   },
+   {
+    "kw": "brain games",
+    "vol": 61,
+    "dif": 64,
+    "best": 38,
+    "score": 36.9
+   },
+   {
+    "kw": "relaxing games",
+    "vol": 57,
+    "dif": 56,
+    "best": 72,
+    "score": 25.3
+   },
+   {
+    "kw": "puzzle games for adults",
+    "vol": 41,
+    "dif": 47,
+    "best": 74,
+    "score": 21.7
+   }
+  ]
+ },
+ "history": [
+  {
+   "date": "2026-09-29",
+   "iosRating": 4.5,
+   "iosRatingCount": 298,
+   "playRating": 4.4,
+   "playRatingCount": 905,
+   "playInstalls": "10K+",
+   "bestRank": 11,
+   "rankedKeywords": 8,
+   "ranks": {
+    "block puzzle": {
+     "us": 58,
+     "gb": 49,
+     "de": 45,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "wood block puzzle": {
+     "us": 33,
+     "gb": 26,
+     "de": 31,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "relaxing games": {
+     "us": 88,
+     "gb": 79,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "brain games": {
+     "us": 56,
+     "gb": 56,
+     "de": 58,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "tile match": {
+     "us": 19,
+     "gb": 14,
+     "de": 26,
+     "br": 22,
+     "jp": null,
+     "mx": null
+    },
+    "offline games": {
+     "us": 51,
+     "gb": 65,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "sudoku blocks": {
+     "us": 16,
+     "gb": 11,
+     "de": 15,
+     "br": 17,
+     "jp": null,
+     "mx": 14
+    },
+    "puzzle games for adults": {
+     "us": 93,
+     "gb": null,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    }
+   }
+  },
+  {
+   "date": "2026-10-06",
+   "iosRating": 4.5,
+   "iosRatingCount": 322,
+   "playRating": 4.4,
+   "playRatingCount": 962,
+   "playInstalls": "10K+",
+   "bestRank": 9,
+   "rankedKeywords": 8,
+   "ranks": {
+    "block puzzle": {
+     "us": 56,
+     "gb": 47,
+     "de": 43,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "wood block puzzle": {
+     "us": 31,
+     "gb": 24,
+     "de": 29,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "relaxing games": {
+     "us": 86,
+     "gb": 77,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "brain games": {
+     "us": 54,
+     "gb": 54,
+     "de": 56,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "tile match": {
+     "us": 17,
+     "gb": 12,
+     "de": 24,
+     "br": 20,
+     "jp": null,
+     "mx": null
+    },
+    "offline games": {
+     "us": 49,
+     "gb": 63,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "sudoku blocks": {
+     "us": 14,
+     "gb": 9,
+     "de": 13,
+     "br": 15,
+     "jp": null,
+     "mx": 12
+    },
+    "puzzle games for adults": {
+     "us": 91,
+     "gb": null,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    }
+   }
+  },
+  {
+   "date": "2026-10-13",
+   "iosRating": 4.6,
+   "iosRatingCount": 341,
+   "playRating": 4.5,
+   "playRatingCount": 1010,
+   "playInstalls": "50K+",
+   "bestRank": 7,
+   "rankedKeywords": 8,
+   "ranks": {
+    "block puzzle": {
+     "us": 54,
+     "gb": 45,
+     "de": 41,
+     "br": 67,
+     "jp": null,
+     "mx": null
+    },
+    "wood block puzzle": {
+     "us": 29,
+     "gb": 22,
+     "de": 27,
+     "br": 36,
+     "jp": null,
+     "mx": 45
+    },
+    "relaxing games": {
+     "us": 84,
+     "gb": 75,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "brain games": {
+     "us": 52,
+     "gb": 52,
+     "de": 54,
+     "br": null,
+     "jp": null,
+     "mx": 86
+    },
+    "tile match": {
+     "us": 15,
+     "gb": 10,
+     "de": 22,
+     "br": 18,
+     "jp": null,
+     "mx": 25
+    },
+    "offline games": {
+     "us": 47,
+     "gb": 61,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": 67
+    },
+    "sudoku blocks": {
+     "us": 12,
+     "gb": 7,
+     "de": 11,
+     "br": 13,
+     "jp": null,
+     "mx": 10
+    },
+    "puzzle games for adults": {
+     "us": 89,
+     "gb": null,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    }
+   }
+  },
+  {
+   "date": "2026-10-20",
+   "iosRating": 4.6,
+   "iosRatingCount": 359,
+   "playRating": 4.5,
+   "playRatingCount": 1064,
+   "playInstalls": "50K+",
+   "bestRank": 5,
+   "rankedKeywords": 8,
+   "ranks": {
+    "block puzzle": {
+     "us": 52,
+     "gb": 43,
+     "de": 39,
+     "br": 65,
+     "jp": null,
+     "mx": null
+    },
+    "wood block puzzle": {
+     "us": 27,
+     "gb": 20,
+     "de": 25,
+     "br": 34,
+     "jp": null,
+     "mx": 43
+    },
+    "relaxing games": {
+     "us": 82,
+     "gb": 73,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "brain games": {
+     "us": 50,
+     "gb": 50,
+     "de": 52,
+     "br": null,
+     "jp": null,
+     "mx": 84
+    },
+    "tile match": {
+     "us": 13,
+     "gb": 8,
+     "de": 20,
+     "br": 16,
+     "jp": null,
+     "mx": 23
+    },
+    "offline games": {
+     "us": 45,
+     "gb": 59,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": 65
+    },
+    "sudoku blocks": {
+     "us": 10,
+     "gb": 5,
+     "de": 9,
+     "br": 11,
+     "jp": null,
+     "mx": 8
+    },
+    "puzzle games for adults": {
+     "us": 87,
+     "gb": null,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    }
+   }
+  },
+  {
+   "date": "2026-10-27",
+   "iosRating": 4.6,
+   "iosRatingCount": 371,
+   "playRating": 4.5,
+   "playRatingCount": 1121,
+   "playInstalls": "50K+",
+   "bestRank": 3,
+   "rankedKeywords": 8,
+   "ranks": {
+    "block puzzle": {
+     "us": 48,
+     "gb": 39,
+     "de": 35,
+     "br": 61,
+     "jp": null,
+     "mx": null
+    },
+    "wood block puzzle": {
+     "us": 24,
+     "gb": 17,
+     "de": 22,
+     "br": 31,
+     "jp": null,
+     "mx": 40
+    },
+    "relaxing games": {
+     "us": 79,
+     "gb": 70,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    },
+    "brain games": {
+     "us": 47,
+     "gb": 47,
+     "de": 49,
+     "br": null,
+     "jp": null,
+     "mx": 81
+    },
+    "tile match": {
+     "us": 11,
+     "gb": 6,
+     "de": 18,
+     "br": 14,
+     "jp": null,
+     "mx": 21
+    },
+    "offline games": {
+     "us": 43,
+     "gb": 57,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": 63
+    },
+    "sudoku blocks": {
+     "us": 8,
+     "gb": 3,
+     "de": 7,
+     "br": 9,
+     "jp": null,
+     "mx": 6
+    },
+    "puzzle games for adults": {
+     "us": 84,
+     "gb": null,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    }
+   }
+  },
+  {
+   "date": "2026-11-03",
+   "iosRating": 4.6,
+   "iosRatingCount": 412,
+   "playRating": 4.5,
+   "playRatingCount": 1180,
+   "playInstalls": "50K+",
+   "bestRank": 2,
+   "rankedKeywords": 8,
+   "ranks": {
+    "block puzzle": {
+     "us": 41,
+     "gb": 33,
+     "de": 27,
+     "br": 58,
+     "jp": null,
+     "mx": 64
+    },
+    "wood block puzzle": {
+     "us": 19,
+     "gb": 14,
+     "de": 11,
+     "br": 29,
+     "jp": null,
+     "mx": 37
+    },
+    "relaxing games": {
+     "us": 88,
+     "gb": 72,
+     "de": null,
+     "br": 104,
+     "jp": null,
+     "mx": null
+    },
+    "brain games": {
+     "us": 38,
+     "gb": 44,
+     "de": 51,
+     "br": null,
+     "jp": null,
+     "mx": 77
+    },
+    "tile match": {
+     "us": 9,
+     "gb": 4,
+     "de": 31,
+     "br": 12,
+     "jp": null,
+     "mx": 16
+    },
+    "offline games": {
+     "us": 45,
+     "gb": 52,
+     "de": null,
+     "br": 71,
+     "jp": null,
+     "mx": 66
+    },
+    "sudoku blocks": {
+     "us": 6,
+     "gb": 3,
+     "de": 5,
+     "br": 2,
+     "jp": 14,
+     "mx": 4
+    },
+    "puzzle games for adults": {
+     "us": 74,
+     "gb": 96,
+     "de": null,
+     "br": null,
+     "jp": null,
+     "mx": null
+    }
+   }
+  }
+ ]
+}

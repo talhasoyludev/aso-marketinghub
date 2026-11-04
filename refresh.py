@@ -1,20 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-ASO Radar veri toplayıcı
+ASO Radar data collector
 =========================================
-Çalıştır:  python refresh.py   (veya refresh.bat'a çift tıkla)
+Run:  python refresh.py   (or double-click refresh.bat / refresh.command)
 
-Ne yapar:
- 1. Senin uygulamanın ve rakiplerin App Store / Google Play verilerini çeker
-    (puan, puan sayısı, indirme aralığı, başlık, açıklama).
- 2. Rakip metinlerinden etiket (tag) frekans analizi çıkarır ve senin
-    metadata'nla kıyaslar -> fırsat etiketleri işaretler.
- 3. Takip listesindeki her anahtar kelime için iTunes aramasında kaçıncı
-    sırada olduğunu ölçer (iOS keyword rank tracking).
- 4. Her çalıştırmada ölçümleri data.json'daki history'ye ekler; site bunu
-    otomatik rapor olarak gösterir.
+What it does:
+ 1. Fetches App Store / Google Play data for your app and your competitors
+    (rating, rating count, install range, title, description).
+ 2. Runs a tag-frequency analysis over competitor copy and compares it with
+    your metadata -> flags opportunity tags.
+ 3. Measures where you rank in iTunes search for every tracked keyword
+    (iOS keyword rank tracking).
+ 4. Appends each run's measurements to the history in data.json; the panel
+    shows it as an automatic report.
 
-Ayarlar aşağıda — rakip eklemek için COMPETITORS listesine satır ekle.
+Settings come from workspace/config.json (competitors, keywords, countries).
+Console and rule-engine text follow config.json > lang ("en" / "tr"; the
+MARKETINGHUB_LANG environment variable overrides it) — see mh_text.py.
 """
 import json
 import math
@@ -27,9 +29,12 @@ from datetime import date, datetime
 from html import unescape
 from pathlib import Path
 
+from mh_text import t, t_lang
+
 # Windows konsolu (cp1254) Unicode karakterlerde patlamasın
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")   # sys.exit() messages
 except Exception:
     pass
 
@@ -40,8 +45,7 @@ BASE = Path(__file__).resolve().parent
 # açık paylaşılabilir, workspace/ paylaşılmaz.
 WS = BASE / "workspace"
 if not (WS / "config.json").exists():
-    sys.exit("workspace/config.json yok — önce `python setup.py` çalıştır "
-             "(şablonu kopyalar ve doldurman gereken alanları söyler).")
+    sys.exit(t("r.no_config"))
 _cfg_all = json.loads((WS / "config.json").read_text(encoding="utf-8"))
 _cfg = _cfg_all["apps"][_cfg_all["activeApp"]]
 
@@ -104,7 +108,7 @@ def fetch_ios(app_id):
     try:
         data = get_json(f"https://itunes.apple.com/lookup?id={app_id}&country={COUNTRY}")
         if not data.get("results"):
-            log(f"iOS {app_id}: bulunamadı")
+            log(t("r.ios_not_found", id=app_id))
             return None
         r = data["results"][0]
         info = {
@@ -126,10 +130,10 @@ def fetch_ios(app_id):
             info["subtitle"] = _ios_subtitle(get(info["url"], timeout=20), info["title"])
         except Exception:
             pass
-        log(f"iOS  ✓ {info['title']}  ({info['ratingCount']} puan)")
+        log(t("r.ios_ok", title=info['title'], n=info['ratingCount']))
         return info
     except Exception as e:
-        log(f"iOS {app_id}: HATA {e}")
+        log(t("r.ios_error", id=app_id, e=e))
         return None
 
 def _ios_subtitle(html, title):
@@ -176,7 +180,7 @@ def fetch_play(pkg):
     try:
         html = get(url)
     except Exception as e:
-        log(f"Play {pkg}: HATA {e}")
+        log(t("r.play_error", id=pkg, e=e))
         return None
     info = {"id": pkg, "title": None, "short": None, "description": None,
             "rating": None, "ratingCount": None, "installs": None, "url": url}
@@ -217,7 +221,8 @@ def fetch_play(pkg):
         if m:
             info["installs"] = m.group(1)
             break
-    log(f"Play ✓ {info['title'] or pkg}  ({info['installs'] or '?'} indirme, {info['ratingCount'] or '?'} puan)")
+    log(t("r.play_ok", title=info['title'] or pkg, installs=info['installs'] or '?',
+          n=info['ratingCount'] or '?'))
     return info
 
 # ---------- iOS keyword sıralaması (çoklu ülke) ----------
@@ -227,10 +232,10 @@ def search_itunes(term, country, retry=True):
         return get_json("https://itunes.apple.com/search?" + q)
     except Exception as e:
         if retry:
-            log(f"  {country}: hız limiti/hata — 25 sn bekleyip tekrar denenecek")
+            log(t("r.search_retry", c=country))
             time.sleep(25)
             return search_itunes(term, country, retry=False)
-        log(f"  {country}: HATA {e}")
+        log(t("r.search_error", c=country, e=e))
         return None
 
 def estimate_metrics(results, term):
@@ -279,7 +284,7 @@ def keyword_rank_all(term, comp_ids, prev_map):
         }
     ranked = {c: v["myRank"] for c, v in entry["countries"].items() if v["myRank"]}
     log(f'kw "{term}": ' + (", ".join(f"{c}#{r}" for c, r in ranked.items()) if ranked
-                            else "hiçbir ülkede ilk 200'de değil"))
+                            else t("r.kw_unranked")))
     return entry
 
 def build_prev_map(old_data):
@@ -372,15 +377,27 @@ def _covers(term, words):
             ok += 1
     return ok == len(term.split())
 
+def plan_id(key, **params):
+    """Language-independent asoPlan id. The panel stores the user's ticks against
+    it, so it must not change with the output language: it is ALWAYS derived from
+    the Turkish action text (the only language earlier versions wrote), which keeps
+    ids identical to theirs and existing ticks alive."""
+    action_tr = t_lang("tr", f"plan.{key}.action", **params)
+    return "plan-" + re.sub(r"\W+", "-", action_tr.lower())[:45].strip("-")
+
+
 def build_recommendations(my_ios, my_play, ranks, tags, history):
     recs, plan = [], []
     def add(area, prio, title, detail):
+        # id is positional (date + order), never text-derived -> same in every language
         recs.append({"id": f"auto-{date.today().isoformat()}-{len(recs)}",
-                     "source": "kural motoru", "area": area,
+                     "source": t("rec.source"), "area": area,
                      "priority": prio, "title": title, "detail": detail})
-    def plan_add(store, field, action, reason, prio=2):
-        plan.append({"id": "plan-" + re.sub(r"\W+", "-", action.lower())[:45].strip("-"),
-                     "store": store, "field": field, "action": action,
+    def plan_add(store, field, key, reason, prio=2, **params):
+        """key: stable item key (plan.<key>.action in mh_text); params fill the text."""
+        plan.append({"id": plan_id(key, **params),
+                     "store": store, "field": t(f"field.{field}"),
+                     "action": t(f"plan.{key}.action", **params),
                      "reason": reason, "priority": prio})
 
     # --- kelime bazlı analiz ---
@@ -391,17 +408,13 @@ def build_recommendations(my_ios, my_play, ranks, tags, history):
     ranked = [(kw, c, v) for kw, c, v in flat if v.get("myRank")]
 
     if KEYWORDS and flat and not ranked:
-        add("aso", 1, f"{len(COUNTRIES)} ülkenin hiçbirinde indekslenmemişsin",
-            "Taranan tüm ülkelerde, tüm kelimelerde ilk 200 dışındasın. Tek çözüm: ASO "
-            "Merkezi'ndeki metadata'yı mağazaya YAYINLAMAK. Yayın sonrası indeksleme 7-14 gün "
-            "sürer; günlük tarama ile değişimi izle.")
-        plan_add("both", "metadata", "ASO Merkezi'ndeki başlık/alt başlık/keywords/açıklama setini olduğu gibi yayınla",
-                 "Hiçbir ülkede hiçbir kelimede indeksin yok — diğer her aksiyon bunun arkasında beklemeli.", 1)
+        add("aso", 1, t("rec.not_indexed.title", n=len(COUNTRIES)),
+            t("rec.not_indexed.detail"))
+        plan_add("both", "metadata", "publish", t("plan.publish.reason"), 1)
     elif ranked:
         best = min(ranked, key=lambda x: x[2]["myRank"])
-        add("aso", 2, f'En iyi konumun: "{best[0]}" — {best[1].upper()} #{best[2]["myRank"]}',
-            "En güçlü olduğun kelime/ülke ikilisine yüklen: o kelimeyi görünür alanlara taşı, "
-            "o ülkenin dilinde listing aç, içerik üret.")
+        add("aso", 2, t("rec.best.title", kw=best[0], c=best[1].upper(), rank=best[2]["myRank"]),
+            t("rec.best.detail"))
 
     my_words = _my_visible_words(my_ios, my_play)
 
@@ -426,21 +439,17 @@ def build_recommendations(my_ios, my_play, ranks, tags, history):
         covered = _covers(kw, my_words)
         top_c = max(cs.items(), key=lambda x: x[1]["volume"])[0]
         if kw.lower() in brand_terms:
-            plan_add("ios", "keywords (gizli alan)",
-                     f'"{kw}" MARKA adıdır: görünür metne yazma; gizli keywords alanında parçalarını tut',
-                     f"Tahmini hacim {vol}/100 ama marka hakkı riski var (görünür kullanımı Google politikası + telif ihlali). "
-                     "Gizli alan + o kelimede sıralanmak için puan kütlesi/indirme hızı artır.", 2)
+            plan_add("ios", "hidden_kw", "brand", t("plan.brand.reason", vol=vol), 2, kw=kw)
             continue
         if not covered:
-            plan_add("both", "başlık/alt başlık/açıklama",
-                     f'"{kw}" öbeğini görünür metadata\'na ekle (öncelik: {top_c.upper()})',
-                     f"Tahmini hacim {vol}/100, zorluk {dif}/100, sen {'ilk 200 dışında' if not best_my else '#%d' % best_my} — "
-                     "kelime görünür metinlerinde HİÇ geçmiyor, indekslenmen imkansız.", 1)
+            pos = t("plan.add_visible.unranked") if not best_my else "#%d" % best_my
+            plan_add("both", "visible", "add_visible",
+                     t("plan.add_visible.reason", vol=vol, dif=dif, pos=pos), 1,
+                     kw=kw, c=top_c.upper())
         else:
-            plan_add("ios", "keywords/alt başlık",
-                     f'"{kw}" için ağırlığı artır: kelimeyi alt başlığa/başlığa yaklaştır',
-                     f"Kelime metinlerinde var ama sıralaman {'yok' if not best_my else '#%d' % best_my}. "
-                     f"Hacim {vol}/100, zorluk {dif}/100 — alan içi konum (başlık>alt başlık>açıklama) ağırlığı belirler.", 2)
+            pos = t("plan.boost.unranked") if not best_my else "#%d" % best_my
+            plan_add("ios", "kw_sub", "boost",
+                     t("plan.boost.reason", vol=vol, dif=dif, pos=pos), 2, kw=kw)
 
     # Rakip tehdidi: benim rakiplerim hangi kelimelerde ilk 10'da?
     threats = {}
@@ -450,8 +459,8 @@ def build_recommendations(my_ios, my_play, ranks, tags, history):
                 threats.setdefault(comp, []).append((kw, c, cr))
     for comp, hits in sorted(threats.items(), key=lambda x: -len(x[1]))[:3]:
         ex = ", ".join(f'"{k}" {c.upper()} #{r}' for k, c, r in hits[:3])
-        add("radar", 2, f"{comp} senin kelimelerinde ilk 10'da ({len(hits)} yerde)",
-            f"Örnek: {ex}. Bu niş dolmaya başlamış — aynı kelimelere metadata + puan kütlesiyle yüklenmezsen boşluğu onlar kapatır.")
+        add("radar", 2, t("rec.threat.title", comp=comp, n=len(hits)),
+            t("rec.threat.detail", ex=ex))
 
     # Kırılabilir zirve: iyi konumda olduğum bir kelimede ilk 3 uygulama zayıfsa
     # (düşük puan kütlesi), yerel listing + puan itmesiyle ilk 3 gerçekçi hedeftir.
@@ -465,9 +474,9 @@ def build_recommendations(my_ios, my_play, ranks, tags, history):
             if v.get("myRank") and v["myRank"] <= 30 and max(ratings) < 100 and (v.get("volume") or 0) >= 40:
                 weak_tops.append((v["volume"], r["kw"], c, v["myRank"], max(ratings)))
     for vol, kw, c, my, strongest in sorted(weak_tops, reverse=True)[:2]:
-        add("aso", 1, f'Kırılabilir zirve: "{kw}" {c.upper()} — sen #{my}, ilk 3 zayıf',
-            f"Bu kelimede ilk 3'teki en güçlü uygulamanın yalnızca {strongest} puanı var (hacim {vol}/100). "
-            f"{COUNTRY_LANG.get(c, 'yerel')} dilinde listing + 50-100 gerçek puan + o ülkeye içerik = ilk 3 gerçekçi hedef.")
+        add("aso", 1, t("rec.weak_top.title", kw=kw, c=c.upper(), my=my),
+            t("rec.weak_top.detail", strongest=strongest, vol=vol,
+              lang=COUNTRY_LANG.get(c) or t("rec.weak_top.local")))
 
     # Lokalizasyon: hacimli ülkede dil desteğin yoksa
     langs = set((my_ios or {}).get("languages") or [])
@@ -477,45 +486,42 @@ def build_recommendations(my_ios, my_play, ranks, tags, history):
             continue
         c_vols = [v["volume"] for kw, cc, v in flat if cc == c]
         if c_vols and sum(c_vols) / len(c_vols) >= 30:
-            plan_add("both", "lokalizasyon",
-                     f"{c.upper()} için {need} dilinde mağaza sayfası aç",
-                     f"{c.upper()} ortalama kelime hacmi {round(sum(c_vols)/len(c_vols))}/100 ama uygulaman {need} dilini desteklemiyor — o ülkenin kendi dilindeki aramalarda görünmüyorsun.", 2)
+            plan_add("both", "localization", "localize",
+                     t("plan.localize.reason", c=c.upper(), need=need,
+                       avg=round(sum(c_vols) / len(c_vols))), 2,
+                     c=c.upper(), need=need)
 
     # Hareket: önceki taramaya göre sıçrama/düşüş
     moves = [(kw, c, v["prev"], v["myRank"]) for kw, c, v in flat
              if v.get("prev") and v.get("myRank") and abs(v["prev"] - v["myRank"]) >= 10]
     for kw, c, p, n in sorted(moves, key=lambda m: m[2] - m[3], reverse=True)[:3]:
         if n < p:
-            add("radar", 3, f'Yükseliş: "{kw}" {c.upper()} #{p} → #{n}',
-                "Momentum var — bu kelimeye içerik ve görünür metadata ağırlığı ver.")
+            add("radar", 3, t("rec.rise.title", kw=kw, c=c.upper(), p=p, n=n),
+                t("rec.rise.detail"))
         else:
-            add("radar", 3, f'Düşüş: "{kw}" {c.upper()} #{p} → #{n}',
-                "Rakip hamlesi veya indeks güncellemesi olabilir; metadata'da bu kelimenin ağırlığını koru.")
+            add("radar", 3, t("rec.drop.title", kw=kw, c=c.upper(), p=p, n=n),
+                t("rec.drop.detail"))
 
     # --- uygulama sağlığı ---
     if my_ios:
         if (my_ios.get("ratingCount") or 0) < 50:
-            add("roadmap", 1, f"iOS puan sayısı çok düşük ({my_ios.get('ratingCount', 0)})",
-                "Puan kütlesi sıralamanın yakıtıdır: aynı metadata ile bile puanı artan uygulama yükselir. "
-                "In-app review prompt'u yüksek duygu anına bağla; ilk 100 puanı topla.")
+            add("roadmap", 1, t("rec.ios_ratings.title", n=my_ios.get('ratingCount', 0)),
+                t("rec.ios_ratings.detail"))
         if str(my_ios.get("version", "")).startswith("0."):
-            add("roadmap", 1, f"Sürüm hâlâ {my_ios.get('version')} — 1.0 sinyali ver",
-                "0.x sürümü kullanıcıya ve editörlere 'bitmemiş' der. 1.0.0'ı lansman güncellemesi olarak çıkar.")
+            add("roadmap", 1, t("rec.version.title", v=my_ios.get('version')),
+                t("rec.version.detail"))
     if my_play and (my_play.get("ratingCount") or 0) < 100:
-        add("roadmap", 2, "Play puan sayısı 100 altında",
-            "Play'de yorum sayısı ve hızı sıralama sinyalidir. In-App Review API + yorumlara yanıt.")
+        add("roadmap", 2, t("rec.play_ratings.title"), t("rec.play_ratings.detail"))
 
     if len(history) >= 2:
         prev, cur = history[-2], history[-1]
-        for key, label in (("iosRatingCount", "iOS puan sayısı"), ("playRatingCount", "Play puan sayısı")):
+        for key in ("iosRatingCount", "playRatingCount"):
             a, b = prev.get(key), cur.get(key)
             if a is not None and b is not None and b > a:
-                add("radar", 3, f"{label} arttı: {a} → {b}",
-                    "Büyüme sinyali — hangi aksiyonun işe yaradığını not et ve tekrarla.")
+                add("radar", 3, t("rec.growth.title", label=t("rec.label." + key), a=a, b=b),
+                    t("rec.growth.detail"))
 
-    plan_add("ios", "keywords (gizli alan)",
-             "Gizli keywords alanını dışarıdan doğrulayamam — ASO Merkezi'ndeki 100 karakterlik setle birebir aynı olduğundan emin ol",
-             "iTunes API görünür alanları verir; gizli alan yalnızca App Store Connect'te görünür.", 3)
+    plan_add("ios", "hidden_kw", "hidden_kw", t("plan.hidden_kw.reason"), 3)
     return recs, plan
 
 # ---------- OTOMATİK İÇERİK DERLEYİCİ ----------
@@ -551,7 +557,7 @@ def _keep_existing_playbook_ids(focus):
     for f in focus:
         (kept if f["id"] in alive else dropped).append(f)
     if dropped:
-        print("   ! playbook.json'da olmayan odak id atlandı: " +
+        print(t("r.pb_dropped") +
               ", ".join(d["id"] for d in dropped))
     return kept
 
@@ -566,7 +572,7 @@ def build_auto_content(my_ios, my_play, ranks, tags):
     # --- TAG BANKASI grubu + VIDEO SEO seti
     # "group" eski sürümlerle uyum için kalıyor; panel varsa "date" alanını kullanıp
     # etiketi kendi dilinde üretir (motorun çıktısı panelin dilini belirlemesin).
-    tag_group = {"group": f"📡 Radar otomatik — {date.today():%d.%m.%Y}",
+    tag_group = {"group": t("auto.tag_group", d=f"{date.today():%d.%m.%Y}"),
                  "date": f"{date.today():%d.%m.%Y}",
                  "tags": [p["kw"] for p in ps[:6]] +
                          [t["tag"] for t in tags if t.get("opportunity")][:6]}
@@ -580,12 +586,12 @@ def build_auto_content(my_ios, my_play, ranks, tags):
     langs = set((my_ios or {}).get("languages") or [])
     missing = [c.upper() for c in COUNTRIES if COUNTRY_LANG.get(c) and COUNTRY_LANG[c] not in langs]
     if missing:
-        focus.append({"id": "pb-aso-2", "why": f"Hacim olan {len(missing)} ülkede ({', '.join(missing[:6])}) yerel listing yok"})
+        focus.append({"id": "pb-aso-2", "why": t("focus.missing_langs", n=len(missing), cs=", ".join(missing[:6]))})
     if (my_ios and (my_ios.get("ratingCount") or 0) < 50) or (my_play and (my_play.get("ratingCount") or 0) < 100):
-        focus.append({"id": "pb-aso-3", "why": "Puan kütlesi kritik düşük — sıralama yakıtın bu"})
+        focus.append({"id": "pb-aso-3", "why": t("focus.low_ratings")})
     any_ranked = any(v.get("myRank") for r in ranks for v in r.get("countries", {}).values())
     if any_ranked:
-        focus.append({"id": "pb-meas-1", "why": "Sıralamalar oluşmaya başladı — günlük Δ takibi şart"})
+        focus.append({"id": "pb-meas-1", "why": t("focus.ranking")})
     # İndeks yokken ayrıca playbook odağı işaretlenmiyor: aynı sinyal zaten P1 öneri
     # ("hiçbir ülkede indekslenmemişsin") + P1 asoPlan maddesi olarak üretiliyor.
     focus = _keep_existing_playbook_ids(focus)
@@ -622,14 +628,14 @@ def download_assets(my_ios, comps):
         for i, s in enumerate(ios.get("screenshots") or [], 1):
             if download(s, d / f"ss{i}.jpg"):
                 n += 1
-    log(f"{n} görsel workspace/assets/ klasörüne indirildi")
+    log(t("r.assets_done", n=n))
 
 # ---------- ana akış ----------
 def main():
     n_search = len(KEYWORDS) * len(COUNTRIES)
-    print(f"ASO Radar — {datetime.now():%Y-%m-%d %H:%M}")
-    print(f"Ülkeler: {', '.join(c.upper() for c in COUNTRIES)} · {len(KEYWORDS)} kelime × "
-          f"{len(COUNTRIES)} ülke = {n_search} arama (~{n_search * RATE_SLEEP // 60 + 1} dk sürer)\n")
+    print(t("r.header", dt=f"{datetime.now():%Y-%m-%d %H:%M}"))
+    print(t("r.plan_line", cs=", ".join(c.upper() for c in COUNTRIES), k=len(KEYWORDS),
+            c=len(COUNTRIES), n=n_search, m=n_search * RATE_SLEEP // 60 + 1))
 
     old_data = None
     if OUT.exists():
@@ -639,11 +645,11 @@ def main():
             pass
     prev_map = build_prev_map(old_data)
 
-    print("Kendi uygulaman:")
+    print(t("r.my_app"))
     my_ios = fetch_ios(MY_IOS_ID)
     my_play = fetch_play(MY_PLAY_ID)
 
-    print(f"\nRakipler ({len(COMPETITORS)}):")
+    print(t("r.competitors", n=len(COMPETITORS)))
     comps = []
     comp_ids = {}
     for c in COMPETITORS:
@@ -656,13 +662,13 @@ def main():
                 comp_ids[c["ios_id"]] = c["name"]
         time.sleep(1)
 
-    print(f"\niOS keyword sıralamaları ({len(COUNTRIES)} ülke):")
+    print(t("r.kw_section", n=len(COUNTRIES)))
     ranks = []
     for i, kw in enumerate(KEYWORDS, 1):
         print(f" [{i}/{len(KEYWORDS)}] {kw}")
         ranks.append(keyword_rank_all(kw, comp_ids, prev_map))
 
-    print("\nEtiket analizi...")
+    print(t("r.tag_section"))
     my_parts = []
     for app in (my_ios, my_play):
         if app:
@@ -678,9 +684,9 @@ def main():
         comp_texts.append((c["name"], title_parts, all_parts))
     tags = build_tag_matrix(my_parts, comp_texts)
     opp = [t["tag"] for t in tags if t["opportunity"]][:10]
-    log(f"{len(tags)} etiket, {len([t for t in tags if t['opportunity']])} fırsat bulundu")
+    log(t("r.tags_found", n=len(tags), o=len([x for x in tags if x["opportunity"]])))
     if opp:
-        log("İlk fırsatlar: " + ", ".join(opp))
+        log(t("r.top_opps") + ", ".join(opp))
 
     # önceki history'yi koru
     history = (old_data or {}).get("history", [])
@@ -702,12 +708,11 @@ def main():
 
     recs, aso_plan = build_recommendations(my_ios, my_play, ranks, tags, history)
     auto = build_auto_content(my_ios, my_play, ranks, tags)
-    log(f"{len(recs)} öneri + {len(aso_plan)} plan maddesi + otomatik içerik "
-        f"({len(auto['videoTags'])} video tag, {len(auto['playbookFocus'])} playbook odağı) üretildi. "
-        f"ASO metadata metni motor tarafından üretilmiyor — advisor.json (Claude) esastır.")
+    log(t("r.summary", r=len(recs), p=len(aso_plan), v=len(auto["videoTags"]),
+          f=len(auto["playbookFocus"])))
 
     if DOWNLOAD_ASSETS:
-        print("\nGörseller indiriliyor...")
+        print(t("r.downloading"))
         download_assets(my_ios, comps)
 
     data = {
@@ -724,7 +729,7 @@ def main():
         "history": history,
     }
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"\n✓ {OUT.name} yazıldı — siteyi yenile, Rakip Radar sekmesine bak.")
+    print(t("r.written", name=OUT.name))
 
 if __name__ == "__main__":
     main()

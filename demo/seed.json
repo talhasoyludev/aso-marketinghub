@@ -1,0 +1,24 @@
+{
+  "_help": "Browser-side state for demo mode only (index.html?demo=1). Written once into demo-namespaced localStorage (ruhub_demo_*) so the Campaigns, Reports, Video SEO and Roadmap tabs are not empty. Never touches a real install's keys. Fictional data.",
+  "store": {
+    "checks": {"adv-20261019-01": true, "auto-2026-11-03-9": true},
+    "pbAdded": ["pb-aso-4"],
+    "campaigns": [
+      {"name": "ig_story_test", "date": "2026-10-12", "spend": 180, "installs": 63},
+      {"name": "tiktok_satisfying_a", "date": "2026-10-12", "spend": 120, "installs": 131},
+      {"name": "reddit_r_puzzles", "date": "2026-10-26", "spend": 60, "installs": 41}
+    ],
+    "base": 38500,
+    "reports": [
+      {"d": "2026-09-28", "imp": 41200, "vw": 3900, "ins": 1480},
+      {"d": "2026-10-05", "imp": 44800, "vw": 4300, "ins": 1620},
+      {"d": "2026-10-12", "imp": 52100, "vw": 5050, "ins": 1910},
+      {"d": "2026-10-19", "imp": 55900, "vw": 5600, "ins": 2130},
+      {"d": "2026-10-26", "imp": 61300, "vw": 6350, "ins": 2460}
+    ],
+    "ytSel": ["tidal tiles", "tidal tiles gameplay", "sudoku blocks", "tile match", "wood block puzzle", "offline games", "block puzzle", "brain teaser"],
+    "f_ytTitle": "Tidal Tiles 🌊 Official Trailer — Sudoku Blocks (iOS & Android)",
+    "f_ytDesc": "A calm wood block puzzle with an ocean soul — no timer, no wifi needed, a new Daily Tide board every day.\n\n▶ App Store: https://apps.apple.com/app/id0\n▶ Google Play: https://play.google.com/store/apps/details?id=com.example.tidaltiles\n\n00:00 Daily Tide\n00:08 Full-board clear\n00:15 Winter Tide preview\n\n#blockpuzzle #sudokublocks #tilematch",
+    "customTags": ["cozy puzzle", "asmr puzzle"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "marketinghub",
+  "description": "MarketingHub: a local ASO & growth dashboard for mobile apps, driven by Claude Code.",
+  "owner": {
+    "name": "Talha Soylu",
+    "url": "https://github.com/talhasoyludev"
+  },
+  "plugins": [
+    {
+      "name": "marketinghub",
+      "source": "./",
+      "description": "ASO analysis skill for MarketingHub: config setup, store scan, and the advisor.json (store metadata, per-market localization, dated recommendations) the panel displays.",
+      "category": "marketing",
+      "tags": ["aso", "app-store", "google-play", "mobile", "marketing", "localization"]
+    }
+  ]
+}

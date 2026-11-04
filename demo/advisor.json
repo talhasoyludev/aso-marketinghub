@@ -1,0 +1,194 @@
+{
+  "_help": "DEMO advisor file for index.html?demo=1 — a fictional app (Tidal Tiles) and fictional competitors. In a real install Claude writes workspace/advisor.json; schema: skills/marketinghub/reference/advisor-schema.md.",
+  "updated": "2026-11-02 (subtitle + Play short rewrite, pt-BR / es-MX / ja packs, DE keyword refresh)",
+
+  "recommendations": [
+    {
+      "id": "adv-20261102-01",
+      "area": "roadmap",
+      "priority": 1,
+      "title": "Publish the new iOS subtitle and Play short description together",
+      "detail": "Publish Verification still reads the old texts live: iOS subtitle \"Relaxing Brain Game\" and Play short \"Relaxing ocean block puzzle…\". Neither contains \"tile match\" — your best-converting term (GB #4, US #9). Ship both in the same release so the next scan can attribute any rank change to this one edit.",
+      "source": "Claude — 2 Nov 2026, publish verification + keyword matrix"
+    },
+    {
+      "id": "adv-20261102-02",
+      "area": "roadmap",
+      "priority": 1,
+      "title": "Ship the pt-BR store listing before the next scan",
+      "detail": "BR has the highest average keyword volume of the markets without a local listing (52/100) and two breakable tops: \"wood block puzzle\" BR — you #29 with no top-3 app above 94 ratings — and \"sudoku blocks\" BR, where you already sit at #2 (was #9). The pt-BR pack in the Localization tab is ready; screenshot headings still need a fifth line.",
+      "source": "Claude — 2 Nov 2026, country volume vs. live languages"
+    },
+    {
+      "id": "adv-20261019-01",
+      "area": "roadmap",
+      "priority": 2,
+      "title": "Move the review prompt to the end of a 3-day Daily Tide streak",
+      "detail": "The prompt fired on first launch: 3-5 iOS ratings per week. After moving it to a streak-completion moment, iOS ratings went 371 → 412 in one week (largest weekly jump in the history table). Keep it there and add the same trigger on Android via the In-App Review API.",
+      "source": "Claude — 19 Oct 2026, history table"
+    },
+    {
+      "id": "adv-20261102-03",
+      "area": "roadmap",
+      "priority": 2,
+      "title": "Answer the 14 unanswered 1-2★ Play reviews about the ad after level 3",
+      "detail": "Play rating is 4.5 vs 4.6 on iOS with 3x the rating mass; the gap traces to one complaint cluster (interstitial after level 3). Reply with the fix shipped in 1.4.2 and ask for a re-rate — answered negatives are frequently revised upward.",
+      "source": "Claude — 2 Nov 2026, rating comparison"
+    },
+    {
+      "id": "adv-20261102-04",
+      "area": "aso",
+      "priority": 2,
+      "title": "Keep \"relaxing\" in the keyword field — do not chase \"relaxing games\" in the title",
+      "detail": "\"relaxing games\" has the highest volume after \"brain games\" (70/100 US) but difficulty 68 and you sit at #88, behind apps with 70k-100k ratings. The title slot is worth more on \"block puzzle\" (US #41 → realistic top 20). Revisit when iOS ratings pass 2,000.",
+      "source": "Claude — 2 Nov 2026, keyword matrix"
+    },
+    {
+      "id": "adv-20261102-05",
+      "area": "i18n",
+      "priority": 2,
+      "title": "Re-cut the German keyword field: \"tile match\" DE fell #18 → #31",
+      "detail": "The DE listing is live but its keyword field is a literal translation (\"Fliesen\" = bathroom tiles). German players search \"Kacheln\", \"Steine\" and \"Klötze\"; the top-3 DE app \"Kachel Kombi\" uses \"Kachel\" in its title. The updated de pack swaps these in; the drop started the week Mosaic Match 3D localized into German.",
+      "source": "Claude — 2 Nov 2026, DE rank delta"
+    },
+    {
+      "id": "adv-20261102-06",
+      "area": "i18n",
+      "priority": 3,
+      "title": "Fix the es-MX and ja packs before export — the audit flags them",
+      "detail": "Localization Audit: es-MX keyword field has spaces after commas (wasted characters) and repeats \"bloques\" from the title; the ja screenshot headings contain a Latin word. Both are flagged in the audit card; fix, then run export_metadata.py --check.",
+      "source": "Claude — 2 Nov 2026, localization audit"
+    },
+    {
+      "id": "adv-20261102-07",
+      "area": "video",
+      "priority": 2,
+      "title": "Cut a 20-second \"satisfying clear\" short around the Daily Tide",
+      "detail": "\"tile match\" and \"sudoku blocks\" are your two strongest terms by score (41.0 and 42.6) and both are visual: a full-board clear reads in one second. Use the Video SEO tag set from this scan; title template 1 already carries the brand + top term.",
+      "source": "Claude — 2 Nov 2026, keyword scores"
+    },
+    {
+      "id": "adv-20261102-08",
+      "area": "tags",
+      "priority": 3,
+      "title": "Work \"jigsaw\" and \"daily challenge\" into the Play long description",
+      "detail": "Both are opportunity tags in the matrix (\"daily challenge\" is used by 5 of 6 competitors, 2 in titles) and both describe features you actually have (Daily Tide, picture boards). Play indexes the long description; iOS does not, so this is a Play-only edit.",
+      "source": "Claude — 2 Nov 2026, tag matrix"
+    },
+    {
+      "id": "adv-20261102-09",
+      "area": "radar",
+      "priority": 3,
+      "title": "Watch Zen Grid Puzzle on \"sudoku blocks\": #1 in DE, BR and MX",
+      "detail": "Zen Grid has only 3,120 iOS ratings yet holds #1 in three markets on your best term — it is winning on title match (\"Zen Grid: Sudoku Blocks\"), not on rating mass. If it localizes into Portuguese first, the BR #2 position is at risk.",
+      "source": "Claude — 2 Nov 2026, competitor ranks"
+    },
+    {
+      "id": "adv-20261019-02",
+      "area": "campaign",
+      "priority": 3,
+      "title": "Stop the Instagram test; double the TikTok creative that worked",
+      "detail": "Campaign log: ig_story_test $180 → 63 installs (CPI $2.86) vs tiktok_satisfying_a $120 → 131 installs (CPI $0.92). Same budget week, same store page — the difference is the creative and the channel. Reuse the satisfying-clear clip as the next ad.",
+      "source": "Claude — 19 Oct 2026, campaign log"
+    },
+    {
+      "id": "adv-20261102-10",
+      "area": "playbook",
+      "priority": 3,
+      "title": "Decide on an In-App Event for the December \"Winter Tide\" boards",
+      "detail": "No competitor in the radar currently runs an event card on your terms. The Winter Tide boards ship in 1.5; an event card is a second search listing for free. Decide by 20 Nov — events need review time.",
+      "source": "Claude — 2 Nov 2026, playbook review"
+    }
+  ],
+
+  "asoSuggestions": [
+    {
+      "field": "iosTitle",
+      "value": "Tidal Tiles: Block Puzzle",
+      "reason": "Unchanged and verified live. Rejected \"Tidal Tiles: Wood Block Puzzle\" (30/30): \"wood\" is already carried by the subtitle and the extra word would dilute \"block puzzle\", the highest-volume term (78 US)."
+    },
+    {
+      "field": "iosSub",
+      "value": "Wood Sudoku & Tile Match",
+      "reason": "Covers three radar targets in 24 characters with no token repeated from the title. Rejected the live \"Relaxing Brain Game\": \"brain games\" is difficulty 76 and you are #38 behind a 240k-rating app, while \"tile match\" is already top 10 in US/GB."
+    },
+    {
+      "field": "iosKw",
+      "value": "relaxing,brain,games,offline,jigsaw,classic,adults,calm,zen,ocean,teaser,logic,grid,cube,free,mind",
+      "reason": "No spaces, no repeats, nothing from title/subtitle. Competitor brand terms (brickfall, cubeway) deliberately left out even though the tag matrix flags them — brand bidding in metadata is a review risk for little gain."
+    },
+    {
+      "field": "iosPromo",
+      "value": "New: Winter Tide boards arrive in December — 30 frosty puzzles, the same calm rules. Update now and keep your Daily Tide streak going.",
+      "reason": "Promotional text is not indexed and can change without review — used for the next event, not for keywords."
+    },
+    {
+      "field": "iosDesc",
+      "value": "Tidal Tiles is a calm wood block puzzle that plays like a breath of sea air.\n\nDrop wooden tiles onto the grid, fill rows, columns and 3x3 squares, and watch the tide wash them away. No timer, no lives, no pressure — just you, the board and the sound of waves.\n\nWHY PLAYERS STAY\n• Classic block puzzle rules with a sudoku twist: clear squares, not just lines\n• Play offline — no wifi needed on the train, on a plane or at the beach\n• Daily Tide: one new hand-made board every day\n• 300+ calm levels that slowly teach smarter moves\n• Soft ocean sounds and haptics you can turn off\n\nA brain game for adults who want to unwind, not to grind. Easy to learn, satisfying to master.\n\nTidal Tiles is free to play. Optional ads can be removed with a one-time purchase.",
+      "reason": "Unchanged — live and verified. iOS does not index the description; it is written for conversion, and the first two lines are what shows above \"more\"."
+    },
+    {
+      "field": "iosWhatsNew",
+      "value": "1.4.2\n• The ad after level 3 is gone — you asked, we listened\n• Daily Tide streaks now survive time-zone changes\n• Smoother drag on older iPhones\n\nThanks for every review — they shape each update.",
+      "reason": "Leads with the fix behind the Play complaint cluster so the same users see it on iOS."
+    },
+    {
+      "field": "gpShort",
+      "value": "Wood block puzzle & tile match — relax offline, no timer, a new board every day",
+      "reason": "Play indexes this field heavily: carries \"wood block puzzle\", \"tile match\" and \"offline\" (79/80). Rejected the live text: it spends 25 characters on \"Relaxing ocean\", which no tracked term uses."
+    },
+    {
+      "field": "gpLong",
+      "value": "Tidal Tiles is a relaxing wood block puzzle with an ocean soul.\n\nPlace wooden blocks on the board, complete rows, columns and 3x3 squares, and let the tide clear them. There is no timer and no stress: every board can be solved at your own pace.\n\n★ Wood block puzzle meets sudoku — clear squares as well as lines\n★ Offline games done right: play anywhere, no internet connection needed\n★ Daily Tide challenge: a fresh board every day, the same for every player\n★ 300+ calm levels, from a gentle start to real brain teasers\n★ Soothing waves, soft haptics, a dark mode for evening sessions\n\nMade for adults who want a short, calm break — a block puzzle that trains your brain without shouting at you.\n\nFree to play. Remove ads with a single purchase. No subscriptions.",
+      "reason": "Live and verified. Next pass (see the tags recommendation): add \"jigsaw\" and \"daily challenge\" naturally — held back so this release changes one variable on Play (the short description)."
+    }
+  ],
+
+  "localization": [
+    {
+      "lang": "pt-BR", "name": "Portuguese (Brazil)", "flag": "🇧🇷", "country": "BR", "priority": 1,
+      "why": "BR average keyword volume 52/100 with no PT listing; \"sudoku blocks\" BR #2 and \"wood block puzzle\" BR #29 with a top 3 under 100 ratings.",
+      "iosTitle": "Tidal Tiles: Quebra-Cabeça",
+      "iosSub": "Blocos de Madeira e Sudoku",
+      "iosKw": "jogo,puzzle,relaxante,offline,cérebro,peças,combinar,clássico,grátis,mente,lógica,adultos",
+      "gpShort": "Quebra-cabeça de blocos de madeira — relaxe offline, sem tempo, desafio diário",
+      "gpLong": "Tidal Tiles é um quebra-cabeça de blocos de madeira relaxante, com alma de oceano.\n\nColoque blocos no tabuleiro, complete linhas, colunas e quadrados 3x3 e deixe a maré limpar tudo. Sem cronômetro, sem pressa.\n\n★ Blocos de madeira + sudoku: limpe quadrados e linhas\n★ Jogo offline: jogue em qualquer lugar, sem internet\n★ Desafio diário Maré do Dia: um tabuleiro novo todo dia\n★ Mais de 300 níveis calmos\n★ Sons de ondas e modo escuro\n\nGrátis para jogar. Remova os anúncios com uma única compra.",
+      "screens": ["RELAXE A CADA PEÇA", "SEM TEMPO. SEM ESTRESSE.", "JOGUE OFFLINE", "UMA MARÉ NOVA TODO DIA"]
+    },
+    {
+      "lang": "de", "name": "German", "flag": "🇩🇪", "country": "DE", "priority": 1,
+      "why": "DE listing is live but \"tile match\" DE fell #18 → #31; the keyword field used \"Fliesen\" (bathroom tiles) instead of the search terms \"Kacheln\" / \"Klötze\".",
+      "iosTitle": "Tidal Tiles: Holz Block Puzzle",
+      "iosSub": "Klötze & Kacheln legen",
+      "iosKw": "rätsel,sudoku,denkspiel,offline,entspannen,steine,gehirn,logik,klassisch,kostenlos,ruhig,erwachsene",
+      "gpShort": "Entspannendes Holz Block Puzzle – Kacheln legen, offline, ohne Zeitdruck",
+      "gpLong": "Tidal Tiles ist ein entspannendes Holz-Block-Puzzle mit Meeresrauschen.\n\nLege Holzklötze auf das Brett, fülle Reihen, Spalten und 3x3-Quadrate und lass die Flut sie wegspülen. Kein Timer, kein Stress.\n\n★ Block Puzzle trifft Sudoku: Quadrate und Reihen abräumen\n★ Offline spielen – kein WLAN nötig\n★ Tägliche Flut: jeden Tag ein neues Brett\n★ Über 300 ruhige Level\n★ Wellenrauschen, sanfte Haptik, Dunkelmodus\n\nKostenlos spielbar. Werbung mit einem einmaligen Kauf entfernen.",
+      "screens": ["ENTSPANNT BEI JEDEM ZUG", "KEIN TIMER. KEIN STRESS.", "ÜBERALL OFFLINE SPIELEN", "JEDEN TAG EINE NEUE FLUT", "300+ RUHIGE LEVEL"]
+    },
+    {
+      "lang": "es", "name": "Spanish (Mexico)", "flag": "🇲🇽", "country": "MX", "priority": 2,
+      "why": "MX average volume 49/100, no ES listing; \"tile match\" MX #16 with a top 3 under 100 ratings (breakable top).",
+      "iosTitle": "Tidal Tiles: Bloques Puzzle",
+      "iosSub": "Bloques de Madera y Sudoku",
+      "iosKw": "juego, rompecabezas,relajante,sin internet,cerebro,fichas,clásico,gratis,mente,lógica,adultos",
+      "gpShort": "Puzzle de bloques de madera: relájate sin internet, sin tiempo, reto diario",
+      "gpLong": "Tidal Tiles es un puzzle de bloques de madera relajante, con alma de océano.\n\nColoca bloques en el tablero, completa filas, columnas y cuadros de 3x3 y deja que la marea los limpie. Sin reloj y sin estrés.\n\n★ Bloques de madera + sudoku\n★ Juego sin internet: juega donde quieras\n★ Reto diario: un tablero nuevo cada día\n★ Más de 300 niveles tranquilos\n★ Sonido de olas y modo oscuro\n\nGratis. Quita los anuncios con una sola compra.",
+      "screens": ["RELÁJATE EN CADA JUGADA", "SIN RELOJ. SIN ESTRÉS.", "JUEGA SIN INTERNET", "UNA MAREA NUEVA CADA DÍA", "300+ NIVELES TRANQUILOS"]
+    },
+    {
+      "lang": "ja", "name": "Japanese", "flag": "🇯🇵", "country": "JP", "priority": 3,
+      "why": "JP is unranked on 7 of 8 terms and has no JA listing; only \"sudoku blocks\" ranks (#14). Lower priority: volume estimates in JP are thin (avg 41/100).",
+      "iosTitle": "Tidal Tiles: ブロックパズル",
+      "iosSub": "癒しの木のブロックと数独",
+      "iosKw": "パズル,脳トレ,オフライン,数独,ブロック,木,癒し,無料,タイル,暇つぶし,大人,頭の体操",
+      "gpShort": "癒しの木のブロックパズル。オフラインで遊べる、時間制限なし、毎日の新しい盤面",
+      "gpLong": "Tidal Tilesは、波の音に癒される木のブロックパズルです。\n\nブロックを盤面に置いて、縦・横・3x3のマスをそろえて消しましょう。時間制限もストレスもありません。\n\n★ ブロックパズル×数独\n★ オフラインでどこでも遊べる\n★ 毎日新しい盤面「デイリータイド」\n★ 300以上の穏やかなレベル\n★ 波の音とダークモード\n\n基本無料。広告は一度の購入で削除できます。",
+      "screens": ["ひとつ置くたびに癒される", "時間制限なし。ストレスなし。", "オフラインでどこでも", "毎日新しい潮が来る", "300以上の COMBO レベル"]
+    }
+  ],
+
+  "tagGroups": [
+    {"group": "🧠 Advisor — 2 Nov 2026: Play long-tail (features you already have)", "tags": ["daily challenge", "jigsaw puzzle", "no wifi games", "brain teaser", "calm puzzle", "dark mode puzzle"]},
+    {"group": "🧠 Advisor — 2 Nov 2026: German search terms (not translations)", "tags": ["kacheln", "klötze", "holz puzzle", "denkspiel", "rätsel offline"]}
+  ]
+}
